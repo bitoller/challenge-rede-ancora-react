@@ -25,6 +25,10 @@ time, mark, audio, video, button {
   font-family: "Roboto", sans-serif;
 }
 
+button, a {
+  cursor: pointer;
+}
+
 :root {
   --color-primary: #0b0c12;
   --color-accent: #d02030;

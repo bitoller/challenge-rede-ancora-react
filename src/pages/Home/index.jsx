@@ -3,6 +3,7 @@ import carouselPromo from "../../assets/carouselPromo.svg";
 import carouselBrands1 from "../../assets/carouselBrands1.png";
 import carouselBrands2 from "../../assets/carouselBrands2.png";
 import { StyledHome } from "./style";
+import { Link } from "react-router-dom";
 
 export function Home() {
   /* const imagens = document.querySelector(".carousel-container");
@@ -24,23 +25,27 @@ export function Home() {
 
   return (
     <StyledHome>
-      <header className="header">
-        <img src={logo} alt={"logo rede ancora"} />
-        <h1 className="header-text">
-          Faça aqui <span>Seu Pedido!</span>
-        </h1>
-      </header>
-      <main className="carousel">
-        <div className="carousel-container" id="img">
-          <img src={carouselPromo} alt={"carrossel de promoção"} />
-          <img src={carouselBrands1} alt={"carrossel de logos"} />
-          <img src={carouselBrands2} alt={"carrossel de logos"} />
-        </div>
-      </main>
-      <p className="touch-button">Toque na tela para continuar</p>
+      <Link to="/search_screen">
+        <header className="header">
+          <img src={logo} alt={"logo rede ancora"} />
+          <h1 className="header-text">
+            Faça aqui <span>Seu Pedido!</span>
+          </h1>
+        </header>
+        <main className="carousel">
+          <div className="carousel-container" id="img">
+            <img src={carouselPromo} alt={"carrossel de promoção"} />
+            <img src={carouselBrands1} alt={"carrossel de logos"} />
+            <img src={carouselBrands2} alt={"carrossel de logos"} />
+          </div>
+        </main>
+        <p className="touch-button">Toque na tela para continuar</p>
+      </Link>
       <footer>
-        <a href="#">video pitch</a>
-        <a href="#">sobre o projeto</a>
+        <a href="https://youtu.be/L3Ne_vstIF8?si=tIW6EG8xmIJj3OSw">
+          Vídeo Pitch
+        </a>
+        <Link to="/about_the_project">Sobre o Projeto</Link>
       </footer>
     </StyledHome>
   );

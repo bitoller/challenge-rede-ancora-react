@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const StyledHome = styled.div`
-  max-width: 1800px;
+  width: 100%;
   height: 100vh;
   margin: auto;
   background-color: var(--color-primary);
+  min-height: calc(100vh - 500px - 120px);
 
   .header img {
     margin: 40px;
@@ -15,8 +16,8 @@ export const StyledHome = styled.div`
     font-family: var(--font-family-1);
     text-align: center;
     font-weight: 300;
-    font-size: 96px;
-    margin-top: -150px;
+    font-size: 80px;
+    margin-top: -170px;
     margin-bottom: 100px;
   }
 
@@ -55,5 +56,18 @@ export const StyledHome = styled.div`
     font-size: 54px;
     font-weight: 700;
     border-radius: 20px;
+  }
+
+  footer {
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--color-gray-10);
   }
 `;

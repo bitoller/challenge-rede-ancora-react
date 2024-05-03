@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
 export const StyledSearchScreen = styled.main`
+  min-height: calc(100vh - 120px - 120px);
+  width: 100vw;
   display: flex;
-  gap: 150px;
-  height: 532px;
-  margin: 0 auto;
-  align-content: flex-end;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-evenly;
 
   .search-button-license-plate {
@@ -42,7 +40,6 @@ export const StyledSearchScreen = styled.main`
     justify-content: space-around;
     align-items: center;
     border-radius: 15px;
-    margin: auto;
   }
 
   .search-button-name p {
