@@ -14,7 +14,7 @@ export function AboutTheProject() {
           <p>Wesley Da Avilla Bastos - Desenvolvimento</p>
         </section>
         <section>
-          <p>Foram utilizados React, Styled Components, Axios e React Router Dom.</p>
+          <p>Foram utilizados React, Styled Components e React Router Dom.</p>
         </section>
       </StyledAboutTheProject>
       <Footer showBackButton />
