@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 10px 20px 10px 20px;
 
   img:nth-of-type(1) {
     height: 90%;

@@ -64,6 +64,9 @@ export const StyledHome = styled.div`
     justify-content: center;
     gap: 10px;
     padding: 20px;
+    height: 20px;
+    width: 100%;
+    align-items: center;
   }
 
   a {

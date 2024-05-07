@@ -1,17 +1,22 @@
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { SearchButton } from "../../components/SearchButton";
 import { StyledSearchByCode } from "./style";
 
 export function SearchByCode() {
   return (
     <>
-      <Header text="Busque o produto que precisa" />
+      <Header text="Pesquise pelo nome ou código do produto" />
       <StyledSearchByCode>
-        <h2>Pesquise pelo nome ou código do produto</h2>
-        <section>
-          <input type="text" />
+        <section className="search-field-code">
+          <input
+            type="text"
+            id="produtoInput"
+            className="search-input"
+            placeholder="Digite o nome ou código do produto"
+          />
         </section>
-        <button>Pesquisar</button>
+        <SearchButton />
       </StyledSearchByCode>
       <Footer />
     </>

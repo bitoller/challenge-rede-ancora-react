@@ -15,6 +15,7 @@ export const StyledAboutTheProject = styled.main`
 
   section {
     padding: 20px;
+    width: 100%;
   }
 
   h1 {

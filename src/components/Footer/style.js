@@ -6,7 +6,7 @@ export const StyledFooter = styled.footer`
   height: 120px;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 10px 20px 10px 20px;
 
   .back-button {
     height: 36px;

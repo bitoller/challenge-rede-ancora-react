@@ -4,6 +4,8 @@ import { SearchScreen } from "../pages/SearchScreen";
 import { SearchByLicensePlate } from "../pages/SearchByLicensePlate";
 import { SearchByCode } from "../pages/SearchByCode";
 import { AboutTheProject } from "../pages/AboutTheProject";
+import { SearchResults } from "../pages/SearchResults";
+import { OrderSummary } from "../pages/OrderSummary";
 
 export function MainRoutes() {
   return (
@@ -16,6 +18,8 @@ export function MainRoutes() {
         element={<SearchByLicensePlate />}
       />
       <Route path="/search_by_code" element={<SearchByCode />} />
+      <Route path="/search_results" element={<SearchResults />} />
+      <Route path="/order_summary" element={<OrderSummary />} />
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="*" element={<Home />} />
     </Routes>

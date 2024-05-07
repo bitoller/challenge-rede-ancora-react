@@ -23,10 +23,16 @@ time, mark, audio, video, button {
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
+  list-style-type: none;
 }
 
-button, a {
+button, a, input {
   cursor: pointer;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
 }
 
 :root {
