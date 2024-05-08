@@ -55,6 +55,11 @@ export const StyledSearchByLicensePlate = styled.main`
     color: var(--color-primary);
     font-size: 20px;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    cursor: pointer;
   }
 
   .search-input {
