@@ -8,15 +8,15 @@ export function AboutTheProject() {
       <Header text="Sobre o Projeto" />
       <StyledAboutTheProject>
         <section>
-          <p>Bianca Toller - Desenvolvimento</p>
-          <p>Bruno Marcelino Guimarães - Desenvolvimento/Design</p>
-          <p>Iago Henrique Bortolo - Desenvolvimento</p>
-          <p>Wesley Da Avilla Bastos - Desenvolvimento</p>
+          <p>Bianca Toller - Desenvolvimento React</p>
+          <p>Bruno Marcelino Guimarães - Desenvolvimento Vanilla/Design</p>
+          <p>Iago Henrique Bortolo - Desenvolvimento Vanilla</p>
+          <p>Wesley Da Avilla Bastos - Desenvolvimento Vanilla</p>
         </section>
         <section>
           <p>
             Foram utilizados React, Styled Components, React Alice Carousel,
-            Axios e React Router Dom.
+            React Toastify, Axios e React Router Dom.
           </p>
         </section>
       </StyledAboutTheProject>
