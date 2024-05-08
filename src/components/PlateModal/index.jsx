@@ -1,11 +1,19 @@
-import { api } from "../../services/api";
 import axios from "axios";
+import React, { useState } from "react";
 import { StyledPlateModal } from "./style";
 
-export function PlateModal({ onSubmit }) {
+export function PlateModal({ onSubmit, onCloseModal }) {
+  const [hasError, setHasError] = useState(false);
+
   const submitForm = async (event) => {
     event.preventDefault();
     const form = event.target;
+
+    if (form.plate.value.trim() === "") {
+      setHasError(true);
+      return;
+    }
+
     await axios
       .post(
         "https://api-stg-catalogo.redeancora.com.br/superbusca/api/integracao/catalogo/v2/produtos/query/sumario",
@@ -36,14 +44,27 @@ export function PlateModal({ onSubmit }) {
           };
           onSubmit(vehicle);
         }
+      })
+      .catch((error) => {
+        setHasError(true);
       });
   };
+
   return (
     <StyledPlateModal role="dialog">
       <h3>Digite sua placa</h3>
       <form onSubmit={submitForm}>
         <input type="text" placeholder="Digite aqui sua placa" name="plate" />
-        <button className="modal-button-confirm" type="button">
+        {hasError && (
+          <p className="search-plate-error error">
+            Placa inválida. Por favor, insira uma placa válida.
+          </p>
+        )}
+        <button
+          className="modal-button-return"
+          type="button"
+          onClick={onCloseModal}
+        >
           Voltar
         </button>
         <button className="modal-button-confirm" type="submit">
@@ -51,5 +72,6 @@ export function PlateModal({ onSubmit }) {
         </button>
       </form>
     </StyledPlateModal>
+    /* TODO: consertar CSS, consertar icone de placa dentro do input */
   );
 }
