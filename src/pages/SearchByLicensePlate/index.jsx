@@ -3,20 +3,18 @@ import rightArrow from "../../assets/rightArrow.svg";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { SearchButton } from "../../components/SearchButton";
-import { StyledSearchByLicensePlate } from "./style";
-import { createContext, useContext } from "react";
-import { api } from "../../services/api";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { PlateModal } from "../../components/PlateModal";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { StyledSearchByLicensePlate } from "./style";
 
 export function SearchByLicensePlate() {
   const [jwtToken, setJwtToken] = useState("");
-  const [plate, setPlate] = useState("");
   const [modal, setModal] = useState(false);
   const [selectCarInfo, setSelectCarInfo] = useState("Selecione seu carro");
-  const [vehicleInfo, setVehicleInfo] = useState();
+  const [vehicleInfo, setVehicleInfo] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,21 +39,20 @@ export function SearchByLicensePlate() {
       .then((response) => {
         setJwtToken(response.data.access_token);
         localStorage.setItem("token", response.data.access_token);
-      })
-      .catch((error) => console.error("Error:", error));
+      });
   };
 
   const search = async (event) => {
-    if (!vehicleInfo.plate) {
-      alert("Por favor, insira a placa antes de pesquisar o produto.");
-      return;
-    }
-
     event.preventDefault();
     const form = event.target;
 
+    if (!vehicleInfo.plate) {
+      toast.warn("Por favor, insira a placa antes de pesquisar o produto.");
+      return;
+    }
+
     if (!form.searchProductInput.value) {
-      alert("Please insert the product name.");
+      toast.warn("Por favor, insira o nome do produto");
       return;
     }
 
@@ -86,10 +83,19 @@ export function SearchByLicensePlate() {
   };
 
   const submitForm = (vehicleResult) => {
+    if (!vehicleResult || !vehicleResult.plate) {
+      toast.warn("Por favor, insira a placa antes de pesquisar o produto.");
+      return;
+    }
+
     setVehicleInfo(vehicleResult);
     setSelectCarInfo(
-      `Seu Veiculo: ${vehicleResult.plate} ${vehicleResult.brand} - ${vehicleResult.model} - ${vehicleResult.version} - ${vehicleResult.engine} - ${vehicleResult.gas} - ${vehicleResult.gearbox} - ${vehicleResult.year}`
+      `Seu Veículo: ${vehicleResult.plate} ${vehicleResult.brand} - ${vehicleResult.model} - ${vehicleResult.version} - ${vehicleResult.engine} - ${vehicleResult.gas} - ${vehicleResult.gearbox} - ${vehicleResult.year}`
     );
+    setModal(false);
+  };
+
+  const closeModal = () => {
     setModal(false);
   };
 
@@ -97,14 +103,15 @@ export function SearchByLicensePlate() {
     <>
       <Header text="Pesquise pela placa do seu veículo" />
       <StyledSearchByLicensePlate>
+        <h2>Digite abaixo o que precisa para seu veículo</h2>
         <section className="search-field">
           <div className="car-name-check">
             <div onClick={() => setModal(true)} className="license-plate-link">
               <img
                 src={carCheckIcon}
-                alt={"icone de um carro com sinal de positivo"}
+                alt={"ícone de um carro com sinal de positivo"}
               />
-              <p id="placaInput">{selectCarInfo}</p>
+              <p id="plateInput">{selectCarInfo}</p>
               <img src={rightArrow} alt={"seta para direita"} />
             </div>
           </div>
@@ -115,12 +122,15 @@ export function SearchByLicensePlate() {
               className="search-input"
               placeholder="Busque pela peça ou produto"
             />
-            <SearchButton onClick={search} type="submit" />
+            <SearchButton type="submit" />
           </form>
         </section>
       </StyledSearchByLicensePlate>
-      <Footer showBackButton showFinishButton />
-      {modal ? <PlateModal onSubmit={submitForm} /> : null}
+      <Footer showBackButton />
+      {modal ? (
+        <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />
+      ) : null}
+      {/* TODO: consertar CSS, consertar icone da lupa dentro do input */}
     </>
   );
 }

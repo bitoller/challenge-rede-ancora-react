@@ -1,20 +1,26 @@
 import styled from "styled-components";
 
 export const StyledSearchByLicensePlate = styled.main`
-  display: grid;
-  /* grid-template-rows: 1fr 3fr 5fr; */
+  display: flex;
   justify-items: center;
   min-height: calc(100vh - 120px - 120px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 50px;
+
+  h2 {
+    font-size: 36px;
+  }
 
   .search-field {
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
     width: 100%;
-    height: 125px;
+    height: 450px;
     gap: 20px;
     background-color: var(--color-gray-9);
-    margin-top: 100px;
   }
 
   .search-field-code {
