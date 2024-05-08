@@ -6,6 +6,7 @@ import { SearchByCode } from "../pages/SearchByCode";
 import { AboutTheProject } from "../pages/AboutTheProject";
 import { SearchResults } from "../pages/SearchResults";
 import { OrderSummary } from "../pages/OrderSummary";
+import { Checkout } from "../pages/Checkout";
 
 export function MainRoutes() {
   return (
@@ -20,6 +21,7 @@ export function MainRoutes() {
       <Route path="/search_by_code" element={<SearchByCode />} />
       <Route path="/search_results" element={<SearchResults />} />
       <Route path="/order_summary" element={<OrderSummary />} />
+      <Route path="/checkout" element={<Checkout />} />
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="*" element={<Home />} />
     </Routes>
