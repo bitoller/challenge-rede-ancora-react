@@ -1,9 +1,9 @@
-import AliceCarousel from "react-alice-carousel";
-import { StyledCarousel } from "./style";
-import "react-alice-carousel/lib/alice-carousel.css";
 import carouselPromo from "../../assets/carouselPromo.svg";
 import carouselBrands1 from "../../assets/carouselBrands1.png";
 import carouselBrands2 from "../../assets/carouselBrands2.png";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import { StyledCarousel } from "./style";
 
 export function Carousel() {
   const handleDragStart = (e) => e.preventDefault();

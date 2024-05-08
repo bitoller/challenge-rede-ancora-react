@@ -1,6 +1,6 @@
 import { Header } from "../../components/Header";
-import { StyledOrderSummary } from "./style";
 import cartPage from "../../assets/cartPage.png";
+import { StyledOrderSummary } from "./style";
 
 export function OrderSummary() {
   return (

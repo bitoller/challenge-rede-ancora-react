@@ -1,7 +1,7 @@
 import logo from "../../assets/logo.png";
-import { StyledHome } from "./style";
 import { Link } from "react-router-dom";
 import { Carousel } from "../../components/Carousel";
+import { StyledHome } from "./style";
 
 export function Home() {
   return (
@@ -25,5 +25,6 @@ export function Home() {
         <Link to="/about_the_project">Sobre o Projeto</Link>
       </footer>
     </StyledHome>
+    /* TODO: consertar CSS, tentar organizar com flexbox e position, tela cheia */
   );
 }
