@@ -27,11 +27,9 @@ export const StyledHome = styled.div`
     margin-top: 20px;
   }
 
-  .carousel {
-    overflow: hidden;
-    max-width: 1005px;
-    height: 268px;
-    margin: auto;
+  main {
+    display: flex;
+    justify-content: center;
   }
 
   .carousel-container {
@@ -45,10 +43,9 @@ export const StyledHome = styled.div`
   }
 
   .touch-button {
-    width: 820px;
+    width: 40vw;
     margin: auto;
-    padding-top: 33px;
-    padding-bottom: 33px;
+    padding: 10px 33px 10px 33px;
     margin-top: 100px;
     text-align: center;
     background-color: var(--color-accent);
