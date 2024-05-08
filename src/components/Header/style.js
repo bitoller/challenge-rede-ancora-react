@@ -8,6 +8,12 @@ export const StyledHeader = styled.header`
   align-items: center;
   padding: 10px 20px 10px 20px;
 
+  a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
   img:nth-of-type(1) {
     height: 90%;
   }
