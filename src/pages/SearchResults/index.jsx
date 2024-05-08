@@ -1,6 +1,6 @@
+import logo from "../../assets/logo.png";
 import { Footer } from "../../components/Footer";
 import { StyledSearchResults } from "./style";
-import logo from "../../assets/logo.png";
 
 export function SearchResults() {
   return (
@@ -14,7 +14,7 @@ export function SearchResults() {
             </p>
             <div
               data-modal="open"
-              id="placaInput"
+              id="plateInput"
               className="vehicle-info"
             ></div>
           </div>
@@ -42,7 +42,7 @@ export function SearchResults() {
           <p>
             Você pesquisou por: <span id="searchText"></span>
           </p>
-          <div id="productList" class="product-list"></div>
+          <div id="productList" className="product-list"></div>
         </section>
       </StyledSearchResults>
       <Footer showBackButton showFinishButton />

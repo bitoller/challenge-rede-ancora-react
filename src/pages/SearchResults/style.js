@@ -27,7 +27,7 @@ export const StyledSearchResults = styled.main`
     text-align: center;
   }
 
-  #placaInput {
+  #plateInput {
     display: flex;
     flex-direction: column;
     align-items: center;
