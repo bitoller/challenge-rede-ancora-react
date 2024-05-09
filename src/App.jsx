@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <ToastContainer position="top-right" theme="crimson" />
+      <ToastContainer position="top-right" theme="dark" />
       <MainRoutes />
     </>
   );
