@@ -22,6 +22,8 @@ export function SearchByLicensePlate() {
   }, []);
 
   const login = async () => {
+    localStorage.clear();
+
     axios
       .post(
         "https://sso-catalogo.redeancora.com.br/connect/token",
@@ -55,6 +57,9 @@ export function SearchByLicensePlate() {
       toast.warn("Por favor, insira o nome do produto");
       return;
     }
+
+    localStorage.setItem("searchResult", null);
+    localStorage.setItem("lastSearch", null);
 
     axios
       .post(
@@ -130,7 +135,7 @@ export function SearchByLicensePlate() {
       {modal ? (
         <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />
       ) : null}
-      {/* TODO: consertar CSS, consertar icone da lupa dentro do input */}
     </>
+      /* TODO: consertar CSS, consertar icone da lupa dentro do input */
   );
 }
