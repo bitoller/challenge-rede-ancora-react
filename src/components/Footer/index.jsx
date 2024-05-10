@@ -10,11 +10,8 @@ export function Footer({
   showFooterCart,
   totalPrice,
   cartLength,
-  cartTotalMoney,
 }) {
   const navigate = useNavigate();
-
-  console.log(totalPrice);
 
   return (
     <StyledFooter>
@@ -28,10 +25,7 @@ export function Footer({
             </p>
           </div>
           <p>
-            R${" "}
-            <span id="cartTotal">
-              {totalPrice > 0 ? totalPrice.toFixed(2) : 0}
-            </span>
+            R$ <span id="cartTotal">{totalPrice}</span>
           </p>
         </div>
       )}
@@ -45,7 +39,7 @@ export function Footer({
           className="finish-button"
           onClick={() => navigate("/order_summary")}
         >
-          Finalizar
+          Ver carrinho
         </button>
       )}
       <img src={footerDotsRight} alt={"ícone com vários pontos"} />

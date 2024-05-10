@@ -8,11 +8,11 @@ export function Home() {
     <StyledHome>
       <header className="header">
         <img src={logo} alt={"logo rede ancora"} />
+      </header>
+      <main>
         <h1 className="header-text">
           Faça aqui <span>Seu Pedido!</span>
         </h1>
-      </header>
-      <main>
         <Carousel />
       </main>
       <Link to="/search_screen">

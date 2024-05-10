@@ -84,6 +84,20 @@ export function SearchResults() {
           if (response.status == 204) {
             setProductsCatalog(null);
           }
+
+          for (
+            let index = 0;
+            index < response.data.pageResult.data.length;
+            index++
+          ) {
+            const randomPrice = (Math.random() * 800).toFixed(2);
+            const newProduct = {
+              ...response.data.pageResult.data[index],
+              price: randomPrice,
+            };
+            response.data.pageResult.data[index] = newProduct;
+          }
+
           return response.data;
         })
         .then((response) => {
@@ -100,9 +114,7 @@ export function SearchResults() {
     setModal(false);
   };
 
-  const addCart = (id) => {
-    const product = productsCatalog.find((product) => product.id == id);
-
+  const addCart = (product) => {
     if (product) {
       setCart([...cart, product]);
       localStorage.setItem("itemsInCart", JSON.stringify([...cart, product]));
@@ -116,19 +128,12 @@ export function SearchResults() {
     return cart.length;
   };
 
-  const cartTotalMoney = () => {
-    const total = cart.reduce((acc, curr) => acc + parseFloat(curr.price), 0);
-    console.log(total);
-    return total;
-  };
-
   useEffect(() => {
     const totalPrice = cart.reduce(
       (acc, curr) => acc + parseFloat(curr.price),
       0
     );
     setTotalPrice(totalPrice);
-    console.log(totalPrice);
   }, [cart]);
 
   return (
@@ -212,10 +217,7 @@ export function SearchResults() {
             Você pesquisou por: <span>{lastSearch}</span>
           </p>
           <div id="productList" className="product-list">
-            <ProductsList
-              productsCatalog={productsCatalog}
-              productId={addCart}
-            />
+            <ProductsList productsCatalog={productsCatalog} product={addCart} />
           </div>
         </section>
       </StyledSearchResults>
@@ -224,7 +226,6 @@ export function SearchResults() {
         showBackButton
         showFinishButton
         totalPrice={totalPrice}
-        cartTotalMoney={cartTotalMoney}
         cartLength={() => cartLength()}
       />
       {modal ? (

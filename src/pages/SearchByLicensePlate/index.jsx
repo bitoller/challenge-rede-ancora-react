@@ -81,6 +81,21 @@ export function SearchByLicensePlate() {
         }
       )
       .then((response) => {
+        for (
+          let index = 0;
+          index < response.data.pageResult.data.length;
+          index++
+        ) {
+          const randomPrice = (Math.random() * 800).toFixed(2);
+          const newProduct = {
+            ...response.data.pageResult.data[index],
+            price: randomPrice,
+          };
+          response.data.pageResult.data[index] = newProduct;
+        }
+        return response;
+      })
+      .then((response) => {
         localStorage.setItem("searchResult", JSON.stringify(response.data));
         localStorage.setItem("lastSearch", form.searchProductInput.value);
         navigate("/search_results");

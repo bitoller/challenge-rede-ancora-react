@@ -1,17 +1,13 @@
 import { ProductCard } from "../ProductCard";
 import { StyledProductsList } from "./style";
 
-export function ProductsList({ productsCatalog, productId }) {
+export function ProductsList({ productsCatalog, product }) {
   return (
     <StyledProductsList>
       {productsCatalog && productsCatalog.length > 0 ? (
         <ul>
-          {productsCatalog.map((product) => (
-            <ProductCard
-              product={product}
-              key={product.id}
-              productId={productId}
-            />
+          {productsCatalog.map((item) => (
+            <ProductCard product={item} key={item.id} selectedItem={product} />
           ))}
         </ul>
       ) : (
