@@ -3,12 +3,18 @@ import styled from "styled-components";
 export const StyledHome = styled.div`
   width: 100%;
   height: 100vh;
-  margin: auto;
   background-color: var(--color-primary);
   min-height: calc(100vh - 500px - 120px);
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+
+  header {
+    width: 100%;
+  }
 
   .header > img {
-    margin: 40px;
+    padding: 40px;
   }
 
   .header-text {
@@ -17,19 +23,18 @@ export const StyledHome = styled.div`
     text-align: center;
     font-weight: 300;
     font-size: 80px;
-    margin-top: -170px;
-    margin-bottom: 100px;
   }
 
   .header-text > span {
     display: block;
     font-weight: 700;
-    margin-top: 20px;
   }
 
   main {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .carousel-container {
@@ -43,16 +48,15 @@ export const StyledHome = styled.div`
   }
 
   .touch-button {
-    width: 40vw;
-    margin: auto;
+    width: 30vw;
     padding: 10px 33px 10px 33px;
-    margin-top: 100px;
-    text-align: center;
     background-color: var(--color-accent);
     color: var(--color-gray-10);
     font-size: 54px;
     font-weight: 700;
     border-radius: 20px;
+    margin: auto;
+    text-align: center;
   }
 
   footer {
@@ -60,7 +64,6 @@ export const StyledHome = styled.div`
     display: flex;
     justify-content: center;
     gap: 10px;
-    padding: 20px;
     height: 20px;
     width: 100%;
     align-items: center;

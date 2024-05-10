@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const StyledSearchResults = styled.main`
-  height: 100vh;
   color: var(--color-gray-8);
-  max-height: calc(100vh - 0px - 120px);
   display: flex;
   align-items: center;
+  height: calc(100vh - 120px);
 
   .vehicle-info > p {
     display: flex;
@@ -117,6 +116,6 @@ export const StyledSearchResults = styled.main`
   }
 
   .product-list {
-    height: 84%;
+    height: calc(100% - 120px - 61.25px);
   }
 `;
