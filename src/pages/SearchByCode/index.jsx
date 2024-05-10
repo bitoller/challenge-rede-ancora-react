@@ -92,6 +92,7 @@ export function SearchByCode() {
       </StyledSearchByCode>
       <Footer showBackButton />
     </>
-      /* TODO: consertar CSS, consertar icone da lupa dentro do input */
   );
 }
+
+/* TODO: consertar CSS, consertar icone da lupa dentro do input */

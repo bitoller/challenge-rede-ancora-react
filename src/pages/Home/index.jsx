@@ -25,6 +25,7 @@ export function Home() {
         <Link to="/about_the_project">Sobre o Projeto</Link>
       </footer>
     </StyledHome>
-    /* TODO: consertar CSS, tentar organizar com flexbox e position, tela cheia */
   );
 }
+
+/* TODO: consertar CSS, tentar organizar com flexbox e position, tela cheia */
