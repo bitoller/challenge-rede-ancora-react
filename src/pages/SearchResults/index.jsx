@@ -9,42 +9,68 @@ import { StyledSearchResults } from "./style";
 
 export function SearchResults() {
   const [modal, setModal] = useState(false);
-  const [vehicleInfo, setVehicleInfo] = useState();
+  const [vehicleInfo, setVehicleInfo] = useState(null);
   const [productsCatalog, setProductsCatalog] = useState([]);
+  const [plateValue, setPlateValue] = useState(null);
   const lastSearch = localStorage.getItem("lastSearch");
 
-  const submitForm = (vehicleResult) => {
+  useEffect(() => {
+    const searchResult = JSON.parse(localStorage.getItem("searchResult"));
+    const vehicleResult = JSON.parse(localStorage.getItem("vehicleInfo"));
+    setProductsCatalog(searchResult.pageResult.data);
     setVehicleInfo(vehicleResult);
-    localStorage.setItem("licensePlate", vehicleInfo.plate);
+    const storedPlate = JSON.parse(localStorage.getItem("licensePlate"));
+
+    if (storedPlate) {
+      setPlateValue(storedPlate);
+    }
+  }, []);
+
+  const submitForm = async (vehicleResult) => {
+    if (vehicleResult) {
+      setVehicleInfo(vehicleResult);
+      localStorage.setItem("licensePlate", JSON.stringify(vehicleResult.plate));
+      await search(null, lastSearch);
+    } else {
+      setProductsCatalog(null);
+      setVehicleInfo(null);
+    }
     setModal(false);
   };
 
-  const search = async (event) => {
-    event.preventDefault();
-    const form = event.target;
+  const search = async (event, productName = null) => {
+    if (event) event.preventDefault();
 
-    if (!form.productInput.value) {
+    const form = event ? event.target : null;
+
+    if (!productName) {
+      productName = form ? form.productInput.value : lastSearch;
+    }
+
+    if (!productName) {
       toast.warn("Por favor, insira o nome do produto");
       return;
     }
 
-    localStorage.setItem("searchResult", null);
-    localStorage.setItem("lastSearch", null);
-    const storedPlate = localStorage.getItem("licensePlate");
+    const requestBody = {
+      nomeProduto: productName,
+      superbusca: productName,
+      pagina: 0,
+      itensPorPagina: 100,
+    };
+
+    const storedPlate = JSON.parse(localStorage.getItem("licensePlate"));
 
     if (storedPlate) {
-      axios
+      setPlateValue(storedPlate);
+      requestBody.veiculoFiltro = { veiculoPlaca: storedPlate };
+    }
+
+    try {
+      await axios
         .post(
           "https://api-stg-catalogo.redeancora.com.br/superbusca/api/integracao/catalogo/v2/produtos/query/sumario",
-          {
-            veiculoFiltro: {
-              veiculoPlaca: storedPlate,
-            },
-            nomeProduto: form.productInput.value,
-            superbusca: form.productInput.value,
-            pagina: 0,
-            itensPorPagina: 100,
-          },
+          requestBody,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -53,42 +79,21 @@ export function SearchResults() {
           }
         )
         .then((response) => {
-          localStorage.setItem("searchResult", JSON.stringify(response.data));
-          localStorage.setItem("lastSearch", form.productInput.value);
-          setProductsCatalog(response.data.pageResult.data);
+          console.log("oi", response);
+          if (response.status == 204) {
+            setProductsCatalog(null);
+          }
+          return response.data;
+        })
+        .then((response) => {
+          localStorage.setItem("searchResult", JSON.stringify(response));
+          localStorage.setItem("lastSearch", productName);
+          setProductsCatalog(response.pageResult.data);
         });
-      /* TODO: ao adicionar placa na pagina de resultado, guardar o valor da placa
-      e fazer uma pesquisa entre a placa e os itens disponiveis pra esse carro */
-      /* TODO: se tiver uma placa, n aparecer todos os resultados, independente se
-      n tiver feito pesquisa, aparecer primeiros itens da lista equivalentes com
-      a placa */
-      /* TODO: primeira colocacao de placa da o erro de placa n encontrada mas
-      mesmo assim altera a placa */
-      /* TODO: as vezes a pesquisa n funciona e retorna todos os itens mesmo assim */
-      /* TODO: reutilizar o post de baixo talvez e diminuir */
+    } catch (error) {
+      console.error("Error searching products:", error);
+      toast.error("Erro ao buscar produtos. Por favor, tente novamente.");
     }
-
-    axios
-      .post(
-        "https://api-stg-catalogo.redeancora.com.br/superbusca/api/integracao/catalogo/v2/produtos/query/sumario",
-        {
-          nomeProduto: form.productInput.value,
-          superbusca: form.productInput.value,
-          pagina: 0,
-          itensPorPagina: 100,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then((response) => {
-        localStorage.setItem("searchResult", JSON.stringify(response.data));
-        localStorage.setItem("lastSearch", form.productInput.value);
-        setProductsCatalog(response.data.pageResult.data);
-      });
   };
 
   const closeModal = () => {
@@ -98,7 +103,7 @@ export function SearchResults() {
   return (
     <>
       <StyledSearchResults>
-        <section className="section-menu">
+        <aside className="section-menu">
           <img src={logo} alt={"logo rede ancora"} />
           <div className="plate-modal">
             {vehicleInfo && (
@@ -119,17 +124,50 @@ export function SearchResults() {
             </div>
           </div>
           <ul id="menu" className="aside-menu">
-            <li className="search-item">Amortecedor</li>
-            <li className="search-item">Suspensão</li>
-            <li className="search-item">Freio</li>
-            <li className="search-item">Motor</li>
-            <li className="search-item">Direção</li>
-            <li className="search-item">Filtro de ar</li>
-            <li className="search-item">Filtro de óleo</li>
-            <li className="search-item">Transmissão</li>
-            <li className="search-item">Acessórios</li>
+            <li
+              className="search-item"
+              onClick={(e) => search(e, "Amortecedor")}
+            >
+              Amortecedor
+            </li>
+            <li className="search-item" onClick={(e) => search(e, "Suspensão")}>
+              Suspensão
+            </li>
+            <li className="search-item" onClick={(e) => search(e, "Freio")}>
+              Freio
+            </li>
+            <li className="search-item" onClick={(e) => search(e, "Motor")}>
+              Motor
+            </li>
+            <li className="search-item" onClick={(e) => search(e, "Direção")}>
+              Direção
+            </li>
+            <li
+              className="search-item"
+              onClick={(e) => search(e, "Filtro de ar")}
+            >
+              Filtro de ar
+            </li>
+            <li
+              className="search-item"
+              onClick={(e) => search(e, "Filtro de óleo")}
+            >
+              Filtro de óleo
+            </li>
+            <li
+              className="search-item"
+              onClick={(e) => search(e, "Transmissão")}
+            >
+              Transmissão
+            </li>
+            <li
+              className="search-item"
+              onClick={(e) => search(e, "Acessórios")}
+            >
+              Acessórios
+            </li>
           </ul>
-        </section>
+        </aside>
         <section className="container-result">
           <form className="search-input-product" onSubmit={search}>
             <input
@@ -150,6 +188,7 @@ export function SearchResults() {
         <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />
       ) : null}
     </>
+    /* TODO: fazer preco random */
     /* TODO: fazer cards clicaveis, ao clicar abrir o treco no canto (modal div), 
       ao abrir mostrar produto */
     /* TODO: fazer botao de adicionar ao carrinho funcional */
@@ -157,5 +196,11 @@ export function SearchResults() {
     /* TODO: ao clicar nas li no canto esquerdo, filtrar por produtos,
       se houver placa filtra por produtos relevantes,
       se n, filtra por todos com aquele nome */
+    /* TODO: criar botao de adicionar no carrinho (pegar objeto do carrinho, objeto do carrinho no local pra obj, obj no carrinho concatena um novo dentro do carrinho e joga no localstorage),
+      summary mostrar os objetos, 
+      criar um componente pro carrinho no footer, 
+       criar um array de produtos,
+       verificacao de id igual para fazer o + e -,
+      local storage no footer */
   );
 }

@@ -4,7 +4,7 @@ import { StyledProductsList } from "./style";
 export function ProductsList({ productsCatalog }) {
   return (
     <StyledProductsList>
-      {productsCatalog.length > 0 ? (
+      {productsCatalog && productsCatalog.length > 0 ? (
         <ul>
           {productsCatalog.map((product) => (
             <ProductCard product={product} key={product.id} />

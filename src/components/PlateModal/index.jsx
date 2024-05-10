@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import { StyledPlateModal } from "./style";
 
 export function PlateModal({ onSubmit, onCloseModal }) {
@@ -13,6 +14,8 @@ export function PlateModal({ onSubmit, onCloseModal }) {
       setHasError(true);
       return;
     }
+
+    localStorage.setItem("vehicleInfo", null);
 
     await axios
       .post(
@@ -29,7 +32,16 @@ export function PlateModal({ onSubmit, onCloseModal }) {
           },
         }
       )
-      .then((response) => response.data)
+      .then((response) => {
+        if (response.status == 204) {
+          localStorage.setItem("vehicleInfo", null);
+          localStorage.setItem("licensePlate", null);
+          toast.warn(
+            "Não encontramos a placa ou não encontramos produtos para esse veículo."
+          );
+        }
+        return response.data;
+      })
       .then((response) => {
         if (response && response.pageResult && response.pageResult.vehicle) {
           const vehicle = {
@@ -42,7 +54,11 @@ export function PlateModal({ onSubmit, onCloseModal }) {
             gearbox: response.pageResult.vehicle.cambio,
             year: response.pageResult.vehicle.anoModelo,
           };
+          localStorage.setItem("vehicleInfo", JSON.stringify(vehicle));
+          localStorage.setItem("licensePlate", JSON.stringify(vehicle.plate));
           onSubmit(vehicle);
+        } else {
+          onSubmit(null);
         }
       })
       .catch((error) => {
@@ -52,25 +68,27 @@ export function PlateModal({ onSubmit, onCloseModal }) {
 
   return (
     <StyledPlateModal role="dialog">
-      <h3>Digite sua placa</h3>
-      <form onSubmit={submitForm}>
-        <input type="text" placeholder="Digite aqui sua placa" name="plate" />
-        {hasError && (
-          <p className="search-plate-error error">
-            Placa inválida. Por favor, insira uma placa válida.
-          </p>
-        )}
-        <button
-          className="modal-button-return"
-          type="button"
-          onClick={onCloseModal}
-        >
-          Voltar
-        </button>
-        <button className="modal-button-confirm" type="submit">
-          Confirmar
-        </button>
-      </form>
+      <div>
+        <h3>Digite sua placa</h3>
+        <form onSubmit={submitForm}>
+          <input type="text" placeholder="Digite aqui sua placa" name="plate" />
+          {hasError && (
+            <p className="search-plate-error error">
+              Placa inválida. Por favor, insira uma placa válida.
+            </p>
+          )}
+          <button
+            className="modal-button-return"
+            type="button"
+            onClick={onCloseModal}
+          >
+            Voltar
+          </button>
+          <button className="modal-button-confirm" type="submit">
+            Confirmar
+          </button>
+        </form>
+      </div>
     </StyledPlateModal>
     /* TODO: consertar CSS, consertar icone de placa dentro do input */
   );
