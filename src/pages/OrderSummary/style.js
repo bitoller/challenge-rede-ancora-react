@@ -38,7 +38,7 @@ export const StyledOrderSummary = styled.main`
     height: 510px;
   }
 
-  .cart-page-itens p {
+  .cart-page-itens > p {
     font-size: 24px;
     font-weight: 700;
   }
@@ -60,7 +60,7 @@ export const StyledOrderSummary = styled.main`
     gap: 300px;
     margin-top: 35px;
   }
-  .cart-page-buttons input {
+  .cart-page-buttons > input {
     width: 310px;
     height: 65px;
     font-size: 24px;
@@ -68,13 +68,13 @@ export const StyledOrderSummary = styled.main`
     border-radius: 7px;
   }
 
-  .cart-page-buttons input[value="Continuar Comprando"] {
+  .cart-page-buttons > input[value="Continuar Comprando"] {
     background-color: var(--color-gray-9);
     border: 0;
     color: var(--color-primary);
   }
 
-  .cart-page-buttons input[value="Finalizar Compra"] {
+  .cart-page-buttons > input[value="Finalizar Compra"] {
     background-color: var(--color-accent);
     border: 0;
     color: var(--color-gray-10);

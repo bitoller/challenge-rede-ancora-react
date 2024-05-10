@@ -18,7 +18,7 @@ export const StyledSearchScreen = styled.main`
     align-items: center;
   }
 
-  .search-button-license-plate p {
+  .search-button-license-plate > p {
     color: var(--color-gray-10);
     font-size: 32px;
     font-weight: 700;
@@ -26,7 +26,7 @@ export const StyledSearchScreen = styled.main`
     margin: 22px 45px;
   }
 
-  .search-button-license-plate img {
+  .search-button-license-plate > img {
     width: 234px;
     height: 234px;
   }
@@ -42,7 +42,7 @@ export const StyledSearchScreen = styled.main`
     border-radius: 15px;
   }
 
-  .search-button-name p {
+  .search-button-name > p {
     color: var(--color-gray-1);
     font-size: 32px;
     font-weight: 700;
@@ -50,7 +50,7 @@ export const StyledSearchScreen = styled.main`
     margin: 22px 45px;
   }
 
-  .search-button-name img {
+  .search-button-name > img {
     width: 171px;
     height: 171px;
   }

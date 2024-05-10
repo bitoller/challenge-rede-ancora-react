@@ -33,26 +33,26 @@ export const StyledSearchByLicensePlate = styled.main`
     align-items: center;
   }
 
-  .search-field-code input {
+  .search-field-code > input {
     width: 780px;
     height: 60px;
     border-radius: 25px;
   }
 
-  .search-field input {
+  .search-field > input {
     width: 780px;
     height: 60px;
     border-radius: 25px;
   }
 
-  .car-name-check a {
+  .car-name-check > a {
     display: flex;
     align-items: center;
     gap: 10px;
     justify-content: flex-end;
   }
 
-  .car-name-check p {
+  .car-name-check > p {
     width: 235px;
     text-align: center;
   }

@@ -7,7 +7,7 @@ export const StyledHome = styled.div`
   background-color: var(--color-primary);
   min-height: calc(100vh - 500px - 120px);
 
-  .header img {
+  .header > img {
     margin: 40px;
   }
 
@@ -21,7 +21,7 @@ export const StyledHome = styled.div`
     margin-bottom: 100px;
   }
 
-  .header-text span {
+  .header-text > span {
     display: block;
     font-weight: 700;
     margin-top: 20px;
@@ -38,7 +38,7 @@ export const StyledHome = styled.div`
     transform: translateX(0);
   }
 
-  .carousel-container img {
+  .carousel-container > img {
     object-fit: cover;
   }
 

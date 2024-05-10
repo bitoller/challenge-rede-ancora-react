@@ -23,7 +23,7 @@ export const StyledSearchByCode = styled.main`
     margin-top: 100px;
   }
 
-  .search-field-code input {
+  .search-field-code > input {
     width: 780px;
     height: 60px;
     border-radius: 25px;
