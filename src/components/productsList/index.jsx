@@ -11,7 +11,6 @@ export function ProductsList({ productsCatalog, productId }) {
               product={product}
               key={product.id}
               productId={productId}
-              cartTotalMoney={cartTotalMoney}
             />
           ))}
         </ul>

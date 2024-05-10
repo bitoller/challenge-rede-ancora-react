@@ -2,6 +2,9 @@ import imgDefault from "../../assets/default.jpg";
 import { StyledProductCard } from "./style";
 
 export function ProductCard({ product, productId }) {
+  const randomPrice = (Math.random() * 800).toFixed(2);
+  const productWithPrice = { ...product, price: randomPrice };
+
   return (
     <StyledProductCard>
       <div>
@@ -22,7 +25,7 @@ export function ProductCard({ product, productId }) {
       ) : (
         ""
       )}
-      <p className="product-price">R$ {(Math.random() * 800).toFixed(2)}</p>
+      <p className="product-price">R$ {randomPrice > 0 ? randomPrice : 0}</p>
       <button
         className="add-to-cart-button"
         id="addToCartButton"

@@ -8,10 +8,13 @@ export function Footer({
   showBackButton,
   showFinishButton,
   showFooterCart,
-  cartTotalMoney,
+  totalPrice,
   cartLength,
+  cartTotalMoney,
 }) {
   const navigate = useNavigate();
+
+  console.log(totalPrice);
 
   return (
     <StyledFooter>
@@ -27,7 +30,7 @@ export function Footer({
           <p>
             R${" "}
             <span id="cartTotal">
-              {cartTotalMoney > 0 ? cartTotalMoney : 0}
+              {totalPrice > 0 ? totalPrice.toFixed(2) : 0}
             </span>
           </p>
         </div>

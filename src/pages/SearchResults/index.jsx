@@ -13,6 +13,7 @@ export function SearchResults() {
   const [productsCatalog, setProductsCatalog] = useState([]);
   const [plateValue, setPlateValue] = useState(null);
   const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
   const lastSearch = localStorage.getItem("lastSearch");
 
   useEffect(() => {
@@ -80,7 +81,6 @@ export function SearchResults() {
           }
         )
         .then((response) => {
-          console.log("oi", response);
           if (response.status == 204) {
             setProductsCatalog(null);
           }
@@ -92,7 +92,6 @@ export function SearchResults() {
           setProductsCatalog(response.pageResult.data);
         });
     } catch (error) {
-      console.error("Error searching products:", error);
       toast.error("Erro ao buscar produtos. Por favor, tente novamente.");
     }
   };
@@ -102,18 +101,11 @@ export function SearchResults() {
   };
 
   const addCart = (id) => {
-    /* const item = cart.find((product) => product.id == id); */
-
-    /* if (item) {
-      toast.warn(`${item.name} já foi adicionado no carrinho`);
-      return;
-    } */
-
     const product = productsCatalog.find((product) => product.id == id);
 
     if (product) {
       setCart([...cart, product]);
-      localStorage.setItem("itemsInCart", JSON.stringify(product));
+      localStorage.setItem("itemsInCart", JSON.stringify([...cart, product]));
       toast.success(`${product.nomeProduto} foi adicionado ao carrinho`);
     } else {
       toast.error("Produto não encontrado");
@@ -125,12 +117,19 @@ export function SearchResults() {
   };
 
   const cartTotalMoney = () => {
-    const total = cart.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.price,
-      0
-    );
+    const total = cart.reduce((acc, curr) => acc + parseFloat(curr.price), 0);
+    console.log(total);
     return total;
   };
+
+  useEffect(() => {
+    const totalPrice = cart.reduce(
+      (acc, curr) => acc + parseFloat(curr.price),
+      0
+    );
+    setTotalPrice(totalPrice);
+    console.log(totalPrice);
+  }, [cart]);
 
   return (
     <>
@@ -224,7 +223,8 @@ export function SearchResults() {
         showFooterCart
         showBackButton
         showFinishButton
-        cartTotalMoney={cartTotalMoney()}
+        totalPrice={totalPrice}
+        cartTotalMoney={cartTotalMoney}
         cartLength={() => cartLength()}
       />
       {modal ? (
