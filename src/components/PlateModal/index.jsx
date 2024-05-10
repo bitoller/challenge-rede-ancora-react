@@ -68,7 +68,7 @@ export function PlateModal({ onSubmit, onCloseModal }) {
 
   return (
     <StyledPlateModal role="dialog">
-      <div>
+      <div className="modal">
         <h3>Digite sua placa</h3>
         <form onSubmit={submitForm}>
           <input type="text" placeholder="Digite aqui sua placa" name="plate" />
@@ -90,6 +90,7 @@ export function PlateModal({ onSubmit, onCloseModal }) {
         </form>
       </div>
     </StyledPlateModal>
-    /* TODO: consertar CSS, consertar icone de placa dentro do input */
   );
 }
+
+/* TODO: consertar CSS, consertar icone de placa dentro do input */

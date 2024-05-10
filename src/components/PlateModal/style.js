@@ -17,4 +17,23 @@ export const StyledPlateModal = styled.div`
   .search-plate-error.error {
     display: block;
   }
+
+  .modal {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr auto;
+    justify-items: end;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-modal > button {
+    margin-left: 90px;
+    margin-right: 40px;
+  }
+
+  .plate-modal > p {
+    font-weight: 600;
+    text-align: center;
+  }
 `;
