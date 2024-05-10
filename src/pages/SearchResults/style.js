@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const StyledSearchResults = styled.main`
-  display: grid;
-  grid-template-columns: 380px auto;
+  height: 100vh;
   color: var(--color-gray-8);
+  max-height: calc(100vh - 0px - 120px);
+  display: flex;
+  align-items: center;
 
   .vehicle-info p {
     display: flex;
@@ -32,8 +34,6 @@ export const StyledSearchResults = styled.main`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    margin: 0 15px 0 15px;
     width: 340px;
     height: 110px;
     border: 1px solid var(--color-gray-10);
@@ -54,17 +54,18 @@ export const StyledSearchResults = styled.main`
   }
 
   .section-menu {
-    width: 380px;
+    width: 22%;
+    height: 100%;
     background-color: var(--color-primary);
-    display: grid;
-    grid-template-rows: auto auto 1fr;
+    display: flex;
     justify-items: center;
-    height: 100vh;
-    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
   }
 
   .section-menu img {
-    margin-bottom: 15px;
+    padding: 5px 0 5px 0;
   }
 
   .aside-menu li {
@@ -79,16 +80,10 @@ export const StyledSearchResults = styled.main`
   }
 
   .container-result {
-    width: 70%;
+    width: 78%;
+    height: 100%;
     color: black;
-    position: absolute;
     left: 400px;
-    margin-top: 30px;
-    display: grid;
-    grid-template-rows: 20px 1fr auto;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
   }
 
   .container-result p {
@@ -96,7 +91,8 @@ export const StyledSearchResults = styled.main`
     font-weight: 400;
     font-family: var(--font-family-1);
     color: var(--color-primary);
-    margin-top: 30px;
+    text-align: center;
+    padding: 15px 0 15px 0;
   }
 
   .container-result p span {
@@ -105,23 +101,16 @@ export const StyledSearchResults = styled.main`
   }
 
   .search-input-product {
-    width: 80%;
+    width: 100%;
     background-color: var(--color-gray-10);
-    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    position: fixed;
-    left: 380px;
-    top: 0;
-    padding-top: 30px;
-    padding-bottom: 20px;
+    gap: 15px;
   }
 
-  .container-result p {
-    text-align: center;
+  form {
+    height: 120px;
   }
 
   .form-modal {
@@ -153,7 +142,6 @@ export const StyledSearchResults = styled.main`
   .search-input-product [type="submit"] {
     width: 200px;
     height: 50px;
-    margin-left: 20px;
     color: var(--color-gray-10);
     background-color: var(--color-accent);
     border: 0;
@@ -163,33 +151,7 @@ export const StyledSearchResults = styled.main`
   }
 
   .product-list {
-    margin-top: 20px;
-    display: grid;
-    grid-template-rows: auto auto;
-    justify-items: center;
-  }
-
-  .product-list ul {
-    margin-top: 30px;
-    margin-bottom: 130px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    width: 100vh;
-    gap: 30px;
-    justify-items: center;
-    justify-content: space-between;
-  }
-
-  .product-list ul li {
-    display: grid;
-    grid-template-rows: 215px 2fr 70px 2fr;
-    align-items: center;
-    width: 330px;
-    height: 500px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin-bottom: 20px;
-    background-color: white;
-    padding: 0 15px;
+    height: 84%;
   }
 
   .image-container-product {
