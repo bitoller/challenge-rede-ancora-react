@@ -1,7 +1,7 @@
 import logo from "../../assets/logo.png";
 import { Footer } from "../../components/Footer";
 import { PlateModal } from "../../components/PlateModal";
-import { ProductsList } from "../../components/productsList";
+import { ProductsList } from "../../components/ProductsList";
 import axios from "axios";
 import { toast } from "react-toastify";
 import React, { useState, useEffect } from "react";
@@ -12,6 +12,7 @@ export function SearchResults() {
   const [vehicleInfo, setVehicleInfo] = useState(null);
   const [productsCatalog, setProductsCatalog] = useState([]);
   const [plateValue, setPlateValue] = useState(null);
+  const [cart, setCart] = useState([]);
   const lastSearch = localStorage.getItem("lastSearch");
 
   useEffect(() => {
@@ -100,6 +101,37 @@ export function SearchResults() {
     setModal(false);
   };
 
+  const addCart = (id) => {
+    /* const item = cart.find((product) => product.id == id); */
+
+    /* if (item) {
+      toast.warn(`${item.name} já foi adicionado no carrinho`);
+      return;
+    } */
+
+    const product = productsCatalog.find((product) => product.id == id);
+
+    if (product) {
+      setCart([...cart, product]);
+      localStorage.setItem("itemsInCart", JSON.stringify(product));
+      toast.success(`${product.nomeProduto} foi adicionado ao carrinho`);
+    } else {
+      toast.error("Produto não encontrado");
+    }
+  };
+
+  const cartLength = () => {
+    return cart.length;
+  };
+
+  const cartTotalMoney = () => {
+    const total = cart.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.price,
+      0
+    );
+    return total;
+  };
+
   return (
     <>
       <StyledSearchResults>
@@ -177,30 +209,35 @@ export function SearchResults() {
             />
             <input type="submit" value="Pesquisar" id="searchResultBtn" />
           </form>
-          <p>Você pesquisou por: {lastSearch}</p>
+          <p>
+            Você pesquisou por: <span>{lastSearch}</span>
+          </p>
           <div id="productList" className="product-list">
-            <ProductsList productsCatalog={productsCatalog} />
+            <ProductsList
+              productsCatalog={productsCatalog}
+              productId={addCart}
+            />
           </div>
         </section>
       </StyledSearchResults>
-      <Footer showBackButton showFinishButton />
+      <Footer
+        showFooterCart
+        showBackButton
+        showFinishButton
+        cartTotalMoney={cartTotalMoney()}
+        cartLength={() => cartLength()}
+      />
       {modal ? (
         <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />
       ) : null}
     </>
-    /* TODO: fazer preco random */
-    /* TODO: fazer cards clicaveis, ao clicar abrir o treco no canto (modal div), 
-      ao abrir mostrar produto */
-    /* TODO: fazer botao de adicionar ao carrinho funcional */
-    /* TODO: botao de cancelar fechar o modal */
-    /* TODO: ao clicar nas li no canto esquerdo, filtrar por produtos,
-      se houver placa filtra por produtos relevantes,
-      se n, filtra por todos com aquele nome */
-    /* TODO: criar botao de adicionar no carrinho (pegar objeto do carrinho, objeto do carrinho no local pra obj, obj no carrinho concatena um novo dentro do carrinho e joga no localstorage),
-      summary mostrar os objetos, 
-      criar um componente pro carrinho no footer, 
-       criar um array de produtos,
-       verificacao de id igual para fazer o + e -,
-      local storage no footer */
   );
 }
+
+/* TODO: fazer cards clicaveis, ao clicar abrir o treco no canto (modal div), 
+      ao abrir mostrar produto, por conta de tempo n vai rolar */
+/* TODO: fazer botao de adicionar ao carrinho funcional */
+/* TODO: criar botao de adicionar no carrinho (pegar objeto do carrinho, objeto do carrinho no local pra obj, obj no carrinho concatena um novo dentro do carrinho e joga no localstorage),
+      summary mostrar os objetos, 
+       verificacao de id igual para fazer o + e -,
+      local storage no footer */
