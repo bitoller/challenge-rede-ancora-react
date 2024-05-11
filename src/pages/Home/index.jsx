@@ -27,5 +27,3 @@ export function Home() {
     </StyledHome>
   );
 }
-
-/* TODO: consertar CSS, tentar organizar com flexbox e position, tela cheia */

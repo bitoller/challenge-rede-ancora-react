@@ -236,8 +236,4 @@ export function SearchResults() {
 }
 
 /* TODO: fazer cards clicaveis, ao clicar abrir o treco no canto (modal div), 
-      ao abrir mostrar produto, por conta de tempo n vai rolar */
-/* TODO: criar botao de adicionar no carrinho (pegar objeto do carrinho, objeto do carrinho no local pra obj, obj no carrinho concatena um novo dentro do carrinho e joga no localstorage),
-      summary mostrar os objetos, 
-       verificacao de id igual para fazer o + e -,
-      local storage no footer */
+      ao abrir mostrar produto. ainda faremos isso? acho desnecessario. */

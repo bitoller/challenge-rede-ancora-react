@@ -40,3 +40,4 @@ export function OrderSummary() {
     </>
   );
 }
+/* TODO: adicionar funcionalidades e arrumar css. */
