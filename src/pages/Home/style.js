@@ -2,19 +2,22 @@ import styled from "styled-components";
 
 export const StyledHome = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--color-primary);
-  min-height: calc(100vh - 500px - 120px);
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 1.25rem;
 
   header {
     width: 100%;
+    height: 120px;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    align-items: center;
   }
 
-  .header > img {
-    padding: 40px;
+  header > img {
+    height: 90%;
   }
 
   .header-text {
@@ -22,7 +25,7 @@ export const StyledHome = styled.div`
     font-family: var(--font-family-1);
     text-align: center;
     font-weight: 300;
-    font-size: 80px;
+    font-size: 75px;
   }
 
   .header-text > span {
@@ -35,6 +38,7 @@ export const StyledHome = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
   }
 
   .carousel-container {
@@ -64,7 +68,6 @@ export const StyledHome = styled.div`
     display: flex;
     justify-content: center;
     gap: 10px;
-    height: 20px;
     width: 100%;
     align-items: center;
   }

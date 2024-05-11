@@ -33,6 +33,7 @@ button, a, input {
 body {
   height: 100vh;
   width: 100vw;
+  font-size: 1rem;
 }
 
 :root {
