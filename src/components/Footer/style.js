@@ -3,16 +3,16 @@ import styled from "styled-components";
 export const StyledFooter = styled.footer`
   background-color: var(--color-primary);
   display: flex;
-  height: 120px;
+  height: 7.5rem;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px 10px 20px;
+  padding: 0.625rem 1.25rem 0.625rem 1.25rem;
 
   .footer-cart {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 0.3125rem;
   }
 
   .footer-cart > p {
@@ -22,9 +22,9 @@ export const StyledFooter = styled.footer`
   .footer-cart-img {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 0.3125rem;
     border-bottom: 3px solid white;
-    padding-bottom: 5px;
+    padding-bottom: 0.3125rem;
   }
 
   .footer-cart-img > p {
@@ -32,17 +32,17 @@ export const StyledFooter = styled.footer`
   }
 
   .back-button {
-    height: 36px;
-    width: 184px;
+    height: 2.25rem;
+    width: 11.5rem;
     background-color: var(--color-gray-10);
     color: #090a0f;
-    border-radius: 7px;
+    border-radius: 0.4375rem;
     font-weight: 700;
   }
 
   .finish-button {
-    height: 36px;
-    width: 184px;
+    height: 2.25rem;
+    width: 11.5rem;
     background-color: var(--color-accent);
     color: #ffffff;
     border-radius: 7px;

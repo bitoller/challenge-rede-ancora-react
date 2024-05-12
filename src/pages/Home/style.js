@@ -10,8 +10,8 @@ export const StyledHome = styled.div`
 
   header {
     width: 100%;
-    height: 120px;
-    padding: 10px 20px 10px 20px;
+    height: 7.5rem;
+    padding: 0.625rem 1.25rem 0.625rem 1.25rem;
     display: flex;
     align-items: center;
   }
@@ -25,7 +25,7 @@ export const StyledHome = styled.div`
     font-family: var(--font-family-1);
     text-align: center;
     font-weight: 300;
-    font-size: 75px;
+    font-size: 4.6875rem;
   }
 
   .header-text > span {
@@ -38,7 +38,7 @@ export const StyledHome = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .carousel-container {
@@ -53,12 +53,12 @@ export const StyledHome = styled.div`
 
   .touch-button {
     width: 30vw;
-    padding: 10px 33px 10px 33px;
+    padding: 0.625rem 2.0625rem 0.625rem 2.0625rem;
     background-color: var(--color-accent);
     color: var(--color-gray-10);
-    font-size: 54px;
+    font-size: 3.375rem;
     font-weight: 700;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     margin: auto;
     text-align: center;
   }
@@ -67,7 +67,7 @@ export const StyledHome = styled.div`
     background-color: var(--color-primary);
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 0.625rem;
     width: 100%;
     align-items: center;
   }

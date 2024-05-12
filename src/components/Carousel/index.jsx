@@ -11,7 +11,7 @@ export function Carousel() {
   const items = [
     <img
       src={carouselPromo}
-      alt={"carrossel de promoção"}
+      alt={"imagem com um texto sobre promoções"}
       className="carousel-img"
     />,
     <img

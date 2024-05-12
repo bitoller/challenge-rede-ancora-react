@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const StyledSearchButton = styled.button`
-  width: 320px;
-  height: 80px;
-  padding-bottom: 5px;
+  width: 20rem;
+  height: 5rem;
+  padding-bottom: 0.3125rem;
   background-color: var(--color-accent);
-  border-radius: 7px;
+  border-radius: 0.4375rem;
   color: var(--color-gray-10);
-  font-size: 40px;
+  font-size: 2.5rem;
   border: 0;
 `;

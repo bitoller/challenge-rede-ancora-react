@@ -13,7 +13,9 @@ import { StyledSearchByLicensePlate } from "./style";
 export function SearchByLicensePlate() {
   const [jwtToken, setJwtToken] = useState("");
   const [modal, setModal] = useState(false);
-  const [selectCarInfo, setSelectCarInfo] = useState("Selecione seu carro");
+  const [selectCarInfo, setSelectCarInfo] = useState(
+    "Selecione seu carro aqui"
+  );
   const [vehicleInfo, setVehicleInfo] = useState({});
   const navigate = useNavigate();
 
@@ -121,9 +123,9 @@ export function SearchByLicensePlate() {
 
   return (
     <>
-      <Header text="Pesquise pela placa do seu veículo" />
+      <Header text="Busque o produto que precisa" />
       <StyledSearchByLicensePlate>
-        <h2>Digite abaixo o que precisa para seu veículo</h2>
+        <h2>Selecione seu carro e busque o produto que deseja</h2>
         <section className="search-field">
           <div className="car-name-check">
             <div onClick={() => setModal(true)} className="license-plate-link">

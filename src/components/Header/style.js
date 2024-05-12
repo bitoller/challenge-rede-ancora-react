@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  height: 120px;
+  height: 7.5rem;
   background-color: var(--color-primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px 10px 20px;
+  padding: 0.625rem 1.25rem 0.625rem 1.25rem;
 
   a {
     height: 100%;
@@ -20,7 +20,7 @@ export const StyledHeader = styled.header`
 
   h1 {
     color: var(--color-gray-10);
-    font-size: 48px;
+    font-size: 3rem;
     text-align: center;
   }
 `;
