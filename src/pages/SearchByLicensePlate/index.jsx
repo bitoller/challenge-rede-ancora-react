@@ -113,7 +113,13 @@ export function SearchByLicensePlate() {
 
     setVehicleInfo(vehicleResult);
     setSelectCarInfo(
-      `Seu Veículo: ${vehicleResult.plate} ${vehicleResult.brand} - ${vehicleResult.model} - ${vehicleResult.version} - ${vehicleResult.engine} - ${vehicleResult.gas} - ${vehicleResult.gearbox} - ${vehicleResult.year}`
+      `Placa: ${vehicleResult.plate.toUpperCase()} | Veículo: ${
+        vehicleResult.brand
+      } - ${vehicleResult.model} - ${vehicleResult.version} - ${
+        vehicleResult.engine
+      } - ${vehicleResult.gas} - ${vehicleResult.gearbox} - ${
+        vehicleResult.year
+      }`
     );
     setModal(false);
   };
