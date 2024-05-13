@@ -7,7 +7,7 @@ export function Header({ text }) {
   return (
     <StyledHeader>
       <Link to="/home">
-        <img src={logo} alt={"logo rede ancora"} />
+        <img src={logo} alt={"logo rede ancora"} className="header-logo" />
       </Link>
       <h1>{text}</h1>
       <img src={headerDots} alt={"ícone com vários pontos"} />

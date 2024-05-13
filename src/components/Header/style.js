@@ -14,7 +14,7 @@ export const StyledHeader = styled.header`
     align-items: center;
   }
 
-  img {
+  .header-logo {
     height: 90%;
   }
 
