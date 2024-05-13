@@ -245,3 +245,6 @@ export function SearchResults() {
 
 /* TODO: fazer cards clicaveis, ao clicar abrir o treco no canto (modal div), 
       ao abrir mostrar produto. ainda faremos isso? acho desnecessario. */
+/* TODO: ao adicionar itens no carrinho, ir pro carrinho e voltar pra continuar comprando,
+      por mais que itens continuem no carrinho, o footer da pagina resultados zera. ao adicionar um
+      item novo no carrinho depois disso, ele limpa o carrinho e so adiciona o item novo */

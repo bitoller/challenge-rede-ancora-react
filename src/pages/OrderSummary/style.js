@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledOrderSummary = styled.main`
   background-color: var(--color-primary);
-  min-height: calc(100vh - 120px - 120px);
+  min-height: calc(100vh - 120px);
 
   .cart-page-products {
     width: 1300px;
@@ -60,7 +60,8 @@ export const StyledOrderSummary = styled.main`
     gap: 300px;
     margin-top: 35px;
   }
-  .cart-page-buttons > input {
+
+  .cart-page-buttons > button {
     width: 310px;
     height: 65px;
     font-size: 24px;
@@ -68,15 +69,13 @@ export const StyledOrderSummary = styled.main`
     border-radius: 7px;
   }
 
-  .cart-page-buttons > input[value="Continuar Comprando"] {
+  .back-to-shopping {
     background-color: var(--color-gray-9);
-    border: 0;
     color: var(--color-primary);
   }
 
-  .cart-page-buttons > input[value="Finalizar Compra"] {
+  .confirm-purchase {
     background-color: var(--color-accent);
-    border: 0;
     color: var(--color-gray-10);
   }
 `;
