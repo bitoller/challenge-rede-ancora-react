@@ -22,7 +22,7 @@ time, mark, audio, video, button {
 	vertical-align: baseline;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-family-2);
   list-style-type: none;
 }
 
