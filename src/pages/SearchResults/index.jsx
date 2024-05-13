@@ -2,6 +2,8 @@ import logo from "../../assets/logo.png";
 import { Footer } from "../../components/Footer";
 import { PlateModal } from "../../components/PlateModal";
 import { ProductsList } from "../../components/ProductsList";
+import { SearchProductsInput } from "../../components/SearchProductsInput";
+import { SearchButton } from "../../components/SearchButton";
 import axios from "axios";
 import { toast } from "react-toastify";
 import React, { useState, useEffect } from "react";
@@ -46,7 +48,7 @@ export function SearchResults() {
     const form = event ? event.target : null;
 
     if (!productName) {
-      productName = form ? form.productInput.value : lastSearch;
+      productName = form ? form.searchProductInput.value : lastSearch;
     }
 
     if (!productName) {
@@ -154,7 +156,13 @@ export function SearchResults() {
             >
               <p>
                 {vehicleInfo
-                  ? `Veículo | Placa ${vehicleInfo.plate} ${vehicleInfo.brand} - ${vehicleInfo.model} - ${vehicleInfo.version} - ${vehicleInfo.engine} - ${vehicleInfo.gas} - ${vehicleInfo.gearbox} - ${vehicleInfo.year}`
+                  ? `Placa: ${vehicleInfo.plate.toUpperCase()} | Veículo: ${
+                      vehicleInfo.brand
+                    } - ${vehicleInfo.model} - ${vehicleInfo.version} - ${
+                      vehicleInfo.engine
+                    } - ${vehicleInfo.gas} - ${vehicleInfo.gearbox} - ${
+                      vehicleInfo.year
+                    }`
                   : "Toque aqui para adicionar uma placa"}
               </p>
             </div>
@@ -205,14 +213,14 @@ export function SearchResults() {
           </ul>
         </aside>
         <section className="container-result">
-          <form className="search-input-product" onSubmit={search}>
-            <input
-              type="text"
-              name="productInput"
-              placeholder="Digite o nome / código do produto"
-            />
-            <input type="submit" value="Pesquisar" id="searchResultBtn" />
-          </form>
+          <div className="search-field-results">
+            <form className="search-input-product" onSubmit={search}>
+              <div className="input-container">
+                <SearchProductsInput name="searchProductInput" />
+                <SearchButton type="submit" />
+              </div>
+            </form>
+          </div>
           <p>
             Você pesquisou por: <span>{lastSearch}</span>
           </p>
