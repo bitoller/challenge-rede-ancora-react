@@ -4,19 +4,20 @@ export const StyledProductCard = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  width: 330px;
-  height: 500px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  gap: 0.9375rem;
+  width: 20.625rem;
+  min-height: 31.25rem;
+  max-height: 33.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0rem 0.3125rem 0.9375rem;
   background-color: white;
-  padding: 15px;
+  padding: 0.9375rem;
   color: black;
 
   div {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 137px;
+    height: 8.5625rem;
     width: 100%;
   }
 
@@ -30,12 +31,12 @@ export const StyledProductCard = styled.li`
   .add-to-cart-button {
     color: var(--color-gray-10);
     background-color: var(--color-primary);
-    padding: 10px;
+    padding: 0.625rem;
     border-radius: 5px;
   }
 
   p {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 400;
     width: 100%;
     font-family: var(--font-family-1);
@@ -45,7 +46,7 @@ export const StyledProductCard = styled.li`
 
   .product-name {
     font-weight: 700;
-    padding-bottom: 10px;
+    padding-bottom: 0.625rem;
     border-bottom: 2px dashed #c32401;
   }
 
@@ -56,7 +57,7 @@ export const StyledProductCard = styled.li`
 
   .product-price {
     font-weight: 700;
-    padding-top: 10px;
+    padding-top: 0.625rem;
     border-top: 2px dashed #c32401;
   }
 `;
