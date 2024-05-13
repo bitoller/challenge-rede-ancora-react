@@ -1,5 +1,6 @@
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { SearchProductsInput } from "../../components/SearchProductsInput";
 import { SearchButton } from "../../components/SearchButton";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
@@ -42,7 +43,7 @@ export function SearchByCode() {
     event.preventDefault();
     const form = event.target;
 
-    if (!form.productInput.value) {
+    if (!form.searchProductInput.value) {
       toast.warn("Por favor, insira o nome do produto");
       return;
     }
@@ -54,8 +55,8 @@ export function SearchByCode() {
       .post(
         "https://api-stg-catalogo.redeancora.com.br/superbusca/api/integracao/catalogo/v2/produtos/query/sumario",
         {
-          nomeProduto: form.productInput.value,
-          superbusca: form.productInput.value,
+          nomeProduto: form.searchProductInput.value,
+          superbusca: form.searchProductInput.value,
           pagina: 0,
           itensPorPagina: 100,
         },
@@ -83,7 +84,7 @@ export function SearchByCode() {
       })
       .then((response) => {
         localStorage.setItem("searchResult", JSON.stringify(response.data));
-        localStorage.setItem("lastSearch", form.productInput.value);
+        localStorage.setItem("lastSearch", form.searchProductInput.value);
         navigate("/search_results");
       });
   };
@@ -95,13 +96,10 @@ export function SearchByCode() {
         <h2>Digite abaixo o nome ou código do produto que precisa</h2>
         <section className="search-field-code">
           <form onSubmit={search}>
-            <input
-              type="text"
-              name="productInput"
-              className="search-input"
-              placeholder="Digite o nome ou código do produto"
-            />
-            <SearchButton type="submit" />
+            <div className="input-container">
+              <SearchProductsInput name="searchProductInput" />
+              <SearchButton type="submit" />
+            </div>
           </form>
         </section>
       </StyledSearchByCode>
@@ -109,5 +107,3 @@ export function SearchByCode() {
     </>
   );
 }
-
-/* TODO: consertar CSS, consertar icone da lupa dentro do input */

@@ -1,3 +1,4 @@
+import licensePlate from "../../assets/licensePlateModal.svg";
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -71,26 +72,33 @@ export function PlateModal({ onSubmit, onCloseModal }) {
       <div className="modal">
         <h3>Digite sua placa</h3>
         <form onSubmit={submitForm}>
-          <input type="text" placeholder="Digite aqui sua placa" name="plate" />
+          <div className="input-container-icon">
+            <input
+              type="text"
+              placeholder="Digite aqui sua placa"
+              name="plate"
+            />
+            <img src={licensePlate} alt={"imagem de uma placa de carro"} />
+          </div>
           {hasError && (
             <p className="search-plate-error error">
               Placa inválida. Por favor, insira uma placa válida.
             </p>
           )}
-          <button
-            className="modal-button-return"
-            type="button"
-            onClick={onCloseModal}
-          >
-            Voltar
-          </button>
-          <button className="modal-button-confirm" type="submit">
-            Confirmar
-          </button>
+          <div className="modal-buttons-container">
+            <button
+              className="modal-button-close"
+              type="button"
+              onClick={onCloseModal}
+            >
+              Fechar
+            </button>
+            <button className="modal-button-confirm" type="submit">
+              Confirmar
+            </button>
+          </div>
         </form>
       </div>
     </StyledPlateModal>
   );
 }
-
-/* TODO: consertar CSS, consertar icone de placa dentro do input */

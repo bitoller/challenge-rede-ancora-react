@@ -2,6 +2,7 @@ import carCheckIcon from "../../assets/carCheckIcon.svg";
 import rightArrow from "../../assets/rightArrow.svg";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { SearchProductsInput } from "../../components/SearchProductsInput";
 import { SearchButton } from "../../components/SearchButton";
 import { PlateModal } from "../../components/PlateModal";
 import axios from "axios";
@@ -138,13 +139,10 @@ export function SearchByLicensePlate() {
             </div>
           </div>
           <form onSubmit={search}>
-            <input
-              type="text"
-              name="searchProductInput"
-              className="search-input"
-              placeholder="Busque pela peça ou produto"
-            />
-            <SearchButton type="submit" />
+            <div className="input-container">
+              <SearchProductsInput name="searchProductInput" />
+              <SearchButton type="submit" />
+            </div>
           </form>
         </section>
       </StyledSearchByLicensePlate>
@@ -155,5 +153,3 @@ export function SearchByLicensePlate() {
     </>
   );
 }
-
-/* TODO: consertar CSS, consertar icone da lupa dentro do input */
