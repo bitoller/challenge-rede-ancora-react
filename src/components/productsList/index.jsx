@@ -11,7 +11,7 @@ export function ProductsList({ productsCatalog, product }) {
           ))}
         </ul>
       ) : (
-        <p>Nenhum produto encontrado.</p>
+        <p className="no-product-found">Nenhum produto encontrado.</p>
       )}
     </StyledProductsList>
   );
