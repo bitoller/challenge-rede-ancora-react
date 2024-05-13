@@ -25,7 +25,7 @@ export function Footer({
             </p>
           </div>
           <p>
-            R$ <span id="cartTotal">{totalPrice}</span>
+            R$ <span id="cartTotal">{totalPrice.toFixed(2)}</span>
           </p>
         </div>
       )}
