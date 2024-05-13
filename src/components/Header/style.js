@@ -14,7 +14,7 @@ export const StyledHeader = styled.header`
     align-items: center;
   }
 
-  img:nth-of-type(1) {
+  img {
     height: 90%;
   }
 

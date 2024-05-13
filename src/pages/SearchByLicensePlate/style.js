@@ -3,168 +3,56 @@ import styled from "styled-components";
 export const StyledSearchByLicensePlate = styled.main`
   display: flex;
   justify-items: center;
-  min-height: calc(100vh - 120px - 120px);
+  min-height: calc(100vh - 7.5rem - 7.5rem);
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  gap: 50px;
 
   h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
 
   .search-field {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
-    width: 100%;
-    height: 450px;
-    gap: 20px;
-    background-color: var(--color-gray-9);
-  }
-
-  .search-field-code {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    height: 125px;
-    gap: 20px;
+    height: 18.75rem;
     background-color: var(--color-gray-9);
     justify-content: center;
     align-items: center;
-  }
-
-  .search-field-code > input {
-    width: 780px;
-    height: 60px;
-    border-radius: 25px;
-  }
-
-  .search-field > input {
-    width: 780px;
-    height: 60px;
-    border-radius: 25px;
   }
 
   .search-field > form {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
+    height: 3.75rem;
+    width: 50%;
   }
 
-  .car-name-check > a {
+  .input-container {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    border: 2px solid var(--color-gray-3);
+    border-radius: 8px;
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    gap: 10px;
-    justify-content: flex-end;
-  }
-
-  .car-name-check > p {
-    width: 235px;
-    text-align: center;
+    gap: 4.6875rem;
+    padding: 0rem 0.625rem 0rem 0.625rem;
   }
 
   .license-plate-link {
     color: var(--color-primary);
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 10px;
+    gap: 1.25rem;
+    padding: 0.625rem;
     cursor: pointer;
   }
 
-  .search-input {
-    background-image: url(../assets/magnifyingGlassSearch.svg);
-    background-repeat: no-repeat;
-    background-position: 10px 15px;
-    padding-left: 60px;
-    padding-bottom: 5px;
-    font-size: 24px;
-    color: var(--color-gray-4);
-  }
-`;
-
-/* 
-import styled from "styled-components";
-
-export const StyledSearchByLicensePlate = styled.main`
-  display: flex;
-  justify-items: center;
-  min-height: calc(100vh - 120px - 120px);
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 50px;
-
-  h2 {
-    font-size: 36px;
-  }
-
-  .search-field {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
-    width: 100%;
-    height: 450px;
-    gap: 20px;
-    background-color: var(--color-gray-9);
-  }
-
-  .search-field-code {
-    display: flex;
-    width: 100%;
-    height: 125px;
-    gap: 20px;
-    background-color: var(--color-gray-9);
-    justify-content: center;
-    align-items: center;
-  }
-
-  .search-field-code input {
-    width: 780px;
-    height: 60px;
-    border-radius: 25px;
-  }
-
-  .search-field input {
-    width: 780px;
-    height: 60px;
-    border-radius: 25px;
-  }
-
-  .car-name-check a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: flex-end;
-  }
-
-  .car-name-check p {
-    width: 235px;
+  .license-plate-link > p {
+    width: 18.75rem;
     text-align: center;
   }
-
-  .license-plate-link {
-    color: var(--color-primary);
-    font-size: 20px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 10px;
-    cursor: pointer;
-  }
-
-  .search-input {
-    background-image: url(../assets/magnifyingGlassSearch.svg);
-    background-repeat: no-repeat;
-    background-position: 10px 15px;
-    padding-left: 60px;
-    padding-bottom: 5px;
-    font-size: 24px;
-    color: var(--color-gray-4);
-  }
 `;
-
-*/

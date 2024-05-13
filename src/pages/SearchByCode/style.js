@@ -3,39 +3,39 @@ import styled from "styled-components";
 export const StyledSearchByCode = styled.main`
   display: flex;
   justify-items: center;
-  min-height: calc(100vh - 120px - 120px);
+  min-height: calc(100vh - 7.5rem - 7.5rem);
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  gap: 50px;
 
   h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
 
   .search-field-code {
     display: flex;
     width: 100%;
-    height: 450px;
+    height: 18.75rem;
     background-color: var(--color-gray-9);
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
   }
 
-  .search-field-code > input {
-    width: 780px;
-    height: 60px;
-    border-radius: 25px;
+  .search-field-code > form {
+    height: 3.75rem;
+    width: 50%;
   }
 
-  .search-input {
-    background-image: url(../assets/magnifyingGlassSearch.svg);
-    background-repeat: no-repeat;
-    background-position: 10px 15px;
-    padding-left: 60px;
-    padding-bottom: 5px;
-    font-size: 24px;
-    color: var(--color-gray-4);
+  .input-container {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    border: 2px solid var(--color-gray-3);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4.6875rem;
+    padding: 0rem 0.625rem 0rem 0.625rem;
   }
 `;
