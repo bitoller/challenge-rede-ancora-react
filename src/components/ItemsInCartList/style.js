@@ -31,5 +31,8 @@ export const StyledItemsInCartList = styled.div`
 
   .empty-cart {
     text-align: center;
+    padding: 30px;
+    font-size: 20px;
+    font-weight: 600;
   }
 `;
