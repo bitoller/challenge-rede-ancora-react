@@ -12,7 +12,7 @@ export function Checkout() {
   return (
     <StyledCheckout>
       <header className="logo-payment">
-        <img src={logo} alt="logo rede ancora" />
+        <img src={logo} alt={"logo rede ancora"} />
       </header>
       <main className="payment-container">
         <section className="payment-box">
@@ -107,7 +107,7 @@ export function Checkout() {
               Descontos <span id="discount">R$ 00,00</span>
             </p>
             <p>
-              Você pagará <span id="newPrice">0</span>
+              Você pagará <span id="newPrice">R$ 0</span>
             </p>
           </div>
         </section>
@@ -181,4 +181,4 @@ export function Checkout() {
       </div>
     </div> */
 
-/* TODO: adicionar funcionalidades e arrumar css. */
+/* TODO: adicionar funcionalidades (incluindo modais e css dos modais) e arrumar css se necessario. */

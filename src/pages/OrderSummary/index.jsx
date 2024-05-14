@@ -48,6 +48,6 @@ export function OrderSummary() {
     </>
   );
 }
-/* TODO: adicionar funcionalidades e arrumar css. */
+/* TODO: adicionar funcionalidades e arrumar css se necessario. */
 /* TODO: manter itens na ida e volta no continuar comprando,
 adicionar total, adicionar valor unitario e total */

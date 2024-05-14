@@ -5,7 +5,7 @@ export const StyledCheckout = styled.div`
   width: 100%;
 
   .logo-payment {
-    height: 120px;
+    height: 7.5rem;
     background-color: var(--color-gray-10);
     display: flex;
     justify-content: space-between;
@@ -22,7 +22,7 @@ export const StyledCheckout = styled.div`
     background-color: var(--color-gray-10);
     justify-items: center;
     align-items: center;
-    min-height: calc(100vh - 120px - 120px);
+    min-height: calc(100vh - 7.5rem - 7.5rem);
     justify-content: space-around;
   }
 
@@ -30,53 +30,53 @@ export const StyledCheckout = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .payment-choices {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .payment-choices > h1 {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 500;
   }
 
   .payment-options {
-    width: 550px;
+    width: 34.375rem;
     height: auto;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 20px;
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;
   }
 
   .payment-methods {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.3125rem;
     width: 100%;
   }
 
   .payment-methods > li {
     display: flex;
-    gap: 10px;
+    gap: 0.625rem;
     align-items: center;
-    padding-bottom: 5px;
+    padding-bottom: 0.3125rem;
     width: 90%;
     border-bottom: 2px dashed black;
     cursor: pointer;
   }
 
   .img-container {
-    width: 77px;
-    height: 70px;
+    width: 4.8125rem;
+    height: 4.375rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,7 +90,7 @@ export const StyledCheckout = styled.div`
   }
 
   .payment-text > h2 {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
   }
 
@@ -101,24 +101,24 @@ export const StyledCheckout = styled.div`
   .login-options {
     display: grid;
     justify-items: center;
-    gap: 20px;
+    gap: 1.25rem;
   }
 
   .login-options > h2 {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 500;
   }
 
   .login-options > h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
     text-align: center;
     grid-column: 1/3;
   }
 
   .login-options > button {
-    width: 200px;
-    height: 45px;
+    width: 12.5rem;
+    height: 2.8125rem;
     border-radius: 7px;
     color: var(--color-gray-10);
     background-color: var(--color-primary);
@@ -129,14 +129,14 @@ export const StyledCheckout = styled.div`
 
   .payment-finish-buttons {
     display: flex;
-    gap: 40px;
+    gap: 2.5rem;
   }
 
   .payment-finish-buttons > button {
-    width: 155px;
-    height: 50px;
+    width: 9.6875rem;
+    height: 3.125rem;
     border-radius: 7px;
-    font-size: 26px;
+    font-size: 1.625rem;
     font-weight: 700;
   }
 
@@ -153,33 +153,33 @@ export const StyledCheckout = styled.div`
   .payment-results {
     display: flex;
     justify-content: center;
-    width: 500px;
+    width: 31.25rem;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 1.25rem;
   }
 
   .payment-value {
-    width: 375px;
-    height: 600px;
+    width: 23.4375rem;
+    height: 37.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .payment-value > h1 {
-    width: 375px;
+    width: 23.4375rem;
     text-align: left;
     border-bottom: 2px solid #d9d9d9;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
   }
 
   .payment-value > p {
-    font-size: 20px;
-    width: 375px;
+    font-size: 1.25rem;
+    width: 23.4375rem;
     display: grid;
     grid-template-columns: 3fr 1fr;
     text-align: left;
@@ -187,16 +187,16 @@ export const StyledCheckout = styled.div`
 
   .payment-value > p:last-child {
     border-top: 2px solid #d9d9d9;
-    padding-top: 15px;
+    padding-top: 0.9375rem;
   }
 
   .payment-value > p > span {
-    width: 150px;
+    width: 9.375rem;
     justify-self: start;
   }
 
   .payment-ornament {
-    height: 120px;
+    height: 7.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
