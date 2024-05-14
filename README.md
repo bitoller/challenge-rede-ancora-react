@@ -66,5 +66,3 @@ Para rodar o projeto, bastar digitar o comando `npm run dev` no terminal, e nave
 
 - <a href="https://www.linkedin.com/in/bianca-toller" target="_blank">Bianca Toller</a>
 - <a href="https://www.linkedin.com/in/bruno-marc" target="_blank">Bruno Marcelino Guimarães</a>
-- <a href="https://www.linkedin.com/in/iago-bortolo" target="_blank">Iago Henrique Bortolo</a>
-- <a href="https://www.linkedin.com/in/wesley-bastos" target="_blank">Wesley da Avilla Bastos</a>
