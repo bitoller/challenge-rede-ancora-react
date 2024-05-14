@@ -17,26 +17,32 @@ export const StyledCheckout = styled.div`
     display: flex;
     background-color: var(--color-gray-10);
     justify-items: center;
-    max-height: calc(100vh - 120px - 120px);
+    align-items: center;
+    min-height: calc(100vh - 120px - 120px);
     justify-content: space-around;
   }
 
   .payment-box {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .payment-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .payment-choices > h1 {
     font-size: 32px;
     font-weight: 500;
-    margin-bottom: 15px;
   }
 
   .payment-options {
     width: 550px;
-    height: 650px;
+    height: auto;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;
@@ -50,7 +56,7 @@ export const StyledCheckout = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 30px;
+    gap: 5px;
     width: 100%;
   }
 
@@ -58,19 +64,10 @@ export const StyledCheckout = styled.div`
     display: flex;
     gap: 10px;
     align-items: center;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     width: 90%;
     border-bottom: 2px dashed black;
     cursor: pointer;
-  }
-
-  .payment-methods > li > h2 {
-    font-size: 24px;
-    font-weight: 700;
-  }
-
-  .payment-methods > li > p {
-    font-weight: 500;
   }
 
   .img-container {
@@ -88,20 +85,24 @@ export const StyledCheckout = styled.div`
     height: auto;
   }
 
+  .payment-text > h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .payment-text > p {
+    font-weight: 500;
+  }
+
   .login-options {
     display: grid;
     justify-items: center;
-    margin-top: 20px;
+    gap: 20px;
   }
 
   .login-options > h2 {
     font-size: 24px;
     font-weight: 500;
-  }
-
-  .login-options > p {
-    font-size: 20px;
-    padding-top: 20px;
   }
 
   .login-options > h3 {
@@ -120,13 +121,11 @@ export const StyledCheckout = styled.div`
     font-weight: 700;
     font-family: var(--font-family-3);
     grid-row: 2/2;
-    margin-top: 30px;
   }
 
   .payment-finish-buttons {
     display: flex;
     gap: 40px;
-    margin-top: 10px;
   }
 
   .payment-finish-buttons > button {
@@ -147,6 +146,51 @@ export const StyledCheckout = styled.div`
     background-color: var(--color-accent);
   }
 
+  .payment-results {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+
+  .payment-value {
+    width: 375px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .payment-value > h1 {
+    width: 375px;
+    text-align: left;
+    border-bottom: 2px solid #d9d9d9;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .payment-value > p {
+    font-size: 20px;
+    width: 375px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    text-align: left;
+  }
+
+  .payment-value > p:last-child {
+    border-top: 2px solid #d9d9d9;
+    padding-top: 15px;
+  }
+
+  .payment-value > p > span {
+    width: 150px;
+    justify-self: start;
+  }
+
   .payment-ornament {
     height: 120px;
     display: flex;
@@ -159,54 +203,7 @@ export const StyledCheckout = styled.div`
     padding-left: 30px;
   }
 
-  .payment-results {
-    display: flex;
-    justify-content: center;
-    width: 500px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .payment-value {
-    width: 375px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 150px;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .payment-results > h1 {
-    width: 375px;
-    padding-left: 20px;
-    padding-bottom: 15px;
-    text-align: left;
-    border-bottom: 2px solid #d9d9d9;
-    font-size: 24px;
-    font-weight: 600;
-  }
-
-  .payment-results > p {
-    font-size: 20px;
-    width: 375px;
-    padding-left: 20px;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    text-align: left;
-  }
-
-  .payment-results > p:last-child {
-    border-top: 2px solid #d9d9d9;
-    padding-top: 15px;
-  }
-
-  .payment-results > p > span {
-    width: 150px;
-    justify-self: start;
-  }
-
-  .modal-register {
+  /*   .modal-register {
     display: none;
     position: fixed;
     z-index: 1;
@@ -415,7 +412,6 @@ export const StyledCheckout = styled.div`
     text-align: center;
   }
 
-  /* Animação dos três pontos */
   @keyframes blink {
     0%,
     20%,
@@ -437,5 +433,5 @@ export const StyledCheckout = styled.div`
 
   #loadingDots {
     display: inline-block;
-  }
+  } */
 `;

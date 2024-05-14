@@ -2,9 +2,13 @@ import logo from "../../assets/logo.png";
 import creditCard from "../../assets/card-flag-icon.png";
 import pix from "../../assets/pix-icon.png";
 import money from "../../assets/bank-note.png";
+import footerDots from "../../assets/footer-dots-left.png";
+import { useNavigate } from "react-router-dom";
 import { StyledCheckout } from "./style";
 
 export function Checkout() {
+  const navigate = useNavigate();
+
   return (
     <StyledCheckout>
       <header className="logo-payment">
@@ -23,7 +27,7 @@ export function Checkout() {
                       alt={"imagem da bandeira do cartão de crédito"}
                     />
                   </div>
-                  <div>
+                  <div className="payment-text">
                     <h2>Cartão de crédito</h2>
                     <p>Parcele em até 6 vezes sem juros</p>
                   </div>
@@ -35,7 +39,7 @@ export function Checkout() {
                       alt={"imagem da bandeira do cartão de débito"}
                     />
                   </div>
-                  <div>
+                  <div className="payment-text">
                     <h2>Cartão de débito</h2>
                     <p>Faça o pagamento através do cartão de débito</p>
                   </div>
@@ -44,7 +48,7 @@ export function Checkout() {
                   <div className="img-container">
                     <img src={pix} alt={"imagem do pix"} />
                   </div>
-                  <div>
+                  <div className="payment-text">
                     <h2>Pagamento via PIX</h2>
                     <p>Pague via QR CODE</p>
                   </div>
@@ -53,7 +57,7 @@ export function Checkout() {
                   <div className="img-container">
                     <img src={money} alt={"imagem de uma nota de dinheiro"} />
                   </div>
-                  <div>
+                  <div className="payment-text">
                     <h2>Pagamento em dinheiro</h2>
                     <p>Pague diretamente no caixa</p>
                   </div>
@@ -78,17 +82,19 @@ export function Checkout() {
             </div>
           </div>
           <div className="payment-finish-buttons">
-            <a href="./shoppingCart.html">
-              <button className="payment-button-back">Voltar</button>
-            </a>
-            <a href="../../index.html">
-              <button
-                /* onclick="cleanLocalStorage()" */
-                className="payment-button-continue"
-              >
-                Finalizar
-              </button>
-            </a>
+            <button
+              className="payment-button-back"
+              onClick={() => navigate(-1)}
+            >
+              Voltar
+            </button>
+            <button
+              /* onclick="cleanLocalStorage()" */
+              className="payment-button-continue"
+              onClick={() => navigate("/home")}
+            >
+              Finalizar
+            </button>
           </div>
         </section>
         <section className="payment-results">
@@ -107,7 +113,7 @@ export function Checkout() {
         </section>
       </main>
       <footer className="payment-ornament">
-        <img src="../assets/footer-dots-left.png" alt="" />
+        <img src={footerDots} alt={"imagem de pontos"} />
       </footer>
     </StyledCheckout>
   );
@@ -175,4 +181,4 @@ export function Checkout() {
       </div>
     </div> */
 
-/* TODO: adicionar funcionalidades e adicionar css. */
+/* TODO: adicionar funcionalidades e arrumar css. */
