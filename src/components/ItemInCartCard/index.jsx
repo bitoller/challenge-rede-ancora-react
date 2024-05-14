@@ -15,8 +15,10 @@ export function ItemInCartCard({ product }) {
         />
       </div>
       <p className="product-name">{product.nomeProduto}</p>
-      <p className="product-brand">Marca: {product.marca}</p>
-      <p className="product-code">Código: {product.codigoReferencia}</p>
+      <div className="brand-code-container">
+        <p className="product-brand">Marca: {product.marca}</p>
+        <p className="product-code">Código: {product.codigoReferencia}</p>
+      </div>
       {/* add remove from cart button */}
       <p className="product-price">R$ {product.price}</p>
       {/* valor unitario e total */}

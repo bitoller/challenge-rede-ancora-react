@@ -29,7 +29,7 @@ export const StyledItemsInCartList = styled.div`
     margin-left: 1.5rem;
   }
 
-  .no-product-found {
+  .empty-cart {
     text-align: center;
   }
 `;

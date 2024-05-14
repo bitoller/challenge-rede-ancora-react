@@ -2,16 +2,13 @@ import styled from "styled-components";
 
 export const StyledItemInCartCard = styled.li`
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 0.9375rem;
-  width: 20.625rem;
-  min-height: 31.25rem;
-  max-height: 33.5rem;
-  box-shadow: rgba(0, 0, 0, 0.35) 0rem 0.3125rem 0.9375rem;
+  width: 90%;
+  height: 8.75rem;
   background-color: white;
-  padding: 0.9375rem;
   color: black;
+  border: 1px solid black;
 
   div {
     display: flex;
@@ -44,20 +41,13 @@ export const StyledItemInCartCard = styled.li`
     text-align: center;
   }
 
-  .product-name {
-    font-weight: 700;
-    padding-bottom: 0.625rem;
-    border-bottom: 2px dashed #c32401;
-  }
-
-  .product-brand,
-  .product-code {
-    color: #c32401;
-  }
-
+  .product-name,
   .product-price {
     font-weight: 700;
-    padding-top: 0.625rem;
-    border-top: 2px dashed #c32401;
+  }
+
+  .brand-code-container {
+    display: flex;
+    flex-direction: column;
   }
 `;

@@ -6,7 +6,7 @@ import { StyledOrderSummary } from "./style";
 
 export function OrderSummary() {
   const navigate = useNavigate();
-  const itemsInCart = JSON.parse(localStorage.getItem("itemsInCart"));
+  const itemsInCart = JSON.parse(localStorage.getItem("itemsInCart")) || [];
   console.log(itemsInCart);
 
   const cartLength = () => {
@@ -19,28 +19,35 @@ export function OrderSummary() {
       <StyledOrderSummary>
         <section className="cart-page-products">
           <ItemsInCartList itemsInCart={itemsInCart} />
-          <div className="cart-page-botton">
-            <div className="cart-page-itens">
-              <img src={cartPage} alt={"ícone carrinho de Compras"} />
-              <p>
-                <span id="cartItemCount">{cartLength()}</span> itens
-              </p>
-            </div>
-            <div className="cart-page-price">
-              <p>
-                Valor do pedido: R$ <span id="cartItemPrice"></span>
-              </p>
-            </div>
-          </div>
         </section>
+        <div className="cart-page-bottom">
+          <div className="cart-page-items">
+            <img src={cartPage} alt={"ícone carrinho de compras"} />
+            <p>
+              <span id="cartItemCount">{cartLength()}</span> itens
+            </p>
+          </div>
+          <div className="cart-page-price">
+            <p>
+              Valor do pedido: R$ <span id="cartItemPrice"></span>
+            </p>
+          </div>
+        </div>
         <div className="cart-page-buttons">
           <button className="back-to-shopping" onClick={() => navigate(-1)}>
             Continuar Comprando
           </button>
-          <button className="confirm-purchase">Finalizar Compra</button>
+          <button
+            className="confirm-purchase"
+            onClick={() => navigate("/checkout")}
+          >
+            Finalizar Compra
+          </button>
         </div>
       </StyledOrderSummary>
     </>
   );
 }
 /* TODO: adicionar funcionalidades e arrumar css. */
+/* TODO: manter itens na ida e volta no continuar comprando,
+adicionar total, adicionar valor unitario e total */
