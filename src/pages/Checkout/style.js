@@ -7,6 +7,10 @@ export const StyledCheckout = styled.div`
   .logo-payment {
     height: 120px;
     background-color: var(--color-gray-10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem 1.25rem 0.625rem 1.25rem;
   }
 
   .logo-payment > img {
@@ -194,13 +198,10 @@ export const StyledCheckout = styled.div`
   .payment-ornament {
     height: 120px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 0.625rem 1.25rem 0.625rem 1.25rem;
     background-color: var(--color-gray-10);
-  }
-
-  .payment-ornament > img {
-    padding: 10px;
-    padding-left: 30px;
   }
 
   /*   .modal-register {
