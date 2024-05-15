@@ -204,6 +204,8 @@ export const StyledCheckout = styled.div`
     background-color: var(--color-gray-10);
   }
 
+  /* TODO: estilos do modal (abaixo) vao no componente do modal */
+
   /*   .modal-register {
     display: none;
     position: fixed;
