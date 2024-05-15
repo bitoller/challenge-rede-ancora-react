@@ -131,11 +131,14 @@ export function SearchResults() {
   };
 
   useEffect(() => {
-    const totalPrice = cart.reduce(
-      (acc, curr) => acc + parseFloat(curr.price),
-      0
-    );
-    setTotalPrice(totalPrice);
+    const localCart = JSON.parse(localStorage.getItem("itemsInCart"));
+    if (cart || localCart) {
+      if (cart.length == 0 && localCart && localCart.length > 0) {
+        setCart(localCart);
+      }
+      const total = cart.reduce((acc, curr) => acc + parseFloat(curr.price), 0);
+      setTotalPrice(total);
+    }
   }, [cart]);
 
   return (

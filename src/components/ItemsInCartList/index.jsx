@@ -1,13 +1,17 @@
 import { ItemInCartCard } from "../ItemInCartCard";
 import { StyledItemsInCartList } from "./style";
 
-export function ItemsInCartList({ itemsInCart }) {
+export function ItemsInCartList({ itemsInCart, onUpdateCart }) {
   return (
     <StyledItemsInCartList>
       {itemsInCart && itemsInCart.length > 0 ? (
         <ul>
-          {itemsInCart.map((item) => (
-            <ItemInCartCard product={item} key={item.id} />
+          {itemsInCart.map((item, index) => (
+            <ItemInCartCard
+              product={item}
+              key={index}
+              onUpdateCart={onUpdateCart}
+            />
           ))}
         </ul>
       ) : (

@@ -1,7 +1,15 @@
 import imgDefault from "../../assets/default.jpg";
 import { StyledItemInCartCard } from "./style";
 
-export function ItemInCartCard({ product }) {
+export function ItemInCartCard({ product, onUpdateCart }) {
+  const handleIncrement = () => {
+    onUpdateCart(product.id, product.count + 1);
+  };
+
+  const handleDecrement = () => {
+    onUpdateCart(product.id, product.count - 1);
+  };
+
   return (
     <StyledItemInCartCard>
       <div>
@@ -19,9 +27,11 @@ export function ItemInCartCard({ product }) {
         <p className="product-brand">Marca: {product.marca}</p>
         <p className="product-code">Código: {product.codigoReferencia}</p>
       </div>
-      {/* add remove from cart button */}
+      <button onClick={handleDecrement}>-</button>
+      <p>{product.count}</p>
+      <button onClick={handleIncrement}>+</button>
       <p className="product-price">R$ {product.price}</p>
-      {/* valor unitario e total */}
+      <p className="product-price">R$ {product.price * product.count}</p>
     </StyledItemInCartCard>
   );
 }
