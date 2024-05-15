@@ -7,6 +7,7 @@ export function ModalLogin({
   setIsLoggedIn,
 }) {
   const [cpfValue, setCpfValue] = useState("");
+  const [isCpfValid, setIsCpfValid] = useState(true); // Estado para controlar se o CPF é válido
 
   const formatCpf = (value) => {
     // Remove tudo que não é número
@@ -40,11 +41,16 @@ export function ModalLogin({
   const submitLoginForm = (e) => {
     e.preventDefault();
 
-    const fixedName = "Nome do Usuário";
-
-    updateRegistration(fixedName, cpfValue);
-    setIsLoggedIn(true); // Atualiza o estado de isLoggedIn para true após um login bem-sucedido
-    closeModalLogin();
+    // Verifica se o CPF tem pelo menos 11 dígitos
+    if (cpfValue.length === 14) {
+      const fixedName = "Nome do Usuário";
+      updateRegistration(fixedName, cpfValue);
+      setIsLoggedIn(true); // Atualiza o estado de isLoggedIn para true após um login bem-sucedido
+      closeModalLogin();
+    } else {
+      // Define o estado para indicar que o CPF não é válido
+      setIsCpfValid(false);
+    }
   };
 
   const stopPropagation = (e) => {
@@ -70,8 +76,14 @@ export function ModalLogin({
             required
             placeholder="Digite aqui seu cpf"
             value={cpfValue}
-            onChange={(e) => formatCpf(e.target.value)}
+            onChange={(e) => {
+              formatCpf(e.target.value);
+              // Ao alterar o CPF, definir o estado de isCpfValid para true para redefinir o estado de validação
+              setIsCpfValid(true);
+            }}
           />
+          {/* Adiciona uma mensagem de erro se o CPF não for válido */}
+          {!isCpfValid && <p style={{ color: "red" }}>CPF inválido</p>}
           <div className="numeric-buttons">
             <button onClick={() => handleAddNumber("1")}>1</button>
             <button onClick={() => handleAddNumber("2")}>2</button>
