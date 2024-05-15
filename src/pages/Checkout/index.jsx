@@ -1,13 +1,65 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { StyledCheckout } from "./style";
+import { ModalRegister } from "../../components/ModalRegister";
+import { ModalLogin } from "../../components/ModalLogin";
 import logo from "../../assets/logo.png";
 import creditCard from "../../assets/card-flag-icon.png";
 import pix from "../../assets/pix-icon.png";
 import money from "../../assets/bank-note.png";
 import footerDots from "../../assets/footer-dots-left.png";
-import { useNavigate } from "react-router-dom";
-import { StyledCheckout } from "./style";
 
 export function Checkout() {
   const navigate = useNavigate();
+  const [showModalRegister, setShowModalRegister] = useState(false);
+  const [showModalLogin, setShowModalLogin] = useState(false);
+  const [registration, setRegistration] = useState({ fullName: "", cpf: "" });
+  const itemsInCart = JSON.parse(localStorage.getItem("itemsInCart")) || [];
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para controlar o status de login
+
+  useEffect(() => {
+    const total = itemsInCart.reduce(
+      (acc, curr) => acc + parseFloat(curr.price),
+      0
+    );
+    setTotalPrice(total);
+  }, []);
+
+  const openModalRegister = () => {
+    setShowModalRegister(true);
+  };
+
+  const closeModalRegister = () => {
+    setShowModalRegister(false);
+  };
+
+  const openModalLogin = () => {
+    setShowModalLogin(true);
+  };
+
+  const closeModalLogin = () => {
+    setShowModalLogin(false);
+  };
+
+  const updateRegistration = (name, cpf) => {
+    setRegistration({ fullName: name, cpf: cpf });
+  };
+
+  const discountValue = isLoggedIn ? totalPrice * 0.05 : 0;
+  const discountValueDisplay =
+    discountValue === 0 ? "R$ 00,00" : `R$ ${discountValue.toFixed(2)}`;
+
+  const totalPriceWithDiscount = isLoggedIn
+    ? "R$ " + (totalPrice - discountValue).toFixed(2)
+    : "R$ " + totalPrice.toFixed(2);
+
+  useEffect(() => {
+    // Verifica se o estado de login está true e imprime no console se estiver
+    if (isLoggedIn) {
+      console.log("Está logado");
+    }
+  }, [isLoggedIn]);
 
   return (
     <StyledCheckout>
@@ -64,20 +116,29 @@ export function Checkout() {
                 </li>
               </ul>
               <div id="register" className="login-options">
-                <h3>Cadastre-se e receba descontos na compra</h3>
-                <button
-                  /* onclick="openModalRegister()" */
-                  className="register-button"
-                >
-                  Casdastrar-se agora
-                </button>
-                <button
-                  /* onclick="openModalLogin()" */
-                  className="login-button"
-                  id="loginButton"
-                >
-                  Já possuo conta
-                </button>
+                {registration.fullName ? (
+                  <div>
+                    <p>Nome: {registration.fullName}</p>
+                    <p>CPF: {registration.cpf}</p>
+                  </div>
+                ) : (
+                  <>
+                    <h3>Cadastre-se e receba descontos na compra</h3>
+                    <button
+                      onClick={openModalRegister}
+                      className="register-button"
+                    >
+                      Casdastrar-se agora
+                    </button>
+                    <button
+                      onClick={openModalLogin}
+                      className="login-button"
+                      id="loginButton"
+                    >
+                      Já possuo conta
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -101,13 +162,18 @@ export function Checkout() {
           <div className="payment-value">
             <h1>Resumo da Compra</h1>
             <p>
-              Produtos<span id="totalPriceDisplay">R$ 00,00</span>
+              Produtos
+              <span id="cartItemPrice">{"R$ " + totalPrice.toFixed(2)}</span>
             </p>
             <p>
-              Descontos <span id="discount">R$ 00,00</span>
+              Descontos{" "}
+              <span id="discount">
+                <span id="discount">{discountValueDisplay}</span>
+              </span>
             </p>
             <p>
-              Você pagará <span id="newPrice">R$ 0</span>
+              Você pagará{" "}
+              <span id="cartItemPrice">{totalPriceWithDiscount}</span>
             </p>
           </div>
         </section>
@@ -115,70 +181,20 @@ export function Checkout() {
       <footer className="payment-ornament">
         <img src={footerDots} alt={"imagem de pontos"} />
       </footer>
+      {showModalRegister && (
+        <ModalRegister
+          closeModal={closeModalRegister}
+          updateRegistration={updateRegistration}
+          setIsLoggedIn={setIsLoggedIn}
+        />
+      )}
+      {showModalLogin && (
+        <ModalLogin
+          closeModalLogin={closeModalLogin}
+          updateRegistration={updateRegistration} // Certifique-se de passar esta propriedade
+          setIsLoggedIn={setIsLoggedIn} // Passa a função para definir o estado de login
+        />
+      )}
     </StyledCheckout>
   );
 }
-
-/* TODO: adicionar funcionalidades (incluindo modais e css dos modais) e arrumar css se necessario. */
-
-/* <div id="modalRegister" class="modal-register">
-      <div class="modal-register-content">
-        <span class="close" onclick="closeModalRegister()">&times;</span>
-        <h2>Cadastre-se</h2>
-        <form onsubmit="submitFormRegister(); return false;">
-          <label for="fullname">Nome Completo:</label>
-          <input type="text" id="fullname" name="fullname" required />
-          <label for="cpf">Seu CPF:</label>
-          <input
-            type="text"
-            id="cpf"
-            name="cpf"
-            pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-            maxlength="14"
-            required
-          />
-          <label for="email">E-mail:</label>
-          <input type="email" id="email" name="email" required />
-          <label for="phone">Telefone:</label>
-          <input type="tel" id="phone" name="phone" maxlength="15" required />
-          <input class="register-input" type="submit" value="Cadastrar-se" />
-        </form>
-      </div>
-    </div>
-    <div id="modalLogin" class="modal-login">
-      <div class="modal-login-content">
-        <span class="close" onclick="closeModalLogin()">&times;</span>
-        <h2>Entre com seu usuário</h2>
-        <label class="cpf-login" for="cpf">CPF:</label>
-        <input
-          type="text"
-          id="cpfLogin"
-          name="cpf"
-          maxlength="14"
-          required
-          placeholder="Digite aqui seu cpf"
-        />
-        <div class="numeric-buttons">
-          <button onclick="addNumber('1')">1</button>
-          <button onclick="addNumber('2')">2</button>
-          <button onclick="addNumber('3')">3</button>
-          <button onclick="addNumber('4')">4</button>
-          <button onclick="addNumber('5')">5</button>
-          <button onclick="addNumber('6')">6</button>
-          <button onclick="addNumber('7')">7</button>
-          <button onclick="addNumber('8')">8</button>
-          <button onclick="addNumber('9')">9</button>
-          <button class="zero" onclick="addNumber('0')">0</button>
-          <button onclick="removeLast()">⌫</button>
-        </div>
-        <form id="loginForm" onsubmit="submitLoginForm(); return false;">
-          <input type="submit" value="Entrar" />
-        </form>
-      </div>
-    </div>
-    <div id="modalPaymentOptions" class="modal-payment-option">
-      <div class="modal-option-content">
-        <div id="modalText" class="modal-text"></div>
-        <span id="loadingDots">...</span>
-      </div>
-    </div> */
