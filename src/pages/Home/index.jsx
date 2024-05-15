@@ -19,7 +19,10 @@ export function Home() {
         <p className="touch-button">Toque aqui para continuar</p>
       </Link>
       <footer>
-        <a href="https://youtu.be/L3Ne_vstIF8?si=tIW6EG8xmIJj3OSw">
+        <a
+          href="https://youtu.be/L3Ne_vstIF8?si=tIW6EG8xmIJj3OSw"
+          target="_blank"
+        >
           Vídeo Pitch
         </a>
         <Link to="/about_the_project">Sobre o Projeto</Link>
