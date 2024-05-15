@@ -8,10 +8,8 @@ export function AboutTheProject() {
       <Header text="Sobre o Projeto" />
       <StyledAboutTheProject>
         <section>
-          <p>Bianca Toller - Desenvolvimento React</p>
-          <p>Bruno Marcelino Guimarães - Desenvolvimento Vanilla/Design</p>
-          <p>Iago Henrique Bortolo - Desenvolvimento Vanilla</p>
-          <p>Wesley Da Avilla Bastos - Desenvolvimento Vanilla</p>
+          <p>Bianca Toller - Desenvolvimento</p>
+          <p>Bruno Marcelino Guimarães - Desenvolvimento/Design</p>
         </section>
         <section>
           <p>
