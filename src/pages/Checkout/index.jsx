@@ -119,6 +119,8 @@ export function Checkout() {
   );
 }
 
+/* TODO: adicionar funcionalidades (incluindo modais e css dos modais) e arrumar css se necessario. */
+
 /* <div id="modalRegister" class="modal-register">
       <div class="modal-register-content">
         <span class="close" onclick="closeModalRegister()">&times;</span>
@@ -180,5 +182,3 @@ export function Checkout() {
         <span id="loadingDots">...</span>
       </div>
     </div> */
-
-/* TODO: adicionar funcionalidades (incluindo modais e css dos modais) e arrumar css se necessario. */
