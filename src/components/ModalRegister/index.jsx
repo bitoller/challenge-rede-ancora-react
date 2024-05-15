@@ -8,22 +8,51 @@ export function ModalRegister({
 }) {
   const [fullName, setFullName] = useState("");
   const [cpf, setCpf] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const formatPhone = (value) => {
+    // Remove tudo que não é número
+    const formattedValue = value.replace(/\D/g, "");
+
+    // Formata para o padrão de telefone (##) #####-####
+    const match = formattedValue.match(/^(\d{0,2})(\d{0,5})(\d{0,4})$/);
+    if (match) {
+      setPhone(
+        !match[2]
+          ? match[1]
+          : `(${match[1]}) ${match[2]}${match[3] ? `-${match[3]}` : ""}`
+      );
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "phone") {
+      if (value.length <= 15) {
+        formatPhone(value);
+      }
+    } else {
+      // Atualiza outros campos diretamente
+      switch (name) {
+        case "fullname":
+          setFullName(value);
+          break;
+        case "cpf":
+          setCpf(value);
+          break;
+        default:
+          break;
+      }
+    }
+  };
 
   const submitFormRegister = (e) => {
     e.preventDefault();
 
-    const name = e.target.fullname.value;
-    const cpfValue = e.target.cpf.value;
+    const name = fullName;
+    const cpfValue = cpf;
 
-    const formattedCpf = cpfValue.replace(
-      /(\d{3})(\d{3})(\d{3})(\d{2})/,
-      "$1.$2.$3-$4"
-    );
-
-    setFullName(name);
-    setCpf(formattedCpf);
-
-    updateRegistration(name, formattedCpf);
+    updateRegistration(name, cpfValue);
     setIsLoggedIn(true); // Atualiza o estado de isLoggedIn para true após o registro bem-sucedido
 
     closeModal();
@@ -50,6 +79,8 @@ export function ModalRegister({
             id="fullname"
             name="fullname"
             required
+            value={fullName}
+            onChange={handleChange}
           />
           <label className="label" htmlFor="cpf">
             Seu CPF:
@@ -59,9 +90,10 @@ export function ModalRegister({
             type="text"
             id="cpf"
             name="cpf"
-            pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
             maxLength="14"
             required
+            value={cpf}
+            onChange={handleChange}
           />
           <label className="label" htmlFor="email">
             E-mail:
@@ -82,7 +114,10 @@ export function ModalRegister({
             id="phone"
             name="phone"
             maxLength="15"
+            minLength="14"
             required
+            value={phone}
+            onChange={handleChange}
           />
           <input
             className="submit-button register-input"
