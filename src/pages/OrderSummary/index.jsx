@@ -73,12 +73,10 @@ export function OrderSummary() {
       newCount
     );
 
-    // Update the count in cartWithCounter
     const updatedCart = arr.map((item) =>
       item.id === productId ? { ...item, count: newCount } : item
     );
 
-    // Filter out items with count > 0 and update cart state
     const filteredCart = updatedCart.filter((item) => item.count > 0);
     console.log("Updated cart:", filteredCart);
 
@@ -104,7 +102,8 @@ export function OrderSummary() {
           </div>
           <div className="cart-page-price">
             <p>
-              Valor do pedido: R$ <span id="cartItemPrice">{totalPrice}</span>
+              Valor do pedido: R${" "}
+              <span id="cartItemPrice">{totalPrice.toFixed(2)}</span>
             </p>
           </div>
         </div>
@@ -123,6 +122,7 @@ export function OrderSummary() {
     </>
   );
 }
-/* TODO: adicionar funcionalidades e arrumar css se necessario. */
-/* TODO: manter itens na ida e volta no continuar comprando,
-adicionar total, adicionar valor unitario e total */
+
+/* TODO: arrumar contador. quando apertar no + adicionar o produto novamente no array,
+quando apertar - tirar um desse produto no array.
+mostrar corretamente no contador. */
