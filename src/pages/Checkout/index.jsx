@@ -21,7 +21,7 @@ export function Checkout() {
 
   useEffect(() => {
     const total = itemsInCart.reduce(
-      (acc, curr) => acc + parseFloat(curr.price),
+      (acc, curr) => acc + parseFloat(curr.price) * curr.count,
       0
     );
     setTotalPrice(total);
@@ -61,7 +61,7 @@ export function Checkout() {
 
   const discountValue = isLoggedIn ? totalPrice * 0.05 : 0;
   const discountValueDisplay =
-    discountValue === 0 ? "R$ 00,00" : `R$ ${discountValue.toFixed(2)}`;
+    discountValue === 0 ? "R$ 00.00" : `R$ ${discountValue.toFixed(2)}`;
 
   const totalPriceWithDiscount = isLoggedIn
     ? "R$ " + (totalPrice - discountValue).toFixed(2)
