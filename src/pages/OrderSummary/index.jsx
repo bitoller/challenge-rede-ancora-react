@@ -7,80 +7,44 @@ import { StyledOrderSummary } from "./style";
 
 export function OrderSummary() {
   const navigate = useNavigate();
-  const itemsInCart = JSON.parse(localStorage.getItem("itemsInCart")) || [];
-  const cartWithCounter = JSON.parse(localStorage.getItem("itemsInCart")) || [];
+  const [itemsInCart, setItemsInCart] = useState(
+    JSON.parse(localStorage.getItem("itemsInCart")) || []
+  );
   const [totalPrice, setTotalPrice] = useState(0);
-  const [cart, setCart] = useState([]);
-  console.log(itemsInCart);
 
   const cartLength = () => {
-    return itemsInCart.length;
+    let productQty = 0;
+    itemsInCart.forEach((item) => {
+      productQty += item.count;
+    });
+    return productQty;
   };
 
   useEffect(() => {
+    cartTotalPrice();
+  }, []);
+
+  const cartTotalPrice = () => {
     const total = itemsInCart.reduce(
-      (acc, curr) => acc + parseFloat(curr.price),
+      (acc, curr) => acc + parseFloat(curr.price) * curr.count,
       0
     );
     setTotalPrice(total);
-  }, []);
+  };
 
-  const handleCart = () => {
-    for (let i = 0; i < cartWithCounter.length; i++) {
-      for (let j = i + 1; j < cartWithCounter.length; j++) {
-        if (cartWithCounter[i].id == cartWithCounter[j].id) {
-          cartWithCounter.splice(j, 1);
-          j--;
-        }
+  const updateCart = (multiplier, productId) => {
+    let foundIndex = itemsInCart.findIndex((x) => x.id == productId);
+    const products = itemsInCart.map((c, i) => {
+      if (i === foundIndex) {
+        c.count = c.count + 1 * multiplier;
       }
-    }
+      return c;
+    });
 
-    const backupCart = JSON.parse(localStorage.getItem("itemsInCart")) || [];
-    cartWithCounter.map(
-      (item) =>
-        (item.count = backupCart.filter(
-          (element) => element.id == item.id
-        ).length)
-    );
-    return cartWithCounter;
-  };
-
-  /* const updateCart = (productId, newCount) => {
-    console.log("Updating cart for productId:", productId, "with newCount:", newCount);
-    if (newCount == 0) {
-      cartWithCounter.find()
-    }
-    const updatedCart = cartWithCounter.map(
-      (item) => item.id === productId ? { ...item, count: newCount } : item
-    ).filter((item) => item.count > 0);
-    console.log("Updated cart:", updatedCart);
-    setCart(updatedCart);
-  }; */
-
-  const updateCart = (productId, newCount) => {
-    cartWithCounter = updateCartArr(productId, newCount, cartWithCounter);
-    itemsInCart = cartWithCounter.map((item) =>
-      itemsInCart.filter((x) => x.id == item.id)
-    );
-    console.log(itemsInCart);
-  };
-
-  const updateCartArr = (productId, newCount, arr) => {
-    console.log(
-      "Updating cart for productId:",
-      productId,
-      "with newCount:",
-      newCount
-    );
-
-    const updatedCart = arr.map((item) =>
-      item.id === productId ? { ...item, count: newCount } : item
-    );
-
-    const filteredCart = updatedCart.filter((item) => item.count > 0);
-    console.log("Updated cart:", filteredCart);
-
-    return filteredCart;
+    let filteredProducts = products.filter((product) => product.count > 0);
+    setItemsInCart(filteredProducts);
+    localStorage.setItem("itemsInCart", JSON.stringify(filteredProducts));
+    cartTotalPrice();
   };
 
   return (
@@ -89,7 +53,7 @@ export function OrderSummary() {
       <StyledOrderSummary>
         <section className="cart-page-products">
           <ItemsInCartList
-            itemsInCart={handleCart()}
+            itemsInCart={itemsInCart}
             onUpdateCart={updateCart}
           />
         </section>
@@ -114,6 +78,7 @@ export function OrderSummary() {
           <button
             className="confirm-purchase"
             onClick={() => navigate("/checkout")}
+            disabled={!itemsInCart || itemsInCart.length == 0}
           >
             Finalizar Compra
           </button>
@@ -122,7 +87,3 @@ export function OrderSummary() {
     </>
   );
 }
-
-/* TODO: arrumar contador. quando apertar no + adicionar o produto novamente no array,
-quando apertar - tirar um desse produto no array.
-mostrar corretamente no contador. */

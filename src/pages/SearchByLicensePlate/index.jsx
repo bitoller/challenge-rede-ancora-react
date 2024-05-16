@@ -93,6 +93,7 @@ export function SearchByLicensePlate() {
           const newProduct = {
             ...response.data.pageResult.data[index],
             price: randomPrice,
+            count: 0,
           };
           response.data.pageResult.data[index] = newProduct;
         }

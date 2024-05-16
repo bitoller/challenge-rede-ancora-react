@@ -65,4 +65,9 @@ export const StyledOrderSummary = styled.main`
     background-color: var(--color-accent);
     color: var(--color-gray-10);
   }
+
+  .confirm-purchase:disabled {
+    background-color: #7f7d7f;
+    cursor: default;
+  }
 `;

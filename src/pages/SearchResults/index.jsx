@@ -96,6 +96,7 @@ export function SearchResults() {
             const newProduct = {
               ...response.data.pageResult.data[index],
               price: randomPrice,
+              count: 0,
             };
             response.data.pageResult.data[index] = newProduct;
           }
@@ -118,8 +119,21 @@ export function SearchResults() {
 
   const addCart = (product) => {
     if (product) {
-      setCart([...cart, product]);
-      localStorage.setItem("itemsInCart", JSON.stringify([...cart, product]));
+      let foundIndex = cart.findIndex((x) => x.id == product.id);
+      if (foundIndex != -1) {
+        const products = cart.map((c, i) => {
+          if (i === foundIndex) {
+            c.count += 1;
+          }
+          return c;
+        });
+        setCart(products);
+        localStorage.setItem("itemsInCart", JSON.stringify(cart));
+      } else {
+        product.count = 1;
+        setCart([...cart, product]);
+        localStorage.setItem("itemsInCart", JSON.stringify([...cart, product]));
+      }
       toast.success(`${product.nomeProduto} foi adicionado ao carrinho`);
     } else {
       toast.error("Produto não encontrado");
@@ -127,7 +141,11 @@ export function SearchResults() {
   };
 
   const cartLength = () => {
-    return cart.length;
+    let productQty = 0;
+    cart.forEach((item) => {
+      productQty += item.count;
+    });
+    return productQty;
   };
 
   useEffect(() => {
@@ -136,7 +154,10 @@ export function SearchResults() {
       if (cart.length == 0 && localCart && localCart.length > 0) {
         setCart(localCart);
       }
-      const total = cart.reduce((acc, curr) => acc + parseFloat(curr.price), 0);
+      const total = cart.reduce(
+        (acc, curr) => acc + parseFloat(curr.price) * curr.count,
+        0
+      );
       setTotalPrice(total);
     }
   }, [cart]);
@@ -245,6 +266,3 @@ export function SearchResults() {
     </>
   );
 }
-
-/* TODO: fazer cards clicaveis, ao clicar abrir o treco no canto (modal div), 
-      ao abrir mostrar produto. ainda faremos isso? acho desnecessario. */

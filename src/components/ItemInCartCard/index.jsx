@@ -5,11 +5,11 @@ import { StyledItemInCartCard } from "./style";
 
 export function ItemInCartCard({ product, onUpdateCart }) {
   const handleIncrement = () => {
-    onUpdateCart(product.id, product.count + 1);
+    onUpdateCart(1, product.id);
   };
 
   const handleDecrement = () => {
-    onUpdateCart(product.id, product.count - 1);
+    onUpdateCart(-1, product.id);
   };
 
   return (
@@ -41,7 +41,7 @@ export function ItemInCartCard({ product, onUpdateCart }) {
       <div className="price-container">
         <p className="product-price-unit">Valor unitário: R$ {product.price}</p>
         <p className="product-price-sum">
-          Valor total: R$ {product.price * product.count}
+          Valor total: R$ {(product.price * product.count).toFixed(2)}
         </p>
       </div>
     </StyledItemInCartCard>
