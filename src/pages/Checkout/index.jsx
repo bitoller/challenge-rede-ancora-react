@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledCheckout } from "./style";
 import { ModalRegister } from "../../components/ModalRegister";
 import { ModalLogin } from "../../components/ModalLogin";
+import ModalPaymentOptions from "../../components/ModalPaymentOptions"; // Corrigido o nome do componente importado
 import logo from "../../assets/logo.png";
 import creditCard from "../../assets/card-flag-icon.png";
 import pix from "../../assets/pix-icon.png";
@@ -16,7 +17,7 @@ export function Checkout() {
   const [registration, setRegistration] = useState({ fullName: "", cpf: "" });
   const itemsInCart = JSON.parse(localStorage.getItem("itemsInCart")) || [];
   const [totalPrice, setTotalPrice] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para controlar o status de login
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const total = itemsInCart.reduce(
@@ -25,6 +26,18 @@ export function Checkout() {
     );
     setTotalPrice(total);
   }, []);
+
+  const [showModal, setShowModal] = useState(false);
+  const [modalText, setModalText] = useState("");
+
+  const openModal = (text) => {
+    setModalText(text);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const openModalRegister = () => {
     setShowModalRegister(true);
@@ -55,7 +68,6 @@ export function Checkout() {
     : "R$ " + totalPrice.toFixed(2);
 
   useEffect(() => {
-    // Verifica se o estado de login está true e imprime no console se estiver
     if (isLoggedIn) {
       console.log("Está logado");
     }
@@ -72,7 +84,7 @@ export function Checkout() {
             <h1>Como você prefere pagar?</h1>
             <div className="payment-options">
               <ul className="payment-methods">
-                <li /* onclick="openModal(card)" */>
+                <li onClick={() => openModal("Insira o cartão na maquininha")}>
                   <div className="img-container">
                     <img
                       src={creditCard}
@@ -84,7 +96,7 @@ export function Checkout() {
                     <p>Parcele em até 6 vezes sem juros</p>
                   </div>
                 </li>
-                <li /* onclick="openModal(card)" */>
+                <li onClick={() => openModal("Insira o cartão na maquininha")}>
                   <div className="img-container">
                     <img
                       src={creditCard}
@@ -96,7 +108,11 @@ export function Checkout() {
                     <p>Faça o pagamento através do cartão de débito</p>
                   </div>
                 </li>
-                <li /* onclick="openModal(pix)" */>
+                <li
+                  onClick={() =>
+                    openModal("Escaneie o QR CODE para fazer o pagamento")
+                  }
+                >
                   <div className="img-container">
                     <img src={pix} alt={"imagem do pix"} />
                   </div>
@@ -105,7 +121,11 @@ export function Checkout() {
                     <p>Pague via QR CODE</p>
                   </div>
                 </li>
-                <li /* onclick="openModal(money)" */>
+                <li
+                  onClick={() =>
+                    openModal("Vá ao caixa com o número do seu pedido")
+                  }
+                >
                   <div className="img-container">
                     <img src={money} alt={"imagem de uma nota de dinheiro"} />
                   </div>
@@ -191,9 +211,12 @@ export function Checkout() {
       {showModalLogin && (
         <ModalLogin
           closeModalLogin={closeModalLogin}
-          updateRegistration={updateRegistration} // Certifique-se de passar esta propriedade
-          setIsLoggedIn={setIsLoggedIn} // Passa a função para definir o estado de login
+          updateRegistration={updateRegistration}
+          setIsLoggedIn={setIsLoggedIn}
         />
+      )}
+      {showModal && (
+        <ModalPaymentOptions text={modalText} closeModal={closeModal} />
       )}
     </StyledCheckout>
   );
