@@ -5,7 +5,7 @@ import money from "../../assets/bank-note.png";
 import footerDots from "../../assets/footer-dots-left.png";
 import { ModalRegister } from "../../components/ModalRegister";
 import { ModalLogin } from "../../components/ModalLogin";
-import ModalPaymentOptions from "../../components/ModalPaymentOptions";
+import { ModalPaymentOptions } from "../../components/ModalPaymentOptions";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { StyledCheckout } from "./style";
