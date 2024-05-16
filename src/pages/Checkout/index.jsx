@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { StyledCheckout } from "./style";
-import { ModalRegister } from "../../components/ModalRegister";
-import { ModalLogin } from "../../components/ModalLogin";
-import ModalPaymentOptions from "../../components/ModalPaymentOptions"; // Corrigido o nome do componente importado
 import logo from "../../assets/logo.png";
 import creditCard from "../../assets/card-flag-icon.png";
 import pix from "../../assets/pix-icon.png";
 import money from "../../assets/bank-note.png";
 import footerDots from "../../assets/footer-dots-left.png";
+import { ModalRegister } from "../../components/ModalRegister";
+import { ModalLogin } from "../../components/ModalLogin";
+import ModalPaymentOptions from "../../components/ModalPaymentOptions";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { StyledCheckout } from "./style";
 
 export function Checkout() {
   const navigate = useNavigate();

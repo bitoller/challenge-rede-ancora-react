@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ModalWrapper = styled.div`
+export const StyledModalPaymentOptions = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -10,14 +10,14 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Garante que o modal fique sobreposto a outros elementos */
+  z-index: 1000;
 
   .modal-payment-option {
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao modal */
-    padding: 20px;
-    width: 400px; /* Largura do modal */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1.25rem;
+    width: 25rem;
   }
 
   .modal-option-content {
@@ -27,22 +27,21 @@ export const ModalWrapper = styled.div`
   }
 
   .modal-text {
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
     text-align: center;
   }
 
   .close-button {
-    background-color: #e74c3c; /* Cor do botão de fechar */
+    background-color: #e74c3c;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
+    padding: 0.625rem 1.25rem;
     transition: background-color 0.3s ease;
   }
 
   .close-button:hover {
-    background-color: #c0392b; /* Cor do botão de fechar ao passar o mouse */
+    background-color: #c0392b;
   }
 `;

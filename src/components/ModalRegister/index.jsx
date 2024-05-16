@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ModalWrapper } from "./style";
+import { StyledModalRegister } from "./style";
 
 export function ModalRegister({
   closeModal,
@@ -11,11 +11,9 @@ export function ModalRegister({
   const [phone, setPhone] = useState("");
 
   const formatPhone = (value) => {
-    // Remove tudo que não é número
     const formattedValue = value.replace(/\D/g, "");
-
-    // Formata para o padrão de telefone (##) #####-####
     const match = formattedValue.match(/^(\d{0,2})(\d{0,5})(\d{0,4})$/);
+
     if (match) {
       setPhone(
         !match[2]
@@ -32,7 +30,6 @@ export function ModalRegister({
         formatPhone(value);
       }
     } else {
-      // Atualiza outros campos diretamente
       switch (name) {
         case "fullname":
           setFullName(value);
@@ -53,7 +50,7 @@ export function ModalRegister({
     const cpfValue = cpf;
 
     updateRegistration(name, cpfValue);
-    setIsLoggedIn(true); // Atualiza o estado de isLoggedIn para true após o registro bem-sucedido
+    setIsLoggedIn(true);
 
     closeModal();
   };
@@ -63,7 +60,7 @@ export function ModalRegister({
   };
 
   return (
-    <ModalWrapper onClick={closeModal}>
+    <StyledModalRegister onClick={closeModal}>
       <div className="modal-content" onClick={stopPropagation}>
         <span className="close-button" onClick={closeModal}>
           &times;
@@ -121,11 +118,10 @@ export function ModalRegister({
           />
           <input
             className="submit-button register-input"
-            type="submit"
             value="Cadastrar-se"
           />
         </form>
       </div>
-    </ModalWrapper>
+    </StyledModalRegister>
   );
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ModalWrapper = styled.div`
+export const StyledModalLogin = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -13,10 +13,10 @@ export const ModalWrapper = styled.div`
 
   .modal-login {
     background-color: white;
-    padding: 20px;
+    padding: 1.25rem;
     border-radius: 8px;
     position: relative;
-    width: 400px;
+    width: 25rem;
     max-width: 90%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
@@ -26,10 +26,10 @@ export const ModalWrapper = styled.div`
   }
 
   .close {
-    font-size: 24px;
+    font-size: 1.5rem;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0.625rem;
+    right: 0.625rem;
     cursor: pointer;
     color: #888;
     transition: color 0.3s ease;
@@ -39,40 +39,40 @@ export const ModalWrapper = styled.div`
     color: #333;
   }
 
-  .modal-login-content h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
+  .modal-login-content > h2 {
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
     color: #333;
   }
 
   .cpf-login {
-    font-size: 16px;
+    font-size: 1rem;
     color: #555;
-    margin-bottom: 5px;
+    margin-bottom: 0.3125rem;
     display: block;
   }
 
   #cpfLogin {
     width: 100%;
-    padding: 10px;
+    padding: 0.625rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
-    margin-bottom: 15px;
+    font-size: 1rem;
+    margin-bottom: 0.9375rem;
     box-sizing: border-box;
   }
 
   .numeric-buttons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .numeric-buttons button {
-    padding: 15px 0;
+    padding: 0.9375rem 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 1.125rem;
     background-color: #f9f9f9;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -87,22 +87,21 @@ export const ModalWrapper = styled.div`
   }
 
   #loginForm {
-    margin-top: 20px;
+    margin-top: 1.25rem;
   }
 
-  #loginForm input[type="submit"] {
+  #loginForm > input {
     width: 100%;
-    padding: 15px;
+    padding: 0.9375rem;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
+    font-size: 1.125rem;
     transition: background-color 0.3s ease;
   }
 
-  #loginForm input[type="submit"]:hover {
+  #loginForm > input:hover {
     background-color: #0056b3;
   }
 `;

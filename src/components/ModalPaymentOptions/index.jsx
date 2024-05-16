@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { ModalWrapper } from "./style";
+import { StyledModalPaymentOptions } from "./style";
 
-const ModalPaymentOptions = ({ text, closeModal }) => {
+export function ModalPaymentOptions({ text, closeModal }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       closeModal();
@@ -11,7 +11,7 @@ const ModalPaymentOptions = ({ text, closeModal }) => {
   }, [closeModal]);
 
   return (
-    <ModalWrapper>
+    <StyledModalPaymentOptions>
       <div className="modal-payment-option">
         <div className="modal-option-content">
           <div className="modal-text">{text}</div>
@@ -20,8 +20,6 @@ const ModalPaymentOptions = ({ text, closeModal }) => {
           </button>
         </div>
       </div>
-    </ModalWrapper>
+    </StyledModalPaymentOptions>
   );
-};
-
-export default ModalPaymentOptions;
+}
