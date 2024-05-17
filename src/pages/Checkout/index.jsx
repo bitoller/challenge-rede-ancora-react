@@ -224,8 +224,8 @@ export function Checkout() {
 }
 
 /* TODO: varios erros no console, algo foi passado errado como prop,
-os unicos erros que devem ficar sao os da imagem pois a api que esta errada
-sumiram, mas checar mesmo assim */
-/* TODO: alterar CSS se necessario, lembrar de deixar no padrao atual usando,
+os unicos erros que devem ficar sao os da imagem pois a api que esta errada.
+erros sumiram, mas checar mesmo assim */
+/* TODO: alterar CSS se necessario, lembrar de deixar no padrao atual usando
 > para filhos das tags e medida REM, checar no global styles se algo realmente
 e necessario como cursor pointer e etc */
