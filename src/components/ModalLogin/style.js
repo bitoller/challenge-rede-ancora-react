@@ -23,6 +23,9 @@ export const StyledModalLogin = styled.div`
 
   .modal-login-content {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3125rem;
   }
 
   .close {
@@ -40,7 +43,7 @@ export const StyledModalLogin = styled.div`
   }
 
   .modal-login-content > h2 {
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.9375rem;
     font-size: 1.5rem;
     color: #333;
   }
@@ -48,7 +51,6 @@ export const StyledModalLogin = styled.div`
   .cpf-login {
     font-size: 1rem;
     color: #555;
-    margin-bottom: 0.3125rem;
     display: block;
   }
 
@@ -58,8 +60,7 @@ export const StyledModalLogin = styled.div`
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
-    margin-bottom: 0.9375rem;
-    box-sizing: border-box;
+    margin-bottom: 0.625rem;
   }
 
   .numeric-buttons {
@@ -68,13 +69,12 @@ export const StyledModalLogin = styled.div`
     gap: 0.625rem;
   }
 
-  .numeric-buttons button {
+  .numeric-buttons > button {
     padding: 0.9375rem 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1.125rem;
     background-color: #f9f9f9;
-    cursor: pointer;
     transition: background-color 0.3s ease;
   }
 
@@ -87,7 +87,7 @@ export const StyledModalLogin = styled.div`
   }
 
   #loginForm {
-    margin-top: 1.25rem;
+    margin-top: 0.9375rem;
   }
 
   #loginForm > input {

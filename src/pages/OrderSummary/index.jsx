@@ -59,7 +59,7 @@ export function OrderSummary() {
         </section>
         <div className="cart-page-bottom">
           <div className="cart-page-items">
-            <img src={cartPage} alt={"ícone carrinho de compras"} />
+            <img src={cartPage} alt={"ícone de um carrinho de compras"} />
             <p>
               <span id="cartItemCount">{cartLength()}</span> itens
             </p>

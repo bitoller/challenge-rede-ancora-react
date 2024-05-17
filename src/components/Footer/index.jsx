@@ -19,7 +19,7 @@ export function Footer({
       {showFooterCart && (
         <div className="footer-cart">
           <div className="footer-cart-img">
-            <img src={cartFooter} alt={"imagem de um carrinho de compras"} />
+            <img src={cartFooter} alt={"ícone de um carrinho de compras"} />
             <p className="footer-cart-count-item">
               <span id="cartItemCount">{cartLength()}</span> Itens
             </p>

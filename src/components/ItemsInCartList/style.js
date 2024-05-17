@@ -17,7 +17,7 @@ export const StyledItemsInCartList = styled.div`
 
   ul::-webkit-scrollbar {
     background: transparent;
-    width: 3px;
+    width: 0.1875rem;
   }
 
   ul::-webkit-scrollbar-thumb {
@@ -31,8 +31,8 @@ export const StyledItemsInCartList = styled.div`
 
   .empty-cart {
     text-align: center;
-    padding: 30px;
-    font-size: 20px;
+    padding: 1.875rem;
+    font-size: 1.25rem;
     font-weight: 600;
   }
 `;

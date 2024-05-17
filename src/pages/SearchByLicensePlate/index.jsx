@@ -142,7 +142,7 @@ export function SearchByLicensePlate() {
                 alt={"ícone de um carro com sinal de positivo"}
               />
               <p id="plateInput">{selectCarInfo}</p>
-              <img src={rightArrow} alt={"seta para direita"} />
+              <img src={rightArrow} alt={"ícone de uma seta para a direita"} />
             </div>
           </div>
           <form onSubmit={search}>

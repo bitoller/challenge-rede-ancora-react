@@ -13,42 +13,62 @@ export const StyledModalRegister = styled.div`
 
   .modal-content {
     background-color: white;
-    padding: 20px;
+    padding: 1.25rem;
     border-radius: 8px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
   }
 
   .close-button {
-    font-size: 24px;
+    font-size: 1.5rem;
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
+    color: #888;
+    transition: color 0.3s ease;
+  }
+
+  .close-button:hover {
+    color: #333;
+  }
+
+  .modal-content > h2 {
+    margin-bottom: 0.9375rem;
+    font-size: 1.5rem;
+    color: #333;
   }
 
   .form {
     display: flex;
     flex-direction: column;
+    gap: 0.625rem;
   }
 
   .label {
-    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
   }
 
   .input {
-    padding: 10px;
-    margin-bottom: 15px;
+    width: 100%;
+    padding: 0.625rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
   }
 
   .submit-button {
-    padding: 10px 20px;
+    width: 100%;
+    padding: 0.9375rem;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    font-size: 1.125rem;
+    text-align: center;
     transition: background-color 0.3s ease;
   }
 

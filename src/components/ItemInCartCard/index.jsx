@@ -17,7 +17,7 @@ export function ItemInCartCard({ product, onUpdateCart }) {
       <div className="img-container">
         <img
           src={`https://catalogopdtstorage.blob.core.windows.net/imagens-prd/produto/${product.imagemReal}`}
-          alt={"Imagem do Produto"}
+          alt={"imagem do produto"}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
             currentTarget.src = imgDefault;
@@ -31,11 +31,17 @@ export function ItemInCartCard({ product, onUpdateCart }) {
       </div>
       <div className="counter-container">
         <button onClick={handleDecrement}>
-          <img src={minusButton} alt={"botão de menos"} />
+          <img
+            src={minusButton}
+            alt={"ícone de um botão com um sinal de menos"}
+          />
         </button>
         <p>{product.count}</p>
         <button onClick={handleIncrement}>
-          <img src={plusButton} alt={"botão de mais"} />
+          <img
+            src={plusButton}
+            alt={"ícone de um botão com um sinal de mais"}
+          />
         </button>
       </div>
       <div className="price-container">

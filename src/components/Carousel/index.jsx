@@ -11,17 +11,17 @@ export function Carousel() {
   const items = [
     <img
       src={carouselPromo}
-      alt={"imagem com um texto sobre promoções"}
+      alt={"imagem com um texto sobre promoções do site"}
       className="carousel-img"
     />,
     <img
       src={carouselBrands1}
-      alt={"carrossel de logos"}
+      alt={"carrossel de marcas disponíveis"}
       className="carousel-img"
     />,
     <img
       src={carouselBrands2}
-      alt={"carrossel de logos"}
+      alt={"carrossel de marcas disponíveis"}
       className="carousel-img"
     />,
   ];

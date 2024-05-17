@@ -117,11 +117,17 @@ export function ModalRegister({
             onChange={handleChange}
           />
           <input
+            type="submit"
             className="submit-button register-input"
-            value="Cadastrar-se"
+            value="Cadastrar"
           />
         </form>
       </div>
     </StyledModalRegister>
   );
 }
+
+/* TODO: colocar mensagems de erro vermelhas embaixo de cada input para sinalizar
+que a digitacao esta incorreta (igual o modal de login) */
+/* TODO: consertar o campo de cpf para so aceitar um formato de cpf
+(igual o modal de login) */

@@ -117,4 +117,4 @@ export const StyledPlateModal = styled.div`
   }
 `;
 
-/* TODO: fazer o keyframes funcionar? */
+/* TODO: fazer o keyframes funcionar ou arrancar ele */

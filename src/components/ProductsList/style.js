@@ -17,7 +17,7 @@ export const StyledProductsList = styled.div`
 
   ul::-webkit-scrollbar {
     background: transparent;
-    width: 3px;
+    width: 0.1875rem;
   }
 
   ul::-webkit-scrollbar-thumb {

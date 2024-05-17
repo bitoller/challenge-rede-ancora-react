@@ -13,7 +13,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, button {
+time, mark, audio, video, button, input {
   margin: 0;
 	padding: 0;
 	border: 0;
@@ -56,5 +56,4 @@ body {
   --font-family-1: "Poppins", sans-serif;
   --font-family-2: "Roboto", sans-serif;
 }
-
 `;

@@ -7,7 +7,7 @@ export const StyledItemInCartCard = styled.li`
   gap: 0.9375rem;
   width: 90%;
   height: 8.75rem;
-  padding: 10px;
+  padding: 0.625rem;
   background-color: white;
   color: black;
   border: 1px solid black;
@@ -17,7 +17,7 @@ export const StyledItemInCartCard = styled.li`
     justify-content: center;
     align-items: center;
     height: 8.5625rem;
-    width: 300px;
+    width: 18.75rem;
   }
 
   .img-container > img {
@@ -39,22 +39,34 @@ export const StyledItemInCartCard = styled.li`
     font-weight: 400;
     font-family: var(--font-family-1);
     color: var(--color-primary);
+    height: 100%;
+    width: 18.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
 
   .brand-code-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 12.5rem;
   }
 
   .counter-container {
     display: flex;
-    gap: 15px;
+    gap: 0.9375rem;
   }
 
   .price-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
 
   .product-price-sum {

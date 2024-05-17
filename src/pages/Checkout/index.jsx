@@ -69,7 +69,6 @@ export function Checkout() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      console.log("Está logado");
     }
   }, [isLoggedIn]);
 
@@ -88,7 +87,7 @@ export function Checkout() {
                   <div className="img-container">
                     <img
                       src={creditCard}
-                      alt={"imagem da bandeira do cartão de crédito"}
+                      alt={"ícone da bandeira do cartão de crédito"}
                     />
                   </div>
                   <div className="payment-text">
@@ -100,7 +99,7 @@ export function Checkout() {
                   <div className="img-container">
                     <img
                       src={creditCard}
-                      alt={"imagem da bandeira do cartão de débito"}
+                      alt={"ícone da bandeira do cartão de débito"}
                     />
                   </div>
                   <div className="payment-text">
@@ -114,7 +113,7 @@ export function Checkout() {
                   }
                 >
                   <div className="img-container">
-                    <img src={pix} alt={"imagem do pix"} />
+                    <img src={pix} alt={"ícone do método de pagamento pix"} />
                   </div>
                   <div className="payment-text">
                     <h2>Pagamento via PIX</h2>
@@ -127,7 +126,7 @@ export function Checkout() {
                   }
                 >
                   <div className="img-container">
-                    <img src={money} alt={"imagem de uma nota de dinheiro"} />
+                    <img src={money} alt={"ícone de uma nota de dinheiro"} />
                   </div>
                   <div className="payment-text">
                     <h2>Pagamento em dinheiro</h2>
@@ -148,7 +147,7 @@ export function Checkout() {
                       onClick={openModalRegister}
                       className="register-button"
                     >
-                      Casdastrar-se agora
+                      Casdastre-se agora
                     </button>
                     <button
                       onClick={openModalLogin}
@@ -170,9 +169,11 @@ export function Checkout() {
               Voltar
             </button>
             <button
-              /* onclick="cleanLocalStorage()" */
               className="payment-button-continue"
-              onClick={() => navigate("/home")}
+              onClick={() => {
+                navigate("/home");
+                localStorage.clear();
+              }}
             >
               Finalizar
             </button>
@@ -182,24 +183,24 @@ export function Checkout() {
           <div className="payment-value">
             <h1>Resumo da Compra</h1>
             <p>
-              Produtos
+              Produtos:
               <span id="cartItemPrice">{"R$ " + totalPrice.toFixed(2)}</span>
             </p>
             <p>
-              Descontos{" "}
+              Descontos:{" "}
               <span id="discount">
                 <span id="discount">{discountValueDisplay}</span>
               </span>
             </p>
             <p>
-              Você pagará{" "}
+              Você pagará:{" "}
               <span id="cartItemPrice">{totalPriceWithDiscount}</span>
             </p>
           </div>
         </section>
       </main>
       <footer className="payment-ornament">
-        <img src={footerDots} alt={"imagem de pontos"} />
+        <img src={footerDots} alt={"ícone com vários pontos"} />
       </footer>
       {showModalRegister && (
         <ModalRegister
@@ -221,3 +222,10 @@ export function Checkout() {
     </StyledCheckout>
   );
 }
+
+/* TODO: varios erros no console, algo foi passado errado como prop,
+os unicos erros que devem ficar sao os da imagem pois a api que esta errada
+sumiram, mas checar mesmo assim */
+/* TODO: alterar CSS se necessario, lembrar de deixar no padrao atual usando,
+> para filhos das tags e medida REM, checar no global styles se algo realmente
+e necessario como cursor pointer e etc */

@@ -175,6 +175,7 @@ export const StyledCheckout = styled.div`
     border-bottom: 2px solid #d9d9d9;
     font-size: 1.5rem;
     font-weight: 600;
+    padding-bottom: 0.9375rem;
   }
 
   .payment-value > p {
@@ -188,6 +189,8 @@ export const StyledCheckout = styled.div`
   .payment-value > p:last-child {
     border-top: 2px solid #d9d9d9;
     padding-top: 0.9375rem;
+    color: #c32401;
+    font-weight: 600;
   }
 
   .payment-value > p > span {

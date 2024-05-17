@@ -7,7 +7,7 @@ export function ProductCard({ product, selectedItem }) {
       <div>
         <img
           src={`https://catalogopdtstorage.blob.core.windows.net/imagens-prd/produto/${product.imagemReal}`}
-          alt={"Imagem do Produto"}
+          alt={"imagem do produto"}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
             currentTarget.src = imgDefault;

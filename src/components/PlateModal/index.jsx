@@ -78,7 +78,7 @@ export function PlateModal({ onSubmit, onCloseModal }) {
               placeholder="Digite aqui sua placa"
               name="plate"
             />
-            <img src={licensePlate} alt={"imagem de uma placa de carro"} />
+            <img src={licensePlate} alt={"icone de uma placa de carro"} />
           </div>
           {hasError && (
             <p className="search-plate-error error">

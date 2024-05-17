@@ -24,11 +24,11 @@ export const StyledModalPaymentOptions = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1.25rem;
   }
 
   .modal-text {
     font-size: 1.125rem;
-    margin-bottom: 1.25rem;
     text-align: center;
   }
 
