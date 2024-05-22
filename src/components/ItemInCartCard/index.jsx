@@ -1,15 +1,33 @@
+import React, { useState } from "react";
 import imgDefault from "../../assets/default.jpg";
 import minusButton from "../../assets/lessButton.svg";
 import plusButton from "../../assets/moreButton.svg";
 import { StyledItemInCartCard } from "./style";
 
 export function ItemInCartCard({ product, onUpdateCart }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [productToRemove, setProductToRemove] = useState(null);
+
   const handleIncrement = () => {
     onUpdateCart(1, product.id);
   };
 
   const handleDecrement = () => {
+    if (product.count === 1) {
+      setProductToRemove(product);
+      setIsModalOpen(true);
+    } else {
+      onUpdateCart(-1, product.id);
+    }
+  };
+
+  const confirmRemoveItem = () => {
     onUpdateCart(-1, product.id);
+    setIsModalOpen(false);
+  };
+
+  const cancelRemoveItem = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -50,6 +68,19 @@ export function ItemInCartCard({ product, onUpdateCart }) {
           Valor total: R$ {(product.price * product.count).toFixed(2)}
         </p>
       </div>
+
+      {isModalOpen && (
+        <div className="modal-container">
+          <div className="modal">
+            <p>
+              Deseja remover o produto "{productToRemove.nomeProduto}" do
+              carrinho?
+            </p>
+            <button onClick={cancelRemoveItem}>Cancelar</button>
+            <button onClick={confirmRemoveItem}>Confirmar</button>
+          </div>
+        </div>
+      )}
     </StyledItemInCartCard>
   );
 }

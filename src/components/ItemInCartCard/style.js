@@ -72,4 +72,51 @@ export const StyledItemInCartCard = styled.li`
   .product-price-sum {
     color: #c32401;
   }
+
+  .modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .modal {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .modal p {
+    margin-bottom: 0.5rem;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .modal button {
+    margin-top: 20px;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .modal button:last-child {
+    margin-left: 20px;
+  }
+
+  .modal button:hover {
+    background-color: #004080;
+  }
 `;
