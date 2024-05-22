@@ -20,9 +20,8 @@ export function AddToCartModal({ show, onClose, product, onAddToCart }) {
   };
 
   useEffect(() => {
-    // Reset quantity to 1 whenever a new product is selected
     setQuantity(1);
-  }, [product]); // Reset quantity when product changes
+  }, [product]);
 
   if (!product) return null;
 

@@ -135,24 +135,24 @@ export const StyledSearchResults = styled.main`
     height: calc(100% - 7.5rem - 3.8281rem);
   }
   .modal {
-    position: fixed; /* Keep the modal above everything else */
-    z-index: 1; /* Specify a stack order in case of overlapping content */
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if modal content overflows */
-    background-color: rgba(0, 0, 0, 0.4); /* Transparent black background */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
   }
 
   .modal-content {
-    background-color: var(--color-gray-10); /* Modal content background color */
-    margin: 15% auto; /* Center the modal */
-    padding: 20px; /* Inner padding */
-    border: 1px solid var(--color-gray-3); /* Modal border */
-    width: 80%; /* Modal width */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    background-color: var(--color-gray-10);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--color-gray-3);
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
   .modal-header {
@@ -160,7 +160,7 @@ export const StyledSearchResults = styled.main`
     align-items: center;
     justify-content: space-between;
     padding: 16px;
-    border-bottom: 1px solid var(--color-gray-3); /* Divider line */
+    border-bottom: 1px solid var(--color-gray-3);
   }
 
   .modal-title {
@@ -170,15 +170,15 @@ export const StyledSearchResults = styled.main`
   }
 
   .modal-close {
-    color: var(--color-gray-8); /* Close button text color */
-    font-size: 2.1875rem; /* Large font size for close icon */
+    color: var(--color-gray-8);
+    font-size: 2.1875rem;
     cursor: pointer;
   }
 
   .modal-close:hover,
   .modal-close:focus {
-    color: var(--color-primary); /* Change color on hover/focus */
-    text-decoration: underline; /* Add underline on hover/focus */
+    color: var(--color-primary);
+    text-decoration: underline;
   }
 
   .modal-body {
@@ -189,7 +189,7 @@ export const StyledSearchResults = styled.main`
     display: flex;
     justify-content: flex-end;
     padding: 16px;
-    border-top: 1px solid var(--color-gray-3); /* Divider line */
+    border-top: 1px solid var(--color-gray-3);
   }
 
   .modal-button {
@@ -202,10 +202,10 @@ export const StyledSearchResults = styled.main`
   }
 
   .modal-button:hover {
-    background-color: var(--color-gray-3); /* Button hover background */
+    background-color: var(--color-gray-3);
   }
 
   .modal-button:active {
-    background-color: var(--color-gray-5); /* Button pressed background */
+    background-color: var(--color-gray-5);
   }
 `;
