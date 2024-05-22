@@ -9,6 +9,8 @@ export function ModalRegister({
   const [fullName, setFullName] = useState("");
   const [cpf, setCpf] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [errors, setErrors] = useState({});
 
   const formatPhone = (value) => {
     const formattedValue = value.replace(/\D/g, "");
@@ -23,19 +25,67 @@ export function ModalRegister({
     }
   };
 
+  const formatCpf = (value) => {
+    const formattedValue = value.replace(/\D/g, "");
+    const match = formattedValue.match(
+      /^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})$/
+    );
+
+    if (match) {
+      setCpf(
+        !match[2]
+          ? match[1]
+          : `${match[1]}.${match[2]}${match[3] ? `.${match[3]}` : ""}${
+              match[4] ? `-${match[4]}` : ""
+            }`
+      );
+    }
+  };
+
+  const validateCpf = (value) => {
+    const formattedValue = value.replace(/\D/g, "");
+    if (formattedValue.length !== 11) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        cpf: "CPF deve ter 11 dígitos",
+      }));
+      return false;
+    }
+    setErrors((prevErrors) => ({ ...prevErrors, cpf: "" }));
+    return true;
+  };
+
+  const validateEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: "E-mail inválido",
+      }));
+      return false;
+    }
+    setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
+    return true;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "phone") {
       if (value.length <= 15) {
         formatPhone(value);
       }
+    } else if (name === "cpf") {
+      if (value.length <= 14) {
+        formatCpf(value);
+      }
+      validateCpf(value);
+    } else if (name === "email") {
+      setEmail(value);
+      validateEmail(value);
     } else {
       switch (name) {
         case "fullname":
           setFullName(value);
-          break;
-        case "cpf":
-          setCpf(value);
           break;
         default:
           break;
@@ -46,13 +96,49 @@ export function ModalRegister({
   const submitFormRegister = (e) => {
     e.preventDefault();
 
-    const name = fullName;
-    const cpfValue = cpf;
+    const isValid = validateForm();
 
-    updateRegistration(name, cpfValue);
-    setIsLoggedIn(true);
+    if (isValid) {
+      const name = fullName;
+      const cpfValue = cpf;
 
-    closeModal();
+      updateRegistration(name, cpfValue);
+      setIsLoggedIn(true);
+
+      closeModal();
+    }
+  };
+
+  const validateForm = () => {
+    let valid = true;
+    let newErrors = {};
+
+    if (!fullName) {
+      newErrors.fullName = "Nome Completo é obrigatório";
+      valid = false;
+    }
+
+    if (!cpf) {
+      newErrors.cpf = "CPF é obrigatório";
+      valid = false;
+    } else if (!validateCpf(cpf)) {
+      valid = false;
+    }
+
+    if (!email) {
+      newErrors.email = "E-mail é obrigatório";
+      valid = false;
+    } else if (!validateEmail(email)) {
+      valid = false;
+    }
+
+    if (!phone || phone.length < 14) {
+      newErrors.phone = "Telefone é obrigatório e deve ser válido";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
   };
 
   const stopPropagation = (e) => {
@@ -66,7 +152,7 @@ export function ModalRegister({
           &times;
         </span>
         <h2>Cadastre-se</h2>
-        <form className="form" onSubmit={submitFormRegister}>
+        <form className="form" onSubmit={submitFormRegister} noValidate>
           <label className="label" htmlFor="fullname">
             Nome Completo:
           </label>
@@ -79,6 +165,7 @@ export function ModalRegister({
             value={fullName}
             onChange={handleChange}
           />
+          {errors.fullName && <p className="error">{errors.fullName}</p>}
           <label className="label" htmlFor="cpf">
             Seu CPF:
           </label>
@@ -92,6 +179,7 @@ export function ModalRegister({
             value={cpf}
             onChange={handleChange}
           />
+          {errors.cpf && <p className="error">{errors.cpf}</p>}
           <label className="label" htmlFor="email">
             E-mail:
           </label>
@@ -101,7 +189,10 @@ export function ModalRegister({
             id="email"
             name="email"
             required
+            value={email}
+            onChange={handleChange}
           />
+          {errors.email && <p className="error">{errors.email}</p>}
           <label className="label" htmlFor="phone">
             Telefone:
           </label>
@@ -116,6 +207,7 @@ export function ModalRegister({
             value={phone}
             onChange={handleChange}
           />
+          {errors.phone && <p className="error">{errors.phone}</p>}
           <input
             type="submit"
             className="submit-button register-input"
@@ -126,8 +218,3 @@ export function ModalRegister({
     </StyledModalRegister>
   );
 }
-
-/* TODO: colocar mensagems de erro vermelhas embaixo de cada input para sinalizar
-que a digitacao esta incorreta (igual o modal de login) */
-/* TODO: consertar o campo de cpf para so aceitar um formato de cpf
-(igual o modal de login) */

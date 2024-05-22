@@ -75,4 +75,10 @@ export const StyledModalRegister = styled.div`
   .submit-button:hover {
     background-color: #0056b3;
   }
+
+  .error {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+  }
 `;
