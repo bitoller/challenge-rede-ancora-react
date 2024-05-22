@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo.png";
 import { Footer } from "../../components/Footer";
 import { PlateModal } from "../../components/PlateModal";
@@ -6,7 +7,7 @@ import { SearchProductsInput } from "../../components/SearchProductsInput";
 import { SearchButton } from "../../components/SearchButton";
 import axios from "axios";
 import { toast } from "react-toastify";
-import React, { useState, useEffect } from "react";
+import { AddToCartModal } from "../../components/AddToCartModal";
 import { StyledSearchResults } from "./style";
 
 export function SearchResults() {
@@ -16,6 +17,8 @@ export function SearchResults() {
   const [plateValue, setPlateValue] = useState(null);
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [showAddToCartModal, setShowAddToCartModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const lastSearch = localStorage.getItem("lastSearch");
 
   useEffect(() => {
@@ -117,20 +120,20 @@ export function SearchResults() {
     setModal(false);
   };
 
-  const addCart = (product) => {
+  const handleAddToCart = (product, quantity) => {
     if (product) {
       let foundIndex = cart.findIndex((x) => x.id == product.id);
       if (foundIndex != -1) {
         const products = cart.map((c, i) => {
           if (i === foundIndex) {
-            c.count += 1;
+            c.count += quantity;
           }
           return c;
         });
         setCart(products);
         localStorage.setItem("itemsInCart", JSON.stringify(cart));
       } else {
-        product.count = 1;
+        product.count = quantity;
         setCart([...cart, product]);
         localStorage.setItem("itemsInCart", JSON.stringify([...cart, product]));
       }
@@ -138,6 +141,11 @@ export function SearchResults() {
     } else {
       toast.error("Produto não encontrado");
     }
+  };
+
+  const openAddToCartModal = (product) => {
+    setSelectedProduct(product);
+    setShowAddToCartModal(true);
   };
 
   const cartLength = () => {
@@ -249,7 +257,10 @@ export function SearchResults() {
             Você pesquisou por: <span>{lastSearch}</span>
           </p>
           <div id="productList" className="product-list">
-            <ProductsList productsCatalog={productsCatalog} product={addCart} />
+            <ProductsList
+              productsCatalog={productsCatalog}
+              product={openAddToCartModal}
+            />
           </div>
         </section>
       </StyledSearchResults>
@@ -263,6 +274,12 @@ export function SearchResults() {
       {modal ? (
         <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />
       ) : null}
+      <AddToCartModal
+        show={showAddToCartModal}
+        onClose={() => setShowAddToCartModal(false)}
+        product={selectedProduct}
+        onAddToCart={handleAddToCart}
+      />
     </>
   );
 }

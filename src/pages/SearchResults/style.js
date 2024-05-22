@@ -134,4 +134,78 @@ export const StyledSearchResults = styled.main`
   .product-list {
     height: calc(100% - 7.5rem - 3.8281rem);
   }
+  .modal {
+    position: fixed; /* Keep the modal above everything else */
+    z-index: 1; /* Specify a stack order in case of overlapping content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if modal content overflows */
+    background-color: rgba(0, 0, 0, 0.4); /* Transparent black background */
+  }
+
+  .modal-content {
+    background-color: var(--color-gray-10); /* Modal content background color */
+    margin: 15% auto; /* Center the modal */
+    padding: 20px; /* Inner padding */
+    border: 1px solid var(--color-gray-3); /* Modal border */
+    width: 80%; /* Modal width */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid var(--color-gray-3); /* Divider line */
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-gray-8);
+  }
+
+  .modal-close {
+    color: var(--color-gray-8); /* Close button text color */
+    font-size: 2.1875rem; /* Large font size for close icon */
+    cursor: pointer;
+  }
+
+  .modal-close:hover,
+  .modal-close:focus {
+    color: var(--color-primary); /* Change color on hover/focus */
+    text-decoration: underline; /* Add underline on hover/focus */
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    border-top: 1px solid var(--color-gray-3); /* Divider line */
+  }
+
+  .modal-button {
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .modal-button:hover {
+    background-color: var(--color-gray-3); /* Button hover background */
+  }
+
+  .modal-button:active {
+    background-color: var(--color-gray-5); /* Button pressed background */
+  }
 `;
