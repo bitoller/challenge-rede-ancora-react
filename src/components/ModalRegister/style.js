@@ -82,3 +82,5 @@ export const StyledModalRegister = styled.div`
     margin-top: -0.5rem;
   }
 `;
+
+/* TODO: adicionar keyframes igual do modal de placa em todos os modais */

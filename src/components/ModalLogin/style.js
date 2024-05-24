@@ -105,3 +105,5 @@ export const StyledModalLogin = styled.div`
     background-color: #0056b3;
   }
 `;
+
+/* TODO: adicionar keyframes igual do modal de placa em todos os modais */

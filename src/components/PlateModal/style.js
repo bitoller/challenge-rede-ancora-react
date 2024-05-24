@@ -117,5 +117,3 @@ export const StyledPlateModal = styled.div`
     background-color: var(--color-accent);
   }
 `;
-
-/* TODO: fazer o keyframes funcionar ou arrancar ele = adicionado a animacao ao modal */

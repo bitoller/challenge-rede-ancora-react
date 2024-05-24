@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ModalOverlay } from "./style";
+import { StyledAddToCartModal } from "./style";
 
 export function AddToCartModal({ show, onClose, product, onAddToCart }) {
   const [quantity, setQuantity] = useState(1);
@@ -27,7 +27,7 @@ export function AddToCartModal({ show, onClose, product, onAddToCart }) {
 
   return (
     show && (
-      <ModalOverlay>
+      <StyledAddToCartModal>
         <div className="modal-content">
           <div className="modal-header">
             <h2 className="modal-title">Adicionar ao Carrinho</h2>
@@ -70,7 +70,10 @@ export function AddToCartModal({ show, onClose, product, onAddToCart }) {
             </button>
           </div>
         </div>
-      </ModalOverlay>
+      </StyledAddToCartModal>
     )
   );
 }
+
+/* TODO: arrumar estilizacao (copiar dos cards de produtos) */
+/* TODO: arrumar imagens blob pra quando a api nao enviar uma imagem */

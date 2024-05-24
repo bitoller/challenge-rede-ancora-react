@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ModalOverlay = styled.div`
+export const StyledAddToCartModal = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -61,7 +61,6 @@ export const ModalOverlay = styled.div`
     border: none;
     border-radius: 5px;
     background-color: #f8f9fa;
-    cursor: pointer;
   }
 
   .quantity-display {
@@ -91,7 +90,6 @@ export const ModalOverlay = styled.div`
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
   }
 
   .cancel-button {
@@ -104,3 +102,6 @@ export const ModalOverlay = styled.div`
     color: white;
   }
 `;
+
+/* TODO: remover estilizacoes desnecessarias, margens que podem ser trocadas por gap,
+REM */

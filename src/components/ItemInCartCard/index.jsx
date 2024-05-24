@@ -68,7 +68,6 @@ export function ItemInCartCard({ product, onUpdateCart }) {
           Valor total: R$ {(product.price * product.count).toFixed(2)}
         </p>
       </div>
-
       {isModalOpen && (
         <div className="modal-container">
           <div className="modal">
@@ -84,3 +83,6 @@ export function ItemInCartCard({ product, onUpdateCart }) {
     </StyledItemInCartCard>
   );
 }
+
+/* TODO: melhorar estilizacao do modal de remover ultimo produto do carrinho */
+/* TODO: remover o espaco atras do nome do produto do modal de remover ultimo produto do carrinho*/
