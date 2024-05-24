@@ -14,92 +14,127 @@ export const StyledAddToCartModal = styled.div`
 
   .modal-content {
     background-color: white;
-    border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    width: 300px;
-    max-width: 80%;
-  }
-
-  .modal-header {
+    padding: 15px;
+    width: 450px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .modal-title {
-    margin: 0;
+    gap: 20px;
+    animation: slideInAnimation 0.2s ease-out;
   }
 
   .modal-body {
-    margin-bottom: 20px;
+    width: 85%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
 
   .product-image {
     width: 100%;
     height: auto;
     max-height: 200px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
   }
 
   .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     margin-bottom: 10px;
+    font-size: var(--font-size-4);
+    font-weight: 500;
+    line-height: 30px;
+    text-align: center;
+    color: var(--color-primary);
+  }
+
+  .product-info h5 {
+    border-bottom: 2px dashed #c32401;
+    padding-bottom: 10px;
+  }
+
+  .red-text {
+    color: #c32401;
+  }
+
+  .product-info p:last-child {
+    border-top: 2px dashed #c32401;
+    padding-top: 20px;
   }
 
   .quantity-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+    font-size: var(--font-size-4);
+    gap: 20px;
+    font-weight: 500;
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+  }
+
+  .quantity-button img {
+    width: 25px;
+    height: 25px;
   }
 
   .quantity-button {
-    padding: 5px 10px;
-    margin: 0 5px;
-    font-size: 1rem;
     border: none;
     border-radius: 5px;
     background-color: #f8f9fa;
   }
 
   .quantity-display {
-    font-size: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
   }
 
   .modal-footer {
     display: flex;
-    justify-content: space-between;
-  }
-
-  .close-button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 0.625rem 1.25rem;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #c0392b;
-    }
+    flex-direction: column;
+    gap: 45px;
   }
 
   .cancel-button,
   .add-button {
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-  }
-
-  .cancel-button {
-    background-color: #6c757d;
-    color: white;
+    width: 260px;
+    height: 60px;
+    border-radius: 7px;
+    font-size: 20px;
+    font-weight: 700;
   }
 
   .add-button {
-    background-color: #007bff;
-    color: white;
+    color: var(--color-gray-10);
+    background-color: var(--color-primary);
+  }
+
+  .cancel-button {
+    color: var(--color-primary);
+    background-color: var(--color-gray-8);
+  }
+
+  @keyframes slideInAnimation {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 `;
 

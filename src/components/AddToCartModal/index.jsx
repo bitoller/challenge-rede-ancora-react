@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { StyledAddToCartModal } from "./style";
+import imgDefault from "../../assets/default.jpg";
+import minusButton from "../../assets/lessButton.svg";
+import plusButton from "../../assets/moreButton.svg";
 
 export function AddToCartModal({ show, onClose, product, onAddToCart }) {
   const [quantity, setQuantity] = useState(1);
@@ -29,44 +32,57 @@ export function AddToCartModal({ show, onClose, product, onAddToCart }) {
     show && (
       <StyledAddToCartModal>
         <div className="modal-content">
-          <div className="modal-header">
-            <h2 className="modal-title">Adicionar ao Carrinho</h2>
-            <button className="close-button" onClick={onClose}>
-              &times;
-            </button>
-          </div>
           <div className="modal-body">
             <img
               className="product-image"
               src={`https://catalogopdtstorage.blob.core.windows.net/imagens-prd/produto/${product.imagemReal}`}
               alt={"imagem do produto"}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null;
+                currentTarget.src = imgDefault;
+              }}
             />
+
             <div className="product-info">
-              <h5>{product.nomeProduto}</h5>
+              <h5>
+                <span className="red-text">Produto: </span>
+                {product.nomeProduto}
+              </h5>
               <p>Marca: {product.marca}</p>
               <p>Código: {product.codigoReferencia}</p>
               {product.informacoesComplementares && (
                 <p>{product.informacoesComplementares}</p>
               )}
-              <p>R$ {product.price}</p>
+              <p>
+                <span className="red-text">Valor total:</span> R${" "}
+                {(product.price * quantity).toFixed(2)}
+              </p>
             </div>
-            <label>Quantidade:</label>
             <div className="quantity-container">
-              <button className="quantity-button" onClick={decreaseQuantity}>
-                -
-              </button>
-              <span className="quantity-display">{quantity}</span>
-              <button className="quantity-button" onClick={increaseQuantity}>
-                +
-              </button>
+              <label>Quantidade</label>
+              <div className="quantity-controls">
+                <button className="quantity-button" onClick={decreaseQuantity}>
+                  <img
+                    src={minusButton}
+                    alt={"ícone de um botão com um sinal de menos"}
+                  />
+                </button>
+                <span className="quantity-display">{quantity}</span>
+                <button className="quantity-button" onClick={increaseQuantity}>
+                  <img
+                    src={plusButton}
+                    alt={"ícone de um botão com um sinal de mais"}
+                  />
+                </button>
+              </div>
             </div>
           </div>
           <div className="modal-footer">
-            <button className="cancel-button" onClick={onClose}>
-              Cancelar
-            </button>
             <button className="add-button" onClick={handleAddToCart}>
               Adicionar ao Carrinho
+            </button>
+            <button className="cancel-button" onClick={onClose}>
+              Cancelar
             </button>
           </div>
         </div>
@@ -75,5 +91,5 @@ export function AddToCartModal({ show, onClose, product, onAddToCart }) {
   );
 }
 
-/* TODO: arrumar estilizacao (copiar dos cards de produtos) */
-/* TODO: arrumar imagens blob pra quando a api nao enviar uma imagem */
+/* TODO: arrumar estilizacao (copiar dos cards de produtos) - feito */
+/* TODO: arrumar imagens blob pra quando a api nao enviar uma imagem - feito */
