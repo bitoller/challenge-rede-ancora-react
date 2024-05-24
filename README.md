@@ -43,6 +43,7 @@ Na página de checkout, os usuários podem escolher o método de pagamento e, se
 - styled-components `v6.1.8`
 - react-toastify `v10.0.5`
 - react-alice-carousel `v2.9.1`
+- vite `v5.2.0`
 
 ## ⌛ Status do Projeto
 
