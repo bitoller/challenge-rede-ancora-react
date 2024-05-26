@@ -19,6 +19,18 @@ export const StyledModalLogin = styled.div`
     width: 25rem;
     max-width: 90%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: modal 0.3s ease;
+  }
+
+  @keyframes modal {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -30px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }
 
   .modal-login-content {
@@ -78,11 +90,11 @@ export const StyledModalLogin = styled.div`
     transition: background-color 0.3s ease;
   }
 
-  .numeric-buttons button:hover {
+  .numeric-buttons > button:hover {
     background-color: #e0e0e0;
   }
 
-  .numeric-buttons button.zero {
+  .numeric-buttons > button.zero {
     grid-column: span 2;
   }
 

@@ -134,4 +134,25 @@ export const StyledSearchResults = styled.main`
   .product-list {
     height: calc(100% - 7.5rem - 3.8281rem);
   }
+
+  .modal-content {
+    background-color: var(--color-gray-10);
+    margin: 15% auto;
+    padding: 1.25rem;
+    border: 1px solid var(--color-gray-3);
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid var(--color-gray-3);
+  }
 `;

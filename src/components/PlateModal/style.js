@@ -19,6 +19,7 @@ export const StyledPlateModal = styled.div`
     align-items: center;
     gap: 1.875rem;
     background-color: var(--color-gray-10);
+    animation: modal 0.3s ease;
   }
 
   @keyframes modal {
@@ -116,5 +117,3 @@ export const StyledPlateModal = styled.div`
     background-color: var(--color-accent);
   }
 `;
-
-/* TODO: fazer o keyframes funcionar ou arrancar ele */

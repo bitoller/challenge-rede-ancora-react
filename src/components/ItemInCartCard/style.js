@@ -69,7 +69,75 @@ export const StyledItemInCartCard = styled.li`
     height: 100%;
   }
 
+  .product-price-unit,
+  .product-price-sum {
+    font-weight: 700;
+  }
+
   .product-price-sum {
     color: #c32401;
+  }
+
+  .modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: modal 0.3s ease;
+  }
+
+  @keyframes modal {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -30px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .modal > p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .modal > p > span {
+    color: #c32401;
+  }
+
+  .modal-button {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .modal-button > button {
+    padding: 0.625rem 1.25rem;
+    border-radius: 5px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+
+  .modal-button > button:first-child {
+    background-color: var(--color-gray-7);
+    color: var(--color-primary);
   }
 `;

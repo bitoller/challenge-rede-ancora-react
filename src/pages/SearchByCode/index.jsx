@@ -3,9 +3,9 @@ import { Header } from "../../components/Header";
 import { SearchProductsInput } from "../../components/SearchProductsInput";
 import { SearchButton } from "../../components/SearchButton";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { StyledSearchByCode } from "./style";
 
 export function SearchByCode() {

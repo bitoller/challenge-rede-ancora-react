@@ -6,8 +6,8 @@ import footerDots from "../../assets/footer-dots-left.png";
 import { ModalRegister } from "../../components/ModalRegister";
 import { ModalLogin } from "../../components/ModalLogin";
 import { ModalPaymentOptions } from "../../components/ModalPaymentOptions";
-import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { StyledCheckout } from "./style";
 
 export function Checkout() {
@@ -222,10 +222,3 @@ export function Checkout() {
     </StyledCheckout>
   );
 }
-
-/* TODO: varios erros no console, algo foi passado errado como prop,
-os unicos erros que devem ficar sao os da imagem pois a api que esta errada.
-erros sumiram, mas checar mesmo assim */
-/* TODO: alterar CSS se necessario, lembrar de deixar no padrao atual usando
-> para filhos das tags e medida REM, checar no global styles se algo realmente
-e necessario como cursor pointer e etc */
