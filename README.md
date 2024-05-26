@@ -51,7 +51,7 @@ O projeto está em desenvolvimento.
 
 ## 📁 Acesso ao Projeto
 
-- [Veja o nosso site funcionando](#)
+- [Veja o nosso site funcionando](https://challenge-rede-ancora.vercel.app/)
 - [Veja o repositório do nosso projeto no GitHub](https://github.com/bitoller/challenge-rede-ancora-react)
 - [Veja o Figma do nosso projeto](https://www.figma.com/file/2yI8xaVutkugIciWQLabzG/Untitled?type=design&node-id=0%3A1&mode=design&t=l31HxmxWsfYQZTxn-1)
 - [Veja nosso vídeo de apresentação no YouTube](https://youtu.be/L3Ne_vstIF8?si=tIW6EG8xmIJj3OSw)
