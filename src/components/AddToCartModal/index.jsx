@@ -50,9 +50,6 @@ export function AddToCartModal({ show, onClose, product, onAddToCart }) {
               </h5>
               <p>Marca: {product.marca}</p>
               <p>Código: {product.codigoReferencia}</p>
-              {product.informacoesComplementares && (
-                <p>{product.informacoesComplementares}</p>
-              )}
               <p>
                 <span className="red-text">Valor total:</span> R${" "}
                 {(product.price * quantity).toFixed(2)}
