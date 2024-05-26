@@ -91,6 +91,18 @@ export const StyledItemInCartCard = styled.li`
     padding: 1rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: modal 0.3s ease;
+  }
+
+  @keyframes modal {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -30px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }
 
   .modal > p {
@@ -100,24 +112,25 @@ export const StyledItemInCartCard = styled.li`
     font-weight: bold;
   }
 
-  .modal > button {
+  .modal-button {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .modal-button button {
     margin-top: 20px;
-    padding: 0.5rem 1rem;
-    border: 1px solid black;
+    padding: 10px 20px;
     border-radius: 5px;
     background-color: var(--color-primary);
     color: white;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
+    font-size: 1.2em;
+    font-weight: 600;
   }
 
-  .modal > button:last-child {
-    margin-left: 20px;
-  }
-
-  .modal > button:hover {
-    background-color: #004080;
+  .modal-button button:first-child {
+    background-color: var(--color-gray-7);
+    color: var(--color-primary);
   }
 `;
 
-/* TODO: adicionar keyframes igual do modal de placa em todos os modais */
+/* TODO: adicionar keyframes igual do modal de placa em todos os modais - feito*/

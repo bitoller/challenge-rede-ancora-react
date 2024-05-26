@@ -19,6 +19,17 @@ export const StyledModalLogin = styled.div`
     width: 25rem;
     max-width: 90%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: modal 0.3s ease;
+  }
+  @keyframes modal {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -30px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }
 
   .modal-login-content {
@@ -106,4 +117,4 @@ export const StyledModalLogin = styled.div`
   }
 `;
 
-/* TODO: adicionar keyframes igual do modal de placa em todos os modais */
+/* TODO: adicionar keyframes igual do modal de placa em todos os modais - feito */

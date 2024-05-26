@@ -139,4 +139,4 @@ export const StyledAddToCartModal = styled.div`
 `;
 
 /* TODO: remover estilizacoes desnecessarias, margens que podem ser trocadas por gap,
-REM */
+REM - feito */

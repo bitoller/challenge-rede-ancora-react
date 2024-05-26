@@ -19,6 +19,18 @@ export const StyledModalRegister = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
+    animation: modal 0.3s ease;
+  }
+
+  @keyframes modal {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -30px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }
 
   .close-button {
@@ -83,4 +95,4 @@ export const StyledModalRegister = styled.div`
   }
 `;
 
-/* TODO: adicionar keyframes igual do modal de placa em todos os modais */
+/* TODO: adicionar keyframes igual do modal de placa em todos os modais - feito*/

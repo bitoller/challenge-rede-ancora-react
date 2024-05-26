@@ -75,8 +75,10 @@ export function ItemInCartCard({ product, onUpdateCart }) {
               Deseja remover o produto "{productToRemove.nomeProduto}" do
               carrinho?
             </p>
-            <button onClick={cancelRemoveItem}>Cancelar</button>
-            <button onClick={confirmRemoveItem}>Confirmar</button>
+            <div className="modal-button">
+              <button onClick={cancelRemoveItem}>Cancelar</button>
+              <button onClick={confirmRemoveItem}>Confirmar</button>
+            </div>
           </div>
         </div>
       )}
@@ -84,5 +86,5 @@ export function ItemInCartCard({ product, onUpdateCart }) {
   );
 }
 
-/* TODO: melhorar estilizacao do modal de remover ultimo produto do carrinho */
-/* TODO: remover o espaco atras do nome do produto do modal de remover ultimo produto do carrinho*/
+/* TODO: melhorar estilizacao do modal de remover ultimo produto do carrinho - feito */
+/* TODO: remover o espaco atras do nome do produto do modal de remover ultimo produto do carrinho - não entendi*/
