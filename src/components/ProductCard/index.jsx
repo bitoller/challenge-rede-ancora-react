@@ -3,7 +3,7 @@ import { StyledProductCard } from "./style";
 
 export function ProductCard({ product, selectedItem }) {
   return (
-    <StyledProductCard>
+    <StyledProductCard onClick={() => selectedItem(product)}>
       <div>
         <img
           src={`https://catalogopdtstorage.blob.core.windows.net/imagens-prd/produto/${product.imagemReal}`}
@@ -23,13 +23,6 @@ export function ProductCard({ product, selectedItem }) {
         ""
       )}
       <p className="product-price">R$ {product.price}</p>
-      <button
-        className="add-to-cart-button"
-        id="addToCartButton"
-        onClick={() => selectedItem(product)}
-      >
-        Adicionar ao carrinho
-      </button>
     </StyledProductCard>
   );
 }

@@ -69,6 +69,11 @@ export const StyledItemInCartCard = styled.li`
     height: 100%;
   }
 
+  .product-price-unit,
+  .product-price-sum {
+    font-weight: 700;
+  }
+
   .product-price-sum {
     color: #c32401;
   }
@@ -87,6 +92,9 @@ export const StyledItemInCartCard = styled.li`
   }
 
   .modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
     background-color: white;
     padding: 1rem;
     border-radius: 5px;
@@ -106,10 +114,12 @@ export const StyledItemInCartCard = styled.li`
   }
 
   .modal > p {
-    margin-bottom: 0.5rem;
-    color: black;
     font-size: 1.2rem;
     font-weight: bold;
+  }
+
+  .modal > p > span {
+    color: #c32401;
   }
 
   .modal-button {
@@ -117,9 +127,8 @@ export const StyledItemInCartCard = styled.li`
     justify-content: space-around;
   }
 
-  .modal-button button {
-    margin-top: 20px;
-    padding: 10px 20px;
+  .modal-button > button {
+    padding: 0.625rem 1.25rem;
     border-radius: 5px;
     background-color: var(--color-primary);
     color: white;
@@ -127,10 +136,8 @@ export const StyledItemInCartCard = styled.li`
     font-weight: 600;
   }
 
-  .modal-button button:first-child {
+  .modal-button > button:first-child {
     background-color: var(--color-gray-7);
     color: var(--color-primary);
   }
 `;
-
-/* TODO: adicionar keyframes igual do modal de placa em todos os modais - feito*/

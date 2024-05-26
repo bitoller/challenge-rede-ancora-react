@@ -5,9 +5,9 @@ import { PlateModal } from "../../components/PlateModal";
 import { ProductsList } from "../../components/ProductsList";
 import { SearchProductsInput } from "../../components/SearchProductsInput";
 import { SearchButton } from "../../components/SearchButton";
+import { AddToCartModal } from "../../components/AddToCartModal";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { AddToCartModal } from "../../components/AddToCartModal";
 import { StyledSearchResults } from "./style";
 
 export function SearchResults() {
@@ -283,3 +283,8 @@ export function SearchResults() {
     </>
   );
 }
+
+/* TODO: se possivel descobrir um jeito de deixar os cards de produtos em um tamanho
+onde nao quebre com textos grandes/pequenos mas alinhe tudo */
+/* TODO: no modal para adicionar no carrinho ao clicar nos cards de produtos,
+arrumar texto vazando pra fora da tela quando o produto tem muito texto */

@@ -134,78 +134,25 @@ export const StyledSearchResults = styled.main`
   .product-list {
     height: calc(100% - 7.5rem - 3.8281rem);
   }
-  .modal {
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
 
   .modal-content {
     background-color: var(--color-gray-10);
     margin: 15% auto;
-    padding: 20px;
+    padding: 1.25rem;
     border: 1px solid var(--color-gray-3);
     width: 80%;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
-  .modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    border-bottom: 1px solid var(--color-gray-3);
-  }
-
-  .modal-title {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--color-gray-8);
-  }
-
-  .modal-close {
-    color: var(--color-gray-8);
-    font-size: 2.1875rem;
-    cursor: pointer;
-  }
-
-  .modal-close:hover,
-  .modal-close:focus {
-    color: var(--color-primary);
-    text-decoration: underline;
-  }
-
   .modal-body {
-    padding: 16px;
+    padding: 1rem;
   }
 
   .modal-footer {
     display: flex;
     justify-content: flex-end;
-    padding: 16px;
+    padding: 1rem;
     border-top: 1px solid var(--color-gray-3);
-  }
-
-  .modal-button {
-    padding: 8px 16px;
-    text-align: center;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-  }
-
-  .modal-button:hover {
-    background-color: var(--color-gray-3);
-  }
-
-  .modal-button:active {
-    background-color: var(--color-gray-5);
   }
 `;

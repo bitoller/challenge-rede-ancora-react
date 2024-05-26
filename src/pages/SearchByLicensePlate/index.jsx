@@ -6,9 +6,9 @@ import { SearchProductsInput } from "../../components/SearchProductsInput";
 import { SearchButton } from "../../components/SearchButton";
 import { PlateModal } from "../../components/PlateModal";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { StyledSearchByLicensePlate } from "./style";
 
 export function SearchByLicensePlate() {

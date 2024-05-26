@@ -1,7 +1,7 @@
-import React, { useState } from "react";
 import imgDefault from "../../assets/default.jpg";
 import minusButton from "../../assets/lessButton.svg";
 import plusButton from "../../assets/moreButton.svg";
+import React, { useState } from "react";
 import { StyledItemInCartCard } from "./style";
 
 export function ItemInCartCard({ product, onUpdateCart }) {
@@ -72,8 +72,8 @@ export function ItemInCartCard({ product, onUpdateCart }) {
         <div className="modal-container">
           <div className="modal">
             <p>
-              Deseja remover o produto "{productToRemove.nomeProduto}" do
-              carrinho?
+              Deseja remover o produto
+              <span> {productToRemove.nomeProduto}</span> do carrinho?
             </p>
             <div className="modal-button">
               <button onClick={cancelRemoveItem}>Cancelar</button>
@@ -85,6 +85,3 @@ export function ItemInCartCard({ product, onUpdateCart }) {
     </StyledItemInCartCard>
   );
 }
-
-/* TODO: melhorar estilizacao do modal de remover ultimo produto do carrinho - feito */
-/* TODO: remover o espaco atras do nome do produto do modal de remover ultimo produto do carrinho - não entendi*/

@@ -15,8 +15,8 @@ export const StyledAddToCartModal = styled.div`
   .modal-content {
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    width: 450px;
+    padding: 0.9375rem;
+    width: 28.125rem;
     position: absolute;
     top: 0;
     right: 0;
@@ -24,22 +24,22 @@ export const StyledAddToCartModal = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;
     animation: slideInAnimation 0.2s ease-out;
   }
 
   .modal-body {
     width: 85%;
-    margin: 20px;
+    margin: 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 1.875rem;
   }
 
   .product-image {
     width: 100%;
     height: auto;
-    max-height: 200px;
+    max-height: 12.5rem;
     object-fit: contain;
     border-radius: 8px;
   }
@@ -47,48 +47,48 @@ export const StyledAddToCartModal = styled.div`
   .product-info {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-bottom: 10px;
+    gap: 1.875rem;
+    margin-bottom: 0.625rem;
     font-size: var(--font-size-4);
     font-weight: 500;
-    line-height: 30px;
+    line-height: 1.875rem;
     text-align: center;
     color: var(--color-primary);
   }
 
-  .product-info h5 {
+  .product-info > h5 {
     border-bottom: 2px dashed #c32401;
-    padding-bottom: 10px;
+    padding-bottom: 0.625rem;
   }
 
   .red-text {
     color: #c32401;
   }
 
-  .product-info p:last-child {
+  .product-info > p:last-child {
     border-top: 2px dashed #c32401;
-    padding-top: 20px;
+    padding-top: 1.25rem;
   }
 
   .quantity-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
     font-size: var(--font-size-4);
-    gap: 20px;
+    gap: 1.25rem;
     font-weight: 500;
   }
 
   .quantity-controls {
     display: flex;
     align-items: flex-end;
-    gap: 30px;
+    gap: 1.875rem;
   }
 
-  .quantity-button img {
-    width: 25px;
-    height: 25px;
+  .quantity-button > img {
+    width: 1.5625rem;
+    height: 1.5625rem;
   }
 
   .quantity-button {
@@ -105,16 +105,16 @@ export const StyledAddToCartModal = styled.div`
   .modal-footer {
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: 2.8125rem;
   }
 
   .cancel-button,
   .add-button {
-    padding: 10px 20px;
-    width: 260px;
-    height: 60px;
+    padding: 0.625rem 1.25rem;
+    width: 16.25rem;
+    height: 3.75rem;
     border-radius: 7px;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
   }
 
@@ -137,6 +137,3 @@ export const StyledAddToCartModal = styled.div`
     }
   }
 `;
-
-/* TODO: remover estilizacoes desnecessarias, margens que podem ser trocadas por gap,
-REM - feito */

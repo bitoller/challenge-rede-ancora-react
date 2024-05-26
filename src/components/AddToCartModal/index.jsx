@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { StyledAddToCartModal } from "./style";
 import imgDefault from "../../assets/default.jpg";
 import minusButton from "../../assets/lessButton.svg";
 import plusButton from "../../assets/moreButton.svg";
+import React, { useState, useEffect } from "react";
+import { StyledAddToCartModal } from "./style";
 
 export function AddToCartModal({ show, onClose, product, onAddToCart }) {
   const [quantity, setQuantity] = useState(1);
@@ -90,6 +90,3 @@ export function AddToCartModal({ show, onClose, product, onAddToCart }) {
     )
   );
 }
-
-/* TODO: arrumar estilizacao (copiar dos cards de produtos) - feito */
-/* TODO: arrumar imagens blob pra quando a api nao enviar uma imagem - feito */

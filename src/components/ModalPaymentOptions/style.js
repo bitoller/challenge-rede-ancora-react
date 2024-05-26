@@ -57,5 +57,3 @@ export const StyledModalPaymentOptions = styled.div`
     background-color: #c0392b;
   }
 `;
-
-/* TODO: adicionar keyframes igual do modal de placa em todos os modais - feito*/

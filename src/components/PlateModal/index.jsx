@@ -1,7 +1,7 @@
 import licensePlate from "../../assets/licensePlateModal.svg";
 import axios from "axios";
-import React, { useState } from "react";
 import { toast } from "react-toastify";
+import React, { useState } from "react";
 import { StyledPlateModal } from "./style";
 
 export function PlateModal({ onSubmit, onCloseModal }) {

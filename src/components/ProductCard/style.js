@@ -12,6 +12,7 @@ export const StyledProductCard = styled.li`
   background-color: white;
   padding: 0.9375rem;
   color: black;
+  cursor: pointer;
 
   div {
     display: flex;
@@ -26,13 +27,6 @@ export const StyledProductCard = styled.li`
     max-height: 100%;
     width: auto;
     height: auto;
-  }
-
-  .add-to-cart-button {
-    color: var(--color-gray-10);
-    background-color: var(--color-primary);
-    padding: 0.625rem;
-    border-radius: 5px;
   }
 
   p {
