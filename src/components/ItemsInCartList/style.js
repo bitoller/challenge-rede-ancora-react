@@ -18,6 +18,7 @@ export const StyledItemsInCartList = styled.div`
   ul::-webkit-scrollbar {
     background: transparent;
     width: 0.1875rem;
+    display: none;
   }
 
   ul::-webkit-scrollbar-thumb {

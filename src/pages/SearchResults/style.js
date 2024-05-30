@@ -61,6 +61,7 @@ export const StyledSearchResults = styled.main`
   .aside-menu::-webkit-scrollbar {
     background: transparent;
     width: 0.0625rem;
+    display: none;
   }
 
   .aside-menu::-webkit-scrollbar-thumb {
