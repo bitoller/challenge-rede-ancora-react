@@ -3,10 +3,14 @@ import styled from "styled-components";
 export const StyledFooter = styled.footer`
   background-color: var(--color-primary);
   display: flex;
-  height: 7.5rem;
+  width: 100%;
+  height: 9.5rem;
   justify-content: space-between;
   align-items: center;
   padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 
   .footer-cart {
     display: flex;
