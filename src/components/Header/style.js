@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  height: 7.5rem;
+  height: 10vh;
+  width: 100%;
   background-color: var(--color-primary);
   display: flex;
   justify-content: space-between;
@@ -15,12 +16,12 @@ export const StyledHeader = styled.header`
   }
 
   .header-logo {
-    height: 90%;
+    height: 80%;
   }
 
   h1 {
     color: var(--color-gray-10);
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
   }
 `;
