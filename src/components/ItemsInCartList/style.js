@@ -9,8 +9,8 @@ export const StyledItemsInCartList = styled.div`
     width: 100%;
     height: 100%;
     gap: 1.875rem;
-    justify-items: center;
-    justify-content: space-evenly;
+    align-content: start;
+    justify-content: center;
     padding: 0.625rem 0.625rem 0.625rem 0.625rem;
     overflow-y: scroll;
   }
