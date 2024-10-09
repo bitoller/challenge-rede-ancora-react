@@ -5,11 +5,11 @@ export const StyledOrderSummary = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: calc(100vh - 7.5rem);
+  height: 90vh;
 
   .cart-page-products {
     width: 80%;
-    height: 31.25rem;
+    height: 70vh;
     background-color: var(--color-gray-10);
     border-radius: 10px 10px 0px 0px;
   }
