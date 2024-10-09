@@ -6,7 +6,8 @@ export const StyledSearchByCode = styled.main`
   min-height: calc(100vh - 7.5rem - 7.5rem);
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 4rem;
 
   h2 {
     font-size: 2.25rem;
