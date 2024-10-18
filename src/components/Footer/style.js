@@ -20,6 +20,7 @@ export const StyledFooter = styled.footer`
   }
 
   .footer-cart > p {
+    font-size: 1.3rem;
     color: #ffffff;
   }
 
@@ -32,24 +33,27 @@ export const StyledFooter = styled.footer`
   }
 
   .footer-cart-img > p {
+    font-size: 1.2rem;
     color: #ffffff;
   }
 
   .back-button {
-    height: 2.25rem;
-    width: 11.5rem;
+    height: 3.75rem;
+    width: 12.5rem;
     background-color: var(--color-gray-10);
     color: #090a0f;
     border-radius: 0.4375rem;
     font-weight: 700;
+    font-size: 1.3rem;
   }
 
   .finish-button {
-    height: 2.25rem;
-    width: 11.5rem;
+    height: 3.75rem;
+    width: 12.5rem;
     background-color: var(--color-accent);
     color: #ffffff;
     border-radius: 7px;
     font-weight: 700;
+    font-size: 1.3rem;
   }
 `;

@@ -11,8 +11,9 @@ export const StyledSearchResults = styled.main`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 90%;
     height: auto;
+    min-height: 7rem; /*TODO: confirmar tamanho */
     padding: 0.625rem;
     border: 1px solid var(--color-gray-10);
     font-family: var(--font-family-1);
@@ -27,7 +28,7 @@ export const StyledSearchResults = styled.main`
   }
 
   .section-menu {
-    width: 20%;
+    width: 23%;
     height: calc(100vh - 7.5rem);
     background-color: var(--color-primary);
     display: flex;
@@ -38,8 +39,8 @@ export const StyledSearchResults = styled.main`
   }
 
   .section-menu > img {
-    width: 30%;
-    padding: 0.3125rem 0rem 0.3125rem 0rem;
+    width: 70%;
+    padding: 0.9125rem 0rem 0.3125rem 0rem;
   }
 
   .plate-modal {
@@ -51,6 +52,9 @@ export const StyledSearchResults = styled.main`
 
   .plate-modal-text {
     font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.625rem;
+    text-align: center;
   }
 
   .aside-menu {
@@ -77,10 +81,10 @@ export const StyledSearchResults = styled.main`
   .aside-menu > li {
     width: 100%;
     color: var(--color-gray-10);
-    font-size: 1.25rem;
+    font-size: 1.75rem;
     font-weight: 500;
     border-bottom: 2px solid var(--color-gray-10);
-    padding: 0.9375rem 0rem 0.9375rem 0rem;
+    padding: 3rem 0rem 3rem 0rem;
     cursor: pointer;
   }
 
@@ -101,7 +105,7 @@ export const StyledSearchResults = styled.main`
 
   .search-input-product {
     height: 3.75rem;
-    width: 50%;
+    width: 70%;
   }
 
   .input-container {

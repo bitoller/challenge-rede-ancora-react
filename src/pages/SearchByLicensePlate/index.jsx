@@ -13,7 +13,7 @@ import { StyledSearchByLicensePlate } from "./style";
 
 export function SearchByLicensePlate() {
   const [jwtToken, setJwtToken] = useState("");
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(true);
   const [selectCarInfo, setSelectCarInfo] = useState(
     "Selecione seu carro aqui"
   );

@@ -283,8 +283,3 @@ export function SearchResults() {
     </>
   );
 }
-
-/* TODO: se possivel descobrir um jeito de deixar os cards de produtos em um tamanho
-onde nao quebre com textos grandes/pequenos mas alinhe tudo */
-/* TODO: no modal para adicionar no carrinho ao clicar nos cards de produtos,
-arrumar texto vazando pra fora da tela quando o produto tem muito texto */

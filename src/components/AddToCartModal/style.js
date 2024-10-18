@@ -30,10 +30,10 @@ export const StyledAddToCartModal = styled.div`
 
   .modal-body {
     width: 85%;
-    margin: 1.25rem;
+    margin: 12.5rem 1.25rem 0 1.25rem; /* TODO: alterar se necessário = possição do conteudo do modal de adicionar ao carrinho */
     display: flex;
     flex-direction: column;
-    gap: 1.875rem;
+    gap: 2.875rem;
   }
 
   .product-image {
