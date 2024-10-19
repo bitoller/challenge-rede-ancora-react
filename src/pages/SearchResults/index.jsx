@@ -19,12 +19,13 @@ export function SearchResults() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [showAddToCartModal, setShowAddToCartModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [inputValue, setInputValue] = useState(""); // Estado para o valor do input
   const lastSearch = localStorage.getItem("lastSearch");
 
   useEffect(() => {
     const searchResult = JSON.parse(localStorage.getItem("searchResult"));
     const vehicleResult = JSON.parse(localStorage.getItem("vehicleInfo"));
-    setProductsCatalog(searchResult.pageResult.data);
+    setProductsCatalog(searchResult?.pageResult?.data || []);
     setVehicleInfo(vehicleResult);
     const storedPlate = JSON.parse(localStorage.getItem("licensePlate"));
 
@@ -39,7 +40,7 @@ export function SearchResults() {
       localStorage.setItem("licensePlate", JSON.stringify(vehicleResult.plate));
       await search(null, lastSearch);
     } else {
-      setProductsCatalog(null);
+      setProductsCatalog([]);
       setVehicleInfo(null);
     }
     setModal(false);
@@ -48,10 +49,9 @@ export function SearchResults() {
   const search = async (event, productName = null) => {
     if (event) event.preventDefault();
 
-    const form = event ? event.target : null;
-
+    // Se productName não estiver definido, usa o inputValue
     if (!productName) {
-      productName = form ? form.searchProductInput.value : lastSearch;
+      productName = inputValue.trim(); // Aqui, usa o inputValue diretamente
     }
 
     if (!productName) {
@@ -74,43 +74,32 @@ export function SearchResults() {
     }
 
     try {
-      await axios
-        .post(
-          "https://api-stg-catalogo.redeancora.com.br/superbusca/api/integracao/catalogo/v2/produtos/query/sumario",
-          requestBody,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.status == 204) {
-            setProductsCatalog(null);
-          }
+      const response = await axios.post(
+        "https://api-stg-catalogo.redeancora.com.br/superbusca/api/integracao/catalogo/v2/produtos/query/sumario",
+        requestBody,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-          for (
-            let index = 0;
-            index < response.data.pageResult.data.length;
-            index++
-          ) {
-            const randomPrice = (Math.random() * 800).toFixed(2);
-            const newProduct = {
-              ...response.data.pageResult.data[index],
-              price: randomPrice,
-              count: 0,
-            };
-            response.data.pageResult.data[index] = newProduct;
-          }
+      if (response.status === 204) {
+        setProductsCatalog([]);
+      } else {
+        const updatedProducts = response.data.pageResult.data.map(
+          (product) => ({
+            ...product,
+            price: (Math.random() * 800).toFixed(2), // Adiciona um preço aleatório
+            count: 0,
+          })
+        );
 
-          return response.data;
-        })
-        .then((response) => {
-          localStorage.setItem("searchResult", JSON.stringify(response));
-          localStorage.setItem("lastSearch", productName);
-          setProductsCatalog(response.pageResult.data);
-        });
+        localStorage.setItem("searchResult", JSON.stringify(response.data));
+        localStorage.setItem("lastSearch", productName);
+        setProductsCatalog(updatedProducts);
+      }
     } catch (error) {
       toast.error("Erro ao buscar produtos. Por favor, tente novamente.");
     }
@@ -122,8 +111,8 @@ export function SearchResults() {
 
   const handleAddToCart = (product, quantity) => {
     if (product) {
-      let foundIndex = cart.findIndex((x) => x.id == product.id);
-      if (foundIndex != -1) {
+      const foundIndex = cart.findIndex((x) => x.id === product.id);
+      if (foundIndex !== -1) {
         const products = cart.map((c, i) => {
           if (i === foundIndex) {
             c.count += quantity;
@@ -131,10 +120,10 @@ export function SearchResults() {
           return c;
         });
         setCart(products);
-        localStorage.setItem("itemsInCart", JSON.stringify(cart));
+        localStorage.setItem("itemsInCart", JSON.stringify(products));
       } else {
         product.count = quantity;
-        setCart([...cart, product]);
+        setCart((prevCart) => [...prevCart, product]);
         localStorage.setItem("itemsInCart", JSON.stringify([...cart, product]));
       }
       toast.success(`${product.nomeProduto} foi adicionado ao carrinho`);
@@ -149,25 +138,20 @@ export function SearchResults() {
   };
 
   const cartLength = () => {
-    let productQty = 0;
-    cart.forEach((item) => {
-      productQty += item.count;
-    });
-    return productQty;
+    return cart.reduce((acc, item) => acc + item.count, 0);
   };
 
   useEffect(() => {
     const localCart = JSON.parse(localStorage.getItem("itemsInCart"));
-    if (cart || localCart) {
-      if (cart.length == 0 && localCart && localCart.length > 0) {
-        setCart(localCart);
-      }
-      const total = cart.reduce(
-        (acc, curr) => acc + parseFloat(curr.price) * curr.count,
-        0
-      );
-      setTotalPrice(total);
+    if (localCart) {
+      setCart(localCart);
     }
+
+    const total = cart.reduce(
+      (acc, curr) => acc + parseFloat(curr.price) * curr.count,
+      0
+    );
+    setTotalPrice(total);
   }, [cart]);
 
   return (
@@ -248,7 +232,10 @@ export function SearchResults() {
           <div className="search-field-results">
             <form className="search-input-product" onSubmit={search}>
               <div className="input-container">
-                <SearchProductsInput name="searchProductInput" />
+                <SearchProductsInput
+                  input={inputValue}
+                  setInput={setInputValue}
+                />
                 <SearchButton type="submit" />
               </div>
             </form>
@@ -269,16 +256,14 @@ export function SearchResults() {
         showBackButton
         showFinishButton
         totalPrice={totalPrice}
-        cartLength={() => cartLength()}
+        cartLength={cartLength}
       />
-      {modal ? (
-        <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />
-      ) : null}
+      {modal && <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />}
       <AddToCartModal
         show={showAddToCartModal}
         onClose={() => setShowAddToCartModal(false)}
-        product={selectedProduct}
         onAddToCart={handleAddToCart}
+        product={selectedProduct}
       />
     </>
   );
