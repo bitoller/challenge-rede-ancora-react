@@ -24,7 +24,7 @@ export const StyledSearchByCode = styled.main`
 
   .search-field-code > form {
     height: 3.75rem;
-    width: 50%;
+    width: 60%;
   }
 
   .input-container {
@@ -34,7 +34,7 @@ export const StyledSearchByCode = styled.main`
     border: 2px solid var(--color-gray-3);
     border-radius: 8px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     gap: 4.6875rem;
     padding: 0rem 0.625rem 0rem 0.625rem;
