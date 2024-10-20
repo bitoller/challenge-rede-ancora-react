@@ -4,93 +4,71 @@ export const StyledModalRegister = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 
   .modal-content {
-    background-color: white;
-    padding: 1.25rem;
+    background: white;
+    padding: 20px;
     border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-    animation: modal 0.3s ease;
   }
 
-  @keyframes modal {
-    from {
-      opacity: 0;
-      transform: translate3d(0, -30px, 0);
+  .keyboard {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    .simple-keyboard {
+      width: 100%;
+      max-width: none;
     }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+
+    .hg-button {
+      font-size: 1.5rem;
+      height: 80px;
+      padding: 15px 10px;
+      margin: 5px;
     }
-  }
-
-  .close-button {
-    font-size: 1.5rem;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    color: #888;
-    transition: color 0.3s ease;
-  }
-
-  .close-button:hover {
-    color: #333;
-  }
-
-  .modal-content > h2 {
-    margin-bottom: 0.9375rem;
-    font-size: 1.5rem;
-    color: #333;
-  }
-
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
-
-  .label {
-    font-size: 1rem;
-    color: #555;
   }
 
   .input {
     width: 100%;
-    padding: 0.625rem;
+    padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: 4px;
   }
 
   .submit-button {
     width: 100%;
-    padding: 0.9375rem;
-    background-color: #007bff;
+    padding: 10px;
+    background: #28a745;
     color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 1.125rem;
-    text-align: center;
-    transition: background-color 0.3s ease;
-  }
-
-  .submit-button:hover {
-    background-color: #0056b3;
+    border-radius: 4px;
+    cursor: pointer;
   }
 
   .error {
     color: red;
-    font-size: 0.875rem;
-    margin-top: -0.5rem;
+    font-size: 12px;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
   }
 `;
