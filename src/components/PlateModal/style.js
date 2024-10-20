@@ -117,3 +117,23 @@ export const StyledPlateModal = styled.div`
     background-color: var(--color-accent);
   }
 `;
+
+export const StyledKeyboardContainer = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  .simple-keyboard {
+    width: 100%;
+    max-width: none;
+  }
+
+  .hg-button {
+    font-size: 1.5rem;
+    height: 80px;
+    padding: 15px 10px;
+    margin: 5px;
+  }
+`;

@@ -1,16 +1,14 @@
-import styled from "styled-components"; // Certifique-se de que isso está presente
+import styled from "styled-components";
 
-// Estilo do input de busca
 export const StyledSearchProductsInput = styled.input`
-  width: 150%; // Largura do input
+  width: 150%;
   outline: none;
-  font-size: 1.3rem; // Aumentando o tamanho da fonte para melhor legibilidade
+  font-size: 1.3rem;
   color: var(--color-gray-4);
   border: 0;
   padding: 0 20px 0 10px;
 `;
 
-// Estilo do contêiner do teclado
 export const StyledKeyboardContainer = styled.div`
   position: fixed;
   bottom: 0;
@@ -23,11 +21,10 @@ export const StyledKeyboardContainer = styled.div`
     max-width: none;
   }
 
-  /* Estilo para aumentar o tamanho das teclas */
   .hg-button {
-    font-size: 1.5rem; /* Aumenta o tamanho do texto das teclas */
-    height: 80px; /* Aumenta a altura das teclas */
-    padding: 15px 10px; /* Aumenta o espaçamento interno das teclas */
-    margin: 5px; /* Aumenta o espaço entre as teclas */
+    font-size: 1.5rem;
+    height: 80px;
+    padding: 15px 10px;
+    margin: 5px;
   }
 `;
