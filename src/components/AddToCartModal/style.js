@@ -30,10 +30,9 @@ export const StyledAddToCartModal = styled.div`
 
   .modal-body {
     width: 85%;
-    margin: 12.5rem 1.25rem 0 1.25rem; /* TODO: alterar se necessário = possição do conteudo do modal de adicionar ao carrinho */
     display: flex;
     flex-direction: column;
-    gap: 2.875rem;
+    gap: 1.875rem;
   }
 
   .product-image {
@@ -134,6 +133,13 @@ export const StyledAddToCartModal = styled.div`
     }
     100% {
       transform: translateX(0);
+    }
+  }
+
+  @media (orientation: portrait) {
+    .modal-body {
+      margin: 12.5rem 1.25rem 0 1.25rem;
+      gap: 2.875rem;
     }
   }
 `;
