@@ -5,7 +5,7 @@ export const StyledItemInCartCard = styled.li`
   align-items: center;
   justify-content: space-between;
   gap: 0.9375rem;
-  width: 90%;
+  width: 94%;
   height: 8.75rem;
   padding: 0.625rem;
   background-color: white;
@@ -40,7 +40,7 @@ export const StyledItemInCartCard = styled.li`
     font-family: var(--font-family-1);
     color: var(--color-primary);
     height: 100%;
-    width: 18.75rem;
+    width: 13.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +53,8 @@ export const StyledItemInCartCard = styled.li`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 12.5rem;
+    width: 14.5rem;
+    text-align: left;
   }
 
   .counter-container {
@@ -72,6 +73,8 @@ export const StyledItemInCartCard = styled.li`
   .product-price-unit,
   .product-price-sum {
     font-weight: 700;
+    text-align: center;
+    width: 12rem;
   }
 
   .product-price-sum {
