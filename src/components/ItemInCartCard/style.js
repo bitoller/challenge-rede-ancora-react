@@ -51,7 +51,6 @@ export const StyledItemInCartCard = styled.li`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     height: 100%;
     width: 14.5rem;
     text-align: left;
