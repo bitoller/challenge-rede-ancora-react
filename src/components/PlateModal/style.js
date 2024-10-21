@@ -13,7 +13,7 @@ export const StyledPlateModal = styled.div`
 
   .modal {
     height: auto;
-    width: 80%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,6 +116,12 @@ export const StyledPlateModal = styled.div`
     color: var(--color-gray-10);
     background-color: var(--color-accent);
   }
+
+  @media (orientation: portrait) {
+    .modal {
+      width: 80%;
+    }
+  }
 `;
 
 export const StyledKeyboardContainer = styled.div`
@@ -131,9 +137,20 @@ export const StyledKeyboardContainer = styled.div`
   }
 
   .hg-button {
-    font-size: 1.5rem;
-    height: 80px;
-    padding: 15px 10px;
-    margin: 5px;
+    font-size: 1rem;
+    height: 40px;
+    padding: 10px 5px;
+    margin: 3px;
+  }
+
+  @media (orientation: portrait) {
+    .keyboard {
+      .hg-button {
+        font-size: 1.5rem;
+        height: 80px;
+        padding: 15px 10px;
+        margin: 5px;
+      }
+    }
   }
 `;
