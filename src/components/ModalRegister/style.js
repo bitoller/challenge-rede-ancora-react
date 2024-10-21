@@ -34,10 +34,10 @@ export const StyledModalRegister = styled.div`
     }
 
     .hg-button {
-      font-size: 1.5rem;
-      height: 80px;
-      padding: 15px 10px;
-      margin: 5px;
+      font-size: 1rem;
+      height: 40px;
+      padding: 10px 5px;
+      margin: 3px;
     }
   }
 
@@ -70,5 +70,16 @@ export const StyledModalRegister = styled.div`
     right: 10px;
     cursor: pointer;
     font-size: 20px;
+  }
+
+  @media (orientation: portrait) {
+    .keyboard {
+      .hg-button {
+        font-size: 1.5rem;
+        height: 80px;
+        padding: 15px 10px;
+        margin: 5px;
+      }
+    }
   }
 `;
