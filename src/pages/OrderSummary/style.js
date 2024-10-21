@@ -5,11 +5,11 @@ export const StyledOrderSummary = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 90vh;
+  min-height: calc(100vh - 7.5rem);
 
   .cart-page-products {
     width: 80%;
-    height: 70vh;
+    height: 31.25rem;
     background-color: var(--color-gray-10);
     border-radius: 10px 10px 0px 0px;
   }
@@ -69,5 +69,13 @@ export const StyledOrderSummary = styled.main`
   .confirm-purchase:disabled {
     background-color: #7f7d7f;
     cursor: default;
+  }
+
+  @media (orientation: portrait) {
+    height: 90vh;
+
+    .cart-page-products {
+      height: 70vh;
+    }
   }
 `;
