@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
 export const StyledSearchProductsInput = styled.input`
-  width: 150%;
+  width: 100%;
+  height: 90%;
   outline: none;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--color-gray-4);
   border: 0;
-  padding: 0 20px 0 10px;
+
+  @media (orientation: portrait) {
+    width: 150%;
+    font-size: 1.3rem;
+    padding: 0 20px 0 10px;
+  }
 `;
 
 export const StyledKeyboardContainer = styled.div`
@@ -22,9 +28,20 @@ export const StyledKeyboardContainer = styled.div`
   }
 
   .hg-button {
-    font-size: 1.5rem;
-    height: 80px;
-    padding: 15px 10px;
-    margin: 5px;
+    font-size: 1rem;
+    height: 40px;
+    padding: 10px 5px;
+    margin: 3px;
+  }
+
+  @media (orientation: portrait) {
+    .keyboard {
+      .hg-button {
+        font-size: 1.5rem;
+        height: 80px;
+        padding: 15px 10px;
+        margin: 5px;
+      }
+    }
   }
 `;
