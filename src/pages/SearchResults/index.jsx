@@ -25,7 +25,7 @@ export function SearchResults() {
   useEffect(() => {
     const searchResult = JSON.parse(localStorage.getItem("searchResult"));
     const vehicleResult = JSON.parse(localStorage.getItem("vehicleInfo"));
-    setProductsCatalog(searchResult.pageResult.data);
+    setProductsCatalog(searchResult?.pageResult.data || []);
     setVehicleInfo(vehicleResult);
     const storedPlate = JSON.parse(localStorage.getItem("licensePlate"));
 
@@ -37,39 +37,43 @@ export function SearchResults() {
     setLastSearch(lastSearch || "");
   }, []);
 
+  useEffect(() => {
+    if (plateValue) {
+      search(null, lastSearch);
+    }
+  }, [plateValue]);
+
   const submitForm = async (vehicleResult) => {
     if (vehicleResult) {
       setVehicleInfo(vehicleResult);
       localStorage.setItem("licensePlate", JSON.stringify(vehicleResult.plate));
-      await search(null, lastSearch);
+      setPlateValue(vehicleResult.plate);
     } else {
-      setProductsCatalog(null);
+      setProductsCatalog([]);
       setVehicleInfo(null);
     }
     setModal(false);
   };
 
-  const search = async (event) => {
+  const search = async (event, productName) => {
     if (event) event.preventDefault();
 
-    const productName = searchInput;
+    const productSearchName = productName || searchInput;
 
-    if (!productName) {
+    if (!productSearchName) {
       toast.warn("Por favor, insira o nome do produto");
       return;
     }
 
     const requestBody = {
-      nomeProduto: productName,
-      superbusca: productName,
+      nomeProduto: productSearchName,
+      superbusca: productSearchName,
       pagina: 0,
       itensPorPagina: 100,
     };
 
     const storedPlate = JSON.parse(localStorage.getItem("licensePlate"));
-
     if (storedPlate) {
-      setPlateValue(storedPlate);
       requestBody.veiculoFiltro = { veiculoPlaca: storedPlate };
     }
 
@@ -86,22 +90,23 @@ export function SearchResults() {
       );
 
       if (response.status === 204) {
-        setProductsCatalog(null);
+        setProductsCatalog([]);
+        return;
       }
 
       const productsWithPrice = response.data.pageResult.data.map(
         (product) => ({
           ...product,
-          price: (Math.random() * 800).toFixed(2),
+          price: (Math.random() * (800 - 50) + 50).toFixed(2),
           count: 0,
         })
       );
 
       localStorage.setItem("searchResult", JSON.stringify(response.data));
-      localStorage.setItem("lastSearch", productName);
+      localStorage.setItem("lastSearch", productSearchName);
       setProductsCatalog(productsWithPrice);
-      setLastSearch(productName);
-      setSearchInput(productName);
+      setLastSearch(productSearchName);
+      setSearchInput("");
     } catch (error) {
       toast.error("Erro ao buscar produtos. Por favor, tente novamente.");
     }
@@ -122,7 +127,7 @@ export function SearchResults() {
           return c;
         });
         setCart(products);
-        localStorage.setItem("itemsInCart", JSON.stringify(cart));
+        localStorage.setItem("itemsInCart", JSON.stringify(products));
       } else {
         product.count = quantity;
         setCart([...cart, product]);
@@ -236,9 +241,7 @@ export function SearchResults() {
         totalPrice={totalPrice}
         cartLength={cartLength}
       />
-      {modal ? (
-        <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />
-      ) : null}
+      {modal && <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />}
       <AddToCartModal
         show={showAddToCartModal}
         onClose={() => setShowAddToCartModal(false)}
