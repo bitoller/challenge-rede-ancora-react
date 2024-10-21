@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  height: 10vh;
-  width: 100%;
+  height: 7.5rem;
   background-color: var(--color-primary);
   display: flex;
   justify-content: space-between;
@@ -16,12 +15,24 @@ export const StyledHeader = styled.header`
   }
 
   .header-logo {
-    height: 80%;
+    height: 90%;
   }
 
   h1 {
     color: var(--color-gray-10);
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-align: center;
+  }
+  @media (orientation: portrait) {
+    height: 10vh;
+    width: 100%;
+
+    .header-logo {
+      height: 80%;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
   }
 `;
