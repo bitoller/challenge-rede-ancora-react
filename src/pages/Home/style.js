@@ -3,11 +3,10 @@ import styled from "styled-components";
 export const StyledHome = styled.div`
   width: 100%;
   min-height: 100vh;
-  max-width: 100vh;
   background-color: var(--color-primary);
   display: flex;
   flex-direction: column;
-  gap: 10.25rem;
+  gap: 1.25rem;
 
   header {
     width: 100%;
@@ -18,8 +17,7 @@ export const StyledHome = styled.div`
   }
 
   header > img {
-    padding-top: 5rem;
-    height: auto;
+    height: 90%;
   }
 
   .header-text {
@@ -27,7 +25,7 @@ export const StyledHome = styled.div`
     font-family: var(--font-family-1);
     text-align: center;
     font-weight: 300;
-    font-size: 6.9rem;
+    font-size: 4.6875rem;
   }
 
   .header-text > span {
@@ -40,7 +38,7 @@ export const StyledHome = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 13.9rem;
+    gap: 0.625rem;
   }
 
   .carousel-container {
@@ -54,7 +52,7 @@ export const StyledHome = styled.div`
   }
 
   .touch-button {
-    width: 80vw;
+    width: 30vw;
     padding: 0.625rem 2.0625rem 0.625rem 2.0625rem;
     background-color: var(--color-accent);
     color: var(--color-gray-10);
@@ -65,17 +63,39 @@ export const StyledHome = styled.div`
     text-align: center;
   }
 
-  /* footer {
+  footer {
     background-color: var(--color-primary);
     display: flex;
     justify-content: center;
     gap: 0.625rem;
     width: 100%;
     align-items: center;
-  } */
+  }
 
   a {
     text-decoration: none;
     color: var(--color-gray-10);
+  }
+
+  @media (orientation: portrait) {
+    max-width: 100vh;
+    gap: 10.25rem;
+
+    .header-text {
+      font-size: 6.9rem;
+    }
+
+    main {
+      gap: 13.9rem;
+    }
+
+    .touch-button {
+      width: 80vw;
+    }
+
+    header > img {
+      padding-top: 5rem;
+      height: auto;
+    }
   }
 `;
