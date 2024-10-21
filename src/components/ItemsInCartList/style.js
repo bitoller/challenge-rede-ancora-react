@@ -9,8 +9,8 @@ export const StyledItemsInCartList = styled.div`
     width: 100%;
     height: 100%;
     gap: 1.875rem;
-    align-content: start;
-    justify-content: center;
+    justify-items: center;
+    justify-content: space-evenly;
     padding: 0.625rem 0.625rem 0.625rem 0.625rem;
     overflow-y: scroll;
   }
@@ -35,5 +35,12 @@ export const StyledItemsInCartList = styled.div`
     padding: 1.875rem;
     font-size: 1.25rem;
     font-weight: 600;
+  }
+
+  @media (orientation: portrait) {
+    ul {
+      align-content: start;
+      justify-content: center;
+    }
   }
 `;
