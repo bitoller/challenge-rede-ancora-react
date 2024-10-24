@@ -73,6 +73,7 @@ export const StyledOrderSummary = styled.main`
 
   @media (orientation: portrait) {
     height: 90vh;
+    min-height: 0;
 
     .cart-page-products {
       height: 70vh;
