@@ -144,13 +144,11 @@ export const StyledKeyboardContainer = styled.div`
   }
 
   @media (orientation: portrait) {
-    .keyboard {
-      .hg-button {
-        font-size: 1.5rem;
-        height: 80px;
-        padding: 15px 10px;
-        margin: 5px;
-      }
+    .hg-button {
+      font-size: 1.5rem;
+      height: 80px;
+      padding: 15px 10px;
+      margin: 5px;
     }
   }
 `;
