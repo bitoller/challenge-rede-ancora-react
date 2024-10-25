@@ -39,6 +39,7 @@ body {
 :root {
   --color-primary: #0b0c12;
   --color-accent: #d02030;
+  --color-accent-2: #c32401;
   --color-gray-1: #242833;
   --color-gray-2: #363b47;
   --color-gray-3: #474d59;
@@ -49,6 +50,9 @@ body {
   --color-gray-8: #ced3d9;
   --color-gray-9: #e6eaf0;
   --color-gray-10: #f5f7fa;
+  --color-gray-11: #f8f9fa;
+  --color-gray-12: #ffffff;
+  --color-gray-13: #d9d9d9;
   --font-size-1: 96px;
   --font-size-2: 54px;
   --font-size-3: 32px;

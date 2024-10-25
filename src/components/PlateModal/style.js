@@ -27,6 +27,7 @@ export const StyledPlateModal = styled.div`
       opacity: 0;
       transform: translate3d(0, -30px, 0);
     }
+
     to {
       opacity: 1;
       transform: translate3d(0, 0, 0);
@@ -65,9 +66,9 @@ export const StyledPlateModal = styled.div`
   .input-container-icon {
     height: 100%;
     width: 40%;
-    background-color: #ffffff;
-    border: 2px solid var(--color-gray-3);
-    border-radius: 25px;
+    background-color: var(--color-gray-12);
+    border: 0.125rem solid var(--color-gray-3);
+    border-radius: 1.563rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -104,7 +105,7 @@ export const StyledPlateModal = styled.div`
     width: 12.5rem;
     font-weight: 700;
     font-size: 1.75rem;
-    border-radius: 7px;
+    border-radius: 0.438rem;
   }
 
   .modal-button-close {
@@ -138,17 +139,17 @@ export const StyledKeyboardContainer = styled.div`
 
   .hg-button {
     font-size: 1rem;
-    height: 40px;
-    padding: 10px 5px;
-    margin: 3px;
+    height: 2.5rem;
+    padding: 0.625rem 0.313rem;
+    margin: 0.188rem;
   }
 
   @media (orientation: portrait) {
     .hg-button {
       font-size: 1.5rem;
-      height: 80px;
-      padding: 15px 10px;
-      margin: 5px;
+      height: 5rem;
+      padding: 0.938rem 0.625rem;
+      margin: 0.313rem;
     }
   }
 `;

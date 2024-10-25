@@ -40,7 +40,7 @@ export const StyledAddToCartModal = styled.div`
     height: auto;
     max-height: 12.5rem;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 16rem;
   }
 
   .product-info {
@@ -56,16 +56,16 @@ export const StyledAddToCartModal = styled.div`
   }
 
   .product-info > h5 {
-    border-bottom: 2px dashed #c32401;
+    border-bottom: 0.125rem dashed var(--color-accent-2);
     padding-bottom: 0.625rem;
   }
 
   .red-text {
-    color: #c32401;
+    color: var(--color-accent-2);
   }
 
   .product-info > p:last-child {
-    border-top: 2px dashed #c32401;
+    border-top: 0.125rem dashed var(--color-accent-2);
     padding-top: 1.25rem;
   }
 
@@ -92,8 +92,8 @@ export const StyledAddToCartModal = styled.div`
 
   .quantity-button {
     border: none;
-    border-radius: 5px;
-    background-color: #f8f9fa;
+    border-radius: 0.313rem;
+    background-color: var(--color-gray-11);
   }
 
   .quantity-display {
@@ -112,7 +112,7 @@ export const StyledAddToCartModal = styled.div`
     padding: 0.625rem 1.25rem;
     width: 16.25rem;
     height: 3.75rem;
-    border-radius: 7px;
+    border-radius: 0.438rem;
     font-size: 1.25rem;
     font-weight: 700;
   }

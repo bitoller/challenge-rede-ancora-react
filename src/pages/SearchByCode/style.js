@@ -30,8 +30,8 @@ export const StyledSearchByCode = styled.main`
     height: 100%;
     width: 100%;
     background-color: #ffffff;
-    border: 2px solid var(--color-gray-3);
-    border-radius: 8px;
+    border: 0.125rem solid var(--color-gray-3);
+    border-radius: 0.5rem;
     display: grid;
     grid-template-columns: 1fr auto;
     justify-content: space-between;

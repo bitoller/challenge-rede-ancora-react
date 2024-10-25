@@ -11,7 +11,7 @@ export const StyledOrderSummary = styled.main`
     width: 80%;
     height: 31.25rem;
     background-color: var(--color-gray-10);
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 0.625rem 0.625rem 0rem 0rem;
   }
 
   .cart-page-bottom {
@@ -21,7 +21,7 @@ export const StyledOrderSummary = styled.main`
     background-color: #ced3d9;
     width: 80%;
     height: 6.25rem;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0rem 0rem 0.625rem 0.625rem;
   }
 
   .cart-page-items {
@@ -53,7 +53,7 @@ export const StyledOrderSummary = styled.main`
     height: 4.0625rem;
     font-size: 1.5rem;
     font-weight: 700;
-    border-radius: 7px;
+    border-radius: 0.438rem;
   }
 
   .back-to-shopping {

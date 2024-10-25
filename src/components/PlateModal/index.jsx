@@ -1,10 +1,10 @@
 import licensePlate from "../../assets/licensePlateModal.svg";
+import "react-simple-keyboard/build/css/index.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import React, { useState } from "react";
-import { StyledPlateModal, StyledKeyboardContainer } from "./style";
 import Keyboard from "react-simple-keyboard";
-import "react-simple-keyboard/build/css/index.css";
+import { StyledPlateModal, StyledKeyboardContainer } from "./style";
 
 export function PlateModal({ onSubmit, onCloseModal }) {
   const [hasError, setHasError] = useState(false);
@@ -80,7 +80,6 @@ export function PlateModal({ onSubmit, onCloseModal }) {
       button === "{symbols}" ||
       button === "{default}"
     ) {
-      // Troca o layout do teclado
       setLayoutName((prev) => (prev === "default" ? "symbols" : "default"));
     } else {
       setInputValue(inputValue + button);

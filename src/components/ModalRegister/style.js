@@ -14,9 +14,9 @@ export const StyledModalRegister = styled.div`
 
   .modal-content {
     background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    width: 25rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: relative;
   }
@@ -35,50 +35,49 @@ export const StyledModalRegister = styled.div`
 
     .hg-button {
       font-size: 1rem;
-      height: 40px;
-      padding: 10px 5px;
-      margin: 3px;
+      height: 2.5rem;
+      padding: 0.625rem 0.313rem;
+      margin: 0.188rem;
     }
   }
 
   .input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.625rem;
+    margin-bottom: 0.625rem;
+    border: 0.063rem solid #ccc;
+    border-radius: 0.25rem;
   }
 
   .submit-button {
     width: 100%;
-    padding: 10px;
+    padding: 0.625rem;
     background: #28a745;
     color: white;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 0.25rem;
   }
 
   .error {
     color: red;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   .close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0.625rem;
+    right: 0.625rem;
+    font-size: 1.25rem;
     cursor: pointer;
-    font-size: 20px;
   }
 
   @media (orientation: portrait) {
     .keyboard {
       .hg-button {
         font-size: 1.5rem;
-        height: 80px;
-        padding: 15px 10px;
-        margin: 5px;
+        height: 5rem;
+        padding: 0.938rem 0.625rem;
+        margin: 0.313rem;
       }
     }
   }

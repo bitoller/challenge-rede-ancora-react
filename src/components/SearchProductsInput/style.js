@@ -11,7 +11,7 @@ export const StyledSearchProductsInput = styled.input`
   @media (orientation: portrait) {
     width: 150%;
     font-size: 1.3rem;
-    padding: 0 20px 0 10px;
+    padding: 0 1.25rem 0 0.625rem;
   }
 `;
 
@@ -29,17 +29,17 @@ export const StyledKeyboardContainer = styled.div`
 
   .hg-button {
     font-size: 1rem;
-    height: 40px;
-    padding: 10px 5px;
-    margin: 3px;
+    height: 2.5rem;
+    padding: 0.625rem 0.313rem;
+    margin: 0.188rem;
   }
 
   @media (orientation: portrait) {
     .hg-button {
       font-size: 1.5rem;
-      height: 80px;
-      padding: 15px 10px;
-      margin: 5px;
+      height: 5rem;
+      padding: 0.938rem 0.625rem;
+      margin: 0.313rem;
     }
   }
 `;

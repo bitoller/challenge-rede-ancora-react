@@ -14,7 +14,7 @@ export const StyledModalPaymentOptions = styled.div`
 
   .modal-payment-option {
     background-color: white;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     padding: 1.25rem;
     width: 25rem;
@@ -26,6 +26,7 @@ export const StyledModalPaymentOptions = styled.div`
       opacity: 0;
       transform: translate3d(0, -30px, 0);
     }
+
     to {
       opacity: 1;
       transform: translate3d(0, 0, 0);
@@ -48,7 +49,7 @@ export const StyledModalPaymentOptions = styled.div`
     background-color: #e74c3c;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     padding: 0.625rem 1.25rem;
     transition: background-color 0.3s ease;
   }

@@ -16,19 +16,19 @@ export const StyledFooter = styled.footer`
   }
 
   .footer-cart > p {
-    color: #ffffff;
+    color: var(--color-gray-12);
   }
 
   .footer-cart-img {
     display: flex;
     align-items: center;
     gap: 0.3125rem;
-    border-bottom: 3px solid white;
+    border-bottom: 0.188rem solid white;
     padding-bottom: 0.3125rem;
   }
 
   .footer-cart-img > p {
-    color: #ffffff;
+    color: var(--color-gray-12);
   }
 
   .back-button {
@@ -44,8 +44,8 @@ export const StyledFooter = styled.footer`
     height: 3.75rem;
     width: 12.5rem;
     background-color: var(--color-accent);
-    color: #ffffff;
-    border-radius: 7px;
+    color: var(--color-gray-12);
+    border-radius: 0.438rem;
     font-weight: 700;
     font-size: 1.3rem;
   }
@@ -64,6 +64,7 @@ export const StyledFooter = styled.footer`
     .footer-cart-img > p {
       font-size: 1.2rem;
     }
+    
     .back-button {
       height: 3.75rem;
       width: 12.5rem;

@@ -23,6 +23,7 @@ export const StyledHeader = styled.header`
     font-size: 3rem;
     text-align: center;
   }
+  
   @media (orientation: portrait) {
     height: 10vh;
     width: 100%;

@@ -30,9 +30,9 @@ export const StyledSearchByLicensePlate = styled.main`
   .input-container {
     height: 100%;
     width: 100;
-    background-color: #ffffff;
-    border: 2px solid var(--color-gray-3);
-    border-radius: 8px;
+    background-color: var(--color-gray-12);
+    border: 0.125rem solid var(--color-gray-3);
+    border-radius: 0.5rem;
     display: grid;
     grid-template-columns: 1fr auto;
     justify-content: space-between;

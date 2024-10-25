@@ -10,7 +10,7 @@ import { StyledSearchByCode } from "./style";
 
 export function SearchByCode() {
   const [jwtToken, setJwtToken] = useState("");
-  const [input, setInput] = useState(""); // Estado para armazenar o valor do input
+  const [input, setInput] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {

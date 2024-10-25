@@ -14,7 +14,7 @@ export const StyledModalLogin = styled.div`
   .modal-login {
     background-color: white;
     padding: 1.25rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     position: relative;
     width: 25rem;
     max-width: 90%;
@@ -27,6 +27,7 @@ export const StyledModalLogin = styled.div`
       opacity: 0;
       transform: translate3d(0, -30px, 0);
     }
+
     to {
       opacity: 1;
       transform: translate3d(0, 0, 0);
@@ -69,8 +70,8 @@ export const StyledModalLogin = styled.div`
   #cpfLogin {
     width: 100%;
     padding: 0.625rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 0.063rem solid #ccc;
+    border-radius: 0.313rem;
     font-size: 1rem;
     margin-bottom: 0.625rem;
   }
@@ -83,8 +84,8 @@ export const StyledModalLogin = styled.div`
 
   .numeric-buttons > button {
     padding: 0.9375rem 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 0.063rem solid #ccc;
+    border-radius: 0.313rem;
     font-size: 1.125rem;
     background-color: #f9f9f9;
     transition: background-color 0.3s ease;
@@ -108,7 +109,7 @@ export const StyledModalLogin = styled.div`
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     font-size: 1.125rem;
     transition: background-color 0.3s ease;
   }

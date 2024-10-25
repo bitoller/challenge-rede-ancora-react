@@ -10,7 +10,7 @@ export const StyledItemInCartCard = styled.li`
   padding: 0.625rem;
   background-color: white;
   color: black;
-  border: 1px solid black;
+  border: 0.063rem solid black;
 
   .img-container {
     display: flex;
@@ -31,7 +31,7 @@ export const StyledItemInCartCard = styled.li`
     color: var(--color-gray-10);
     background-color: var(--color-primary);
     padding: 0.625rem;
-    border-radius: 5px;
+    border-radius: 0.313rem;
   }
 
   .product-name {
@@ -75,7 +75,7 @@ export const StyledItemInCartCard = styled.li`
   }
 
   .product-price-sum {
-    color: #c32401;
+    color: var(--color-accent-2);
   }
 
   .modal-container {
@@ -97,7 +97,7 @@ export const StyledItemInCartCard = styled.li`
     gap: 1.875rem;
     background-color: white;
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     animation: modal 0.3s ease;
   }
@@ -107,6 +107,7 @@ export const StyledItemInCartCard = styled.li`
       opacity: 0;
       transform: translate3d(0, -30px, 0);
     }
+
     to {
       opacity: 1;
       transform: translate3d(0, 0, 0);
@@ -119,7 +120,7 @@ export const StyledItemInCartCard = styled.li`
   }
 
   .modal > p > span {
-    color: #c32401;
+    color: var(--color-accent-2);
   }
 
   .modal-button {
@@ -129,7 +130,7 @@ export const StyledItemInCartCard = styled.li`
 
   .modal-button > button {
     padding: 0.625rem 1.25rem;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     background-color: var(--color-primary);
     color: white;
     font-size: 1.2em;
