@@ -12,7 +12,7 @@ export const StyledSearchScreen = styled.main`
     background-color: var(--color-gray-1);
     width: 26.875rem;
     height: 26.875rem;
-    border-radius: 15px;
+    border-radius: 0.938rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -50,7 +50,7 @@ export const StyledSearchScreen = styled.main`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 0.938rem;
     padding: 1.25rem 2.8125rem 1.875rem 2.8125rem;
   }
 

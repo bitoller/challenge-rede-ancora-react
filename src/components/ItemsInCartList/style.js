@@ -36,4 +36,11 @@ export const StyledItemsInCartList = styled.div`
     font-size: 1.25rem;
     font-weight: 600;
   }
+
+  @media (orientation: portrait) {
+    ul {
+      align-content: start;
+      justify-content: center;
+    }
+  }
 `;

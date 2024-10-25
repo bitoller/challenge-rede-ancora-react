@@ -13,7 +13,8 @@ import { StyledSearchByLicensePlate } from "./style";
 
 export function SearchByLicensePlate() {
   const [jwtToken, setJwtToken] = useState("");
-  const [modal, setModal] = useState(false);
+  const [input, setInput] = useState("");
+  const [modal, setModal] = useState(true);
   const [selectCarInfo, setSelectCarInfo] = useState(
     "Selecione seu carro aqui"
   );
@@ -49,14 +50,13 @@ export function SearchByLicensePlate() {
 
   const search = async (event) => {
     event.preventDefault();
-    const form = event.target;
 
     if (!vehicleInfo.plate) {
       toast.warn("Por favor, insira a placa antes de pesquisar o produto.");
       return;
     }
 
-    if (!form.searchProductInput.value) {
+    if (!input) {
       toast.warn("Por favor, insira o nome do produto");
       return;
     }
@@ -71,8 +71,8 @@ export function SearchByLicensePlate() {
           veiculoFiltro: {
             veiculoPlaca: vehicleInfo.plate,
           },
-          nomeProduto: form.searchProductInput.value,
-          superbusca: form.searchProductInput.value,
+          nomeProduto: input,
+          superbusca: input,
           pagina: 0,
           itensPorPagina: 100,
         },
@@ -97,12 +97,13 @@ export function SearchByLicensePlate() {
           };
           response.data.pageResult.data[index] = newProduct;
         }
-        return response;
-      })
-      .then((response) => {
+
         localStorage.setItem("searchResult", JSON.stringify(response.data));
-        localStorage.setItem("lastSearch", form.searchProductInput.value);
+        localStorage.setItem("lastSearch", input);
         navigate("/search_results");
+      })
+      .catch((error) => {
+        toast.error("Erro ao buscar produtos. Por favor, tente novamente.");
       });
   };
 
@@ -147,7 +148,7 @@ export function SearchByLicensePlate() {
           </div>
           <form onSubmit={search}>
             <div className="input-container">
-              <SearchProductsInput name="searchProductInput" />
+              <SearchProductsInput input={input} setInput={setInput} />
               <SearchButton type="submit" />
             </div>
           </form>

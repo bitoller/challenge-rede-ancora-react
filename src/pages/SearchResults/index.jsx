@@ -19,98 +19,94 @@ export function SearchResults() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [showAddToCartModal, setShowAddToCartModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const lastSearch = localStorage.getItem("lastSearch");
+  const [lastSearch, setLastSearch] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     const searchResult = JSON.parse(localStorage.getItem("searchResult"));
     const vehicleResult = JSON.parse(localStorage.getItem("vehicleInfo"));
-    setProductsCatalog(searchResult.pageResult.data);
+    setProductsCatalog(searchResult?.pageResult.data || []);
     setVehicleInfo(vehicleResult);
     const storedPlate = JSON.parse(localStorage.getItem("licensePlate"));
 
     if (storedPlate) {
       setPlateValue(storedPlate);
     }
+
+    const lastSearch = localStorage.getItem("lastSearch");
+    setLastSearch(lastSearch || "");
   }, []);
+
+  useEffect(() => {
+    if (plateValue) {
+      search(null, lastSearch);
+    }
+  }, [plateValue]);
 
   const submitForm = async (vehicleResult) => {
     if (vehicleResult) {
       setVehicleInfo(vehicleResult);
       localStorage.setItem("licensePlate", JSON.stringify(vehicleResult.plate));
-      await search(null, lastSearch);
+      setPlateValue(vehicleResult.plate);
     } else {
-      setProductsCatalog(null);
+      setProductsCatalog([]);
       setVehicleInfo(null);
     }
     setModal(false);
   };
 
-  const search = async (event, productName = null) => {
+  const search = async (event, productName) => {
     if (event) event.preventDefault();
 
-    const form = event ? event.target : null;
+    const productSearchName = productName || searchInput;
 
-    if (!productName) {
-      productName = form ? form.searchProductInput.value : lastSearch;
-    }
-
-    if (!productName) {
+    if (!productSearchName) {
       toast.warn("Por favor, insira o nome do produto");
       return;
     }
 
     const requestBody = {
-      nomeProduto: productName,
-      superbusca: productName,
+      nomeProduto: productSearchName,
+      superbusca: productSearchName,
       pagina: 0,
       itensPorPagina: 100,
     };
 
     const storedPlate = JSON.parse(localStorage.getItem("licensePlate"));
-
     if (storedPlate) {
-      setPlateValue(storedPlate);
       requestBody.veiculoFiltro = { veiculoPlaca: storedPlate };
     }
 
     try {
-      await axios
-        .post(
-          "https://api-stg-catalogo.redeancora.com.br/superbusca/api/integracao/catalogo/v2/produtos/query/sumario",
-          requestBody,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.status == 204) {
-            setProductsCatalog(null);
-          }
+      const response = await axios.post(
+        "https://api-stg-catalogo.redeancora.com.br/superbusca/api/integracao/catalogo/v2/produtos/query/sumario",
+        requestBody,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-          for (
-            let index = 0;
-            index < response.data.pageResult.data.length;
-            index++
-          ) {
-            const randomPrice = (Math.random() * 800).toFixed(2);
-            const newProduct = {
-              ...response.data.pageResult.data[index],
-              price: randomPrice,
-              count: 0,
-            };
-            response.data.pageResult.data[index] = newProduct;
-          }
+      if (response.status === 204) {
+        setProductsCatalog([]);
+        return;
+      }
 
-          return response.data;
+      const productsWithPrice = response.data.pageResult.data.map(
+        (product) => ({
+          ...product,
+          price: (Math.random() * (800 - 50) + 50).toFixed(2),
+          count: 0,
         })
-        .then((response) => {
-          localStorage.setItem("searchResult", JSON.stringify(response));
-          localStorage.setItem("lastSearch", productName);
-          setProductsCatalog(response.pageResult.data);
-        });
+      );
+
+      localStorage.setItem("searchResult", JSON.stringify(response.data));
+      localStorage.setItem("lastSearch", productSearchName);
+      setProductsCatalog(productsWithPrice);
+      setLastSearch(productSearchName);
+      setSearchInput("");
     } catch (error) {
       toast.error("Erro ao buscar produtos. Por favor, tente novamente.");
     }
@@ -122,8 +118,8 @@ export function SearchResults() {
 
   const handleAddToCart = (product, quantity) => {
     if (product) {
-      let foundIndex = cart.findIndex((x) => x.id == product.id);
-      if (foundIndex != -1) {
+      let foundIndex = cart.findIndex((x) => x.id === product.id);
+      if (foundIndex !== -1) {
         const products = cart.map((c, i) => {
           if (i === foundIndex) {
             c.count += quantity;
@@ -131,7 +127,7 @@ export function SearchResults() {
           return c;
         });
         setCart(products);
-        localStorage.setItem("itemsInCart", JSON.stringify(cart));
+        localStorage.setItem("itemsInCart", JSON.stringify(products));
       } else {
         product.count = quantity;
         setCart([...cart, product]);
@@ -149,25 +145,19 @@ export function SearchResults() {
   };
 
   const cartLength = () => {
-    let productQty = 0;
-    cart.forEach((item) => {
-      productQty += item.count;
-    });
-    return productQty;
+    return cart.reduce((total, item) => total + item.count, 0);
   };
 
   useEffect(() => {
     const localCart = JSON.parse(localStorage.getItem("itemsInCart"));
-    if (cart || localCart) {
-      if (cart.length == 0 && localCart && localCart.length > 0) {
-        setCart(localCart);
-      }
-      const total = cart.reduce(
-        (acc, curr) => acc + parseFloat(curr.price) * curr.count,
-        0
-      );
-      setTotalPrice(total);
+    if (cart.length === 0 && localCart && localCart.length > 0) {
+      setCart(localCart);
     }
+    const total = cart.reduce(
+      (acc, curr) => acc + parseFloat(curr.price) * curr.count,
+      0
+    );
+    setTotalPrice(total);
   }, [cart]);
 
   return (
@@ -200,55 +190,35 @@ export function SearchResults() {
             </div>
           </div>
           <ul id="menu" className="aside-menu">
-            <li
-              className="search-item"
-              onClick={(e) => search(e, "Amortecedor")}
-            >
-              Amortecedor
-            </li>
-            <li className="search-item" onClick={(e) => search(e, "Suspensão")}>
-              Suspensão
-            </li>
-            <li className="search-item" onClick={(e) => search(e, "Freio")}>
-              Freio
-            </li>
-            <li className="search-item" onClick={(e) => search(e, "Motor")}>
-              Motor
-            </li>
-            <li className="search-item" onClick={(e) => search(e, "Direção")}>
-              Direção
-            </li>
-            <li
-              className="search-item"
-              onClick={(e) => search(e, "Filtro de ar")}
-            >
-              Filtro de ar
-            </li>
-            <li
-              className="search-item"
-              onClick={(e) => search(e, "Filtro de óleo")}
-            >
-              Filtro de óleo
-            </li>
-            <li
-              className="search-item"
-              onClick={(e) => search(e, "Transmissão")}
-            >
-              Transmissão
-            </li>
-            <li
-              className="search-item"
-              onClick={(e) => search(e, "Acessórios")}
-            >
-              Acessórios
-            </li>
+            {[
+              "Amortecedor",
+              "Suspensão",
+              "Freio",
+              "Motor",
+              "Direção",
+              "Filtro de ar",
+              "Filtro de óleo",
+              "Transmissão",
+              "Acessórios",
+            ].map((item) => (
+              <li
+                key={item}
+                className="search-item"
+                onClick={(e) => search(e, item)}
+              >
+                {item}
+              </li>
+            ))}
           </ul>
         </aside>
         <section className="container-result">
           <div className="search-field-results">
             <form className="search-input-product" onSubmit={search}>
               <div className="input-container">
-                <SearchProductsInput name="searchProductInput" />
+                <SearchProductsInput
+                  input={searchInput}
+                  setInput={setSearchInput}
+                />
                 <SearchButton type="submit" />
               </div>
             </form>
@@ -269,11 +239,9 @@ export function SearchResults() {
         showBackButton
         showFinishButton
         totalPrice={totalPrice}
-        cartLength={() => cartLength()}
+        cartLength={cartLength}
       />
-      {modal ? (
-        <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />
-      ) : null}
+      {modal && <PlateModal onSubmit={submitForm} onCloseModal={closeModal} />}
       <AddToCartModal
         show={showAddToCartModal}
         onClose={() => setShowAddToCartModal(false)}
@@ -283,8 +251,3 @@ export function SearchResults() {
     </>
   );
 }
-
-/* TODO: se possivel descobrir um jeito de deixar os cards de produtos em um tamanho
-onde nao quebre com textos grandes/pequenos mas alinhe tudo */
-/* TODO: no modal para adicionar no carrinho ao clicar nos cards de produtos,
-arrumar texto vazando pra fora da tela quando o produto tem muito texto */

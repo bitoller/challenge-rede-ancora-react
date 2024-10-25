@@ -29,14 +29,14 @@ export const StyledSearchByLicensePlate = styled.main`
 
   .input-container {
     height: 100%;
-    width: 100%;
-    background-color: #ffffff;
-    border: 2px solid var(--color-gray-3);
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-around;
+    width: 100;
+    background-color: var(--color-gray-12);
+    border: 0.125rem solid var(--color-gray-3);
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
     align-items: center;
-    gap: 4.6875rem;
     padding: 0rem 0.625rem 0rem 0.625rem;
   }
 
@@ -54,5 +54,15 @@ export const StyledSearchByLicensePlate = styled.main`
   .license-plate-link > p {
     width: 18.75rem;
     text-align: center;
+  }
+
+  @media (orientation: portrait) {
+    justify-content: center;
+    gap: 4rem;
+
+    .input-container {
+      display: flex;
+      gap: 4.6875rem;
+    }
   }
 `;

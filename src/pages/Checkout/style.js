@@ -47,7 +47,7 @@ export const StyledCheckout = styled.div`
   .payment-options {
     width: 34.375rem;
     height: auto;
-    background-color: #fff;
+    background-color: var(--color-gray-12);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 1.25rem;
     display: flex;
@@ -70,7 +70,7 @@ export const StyledCheckout = styled.div`
     align-items: center;
     padding-bottom: 0.3125rem;
     width: 90%;
-    border-bottom: 2px dashed black;
+    border-bottom: 0.125rem dashed black;
     cursor: pointer;
   }
 
@@ -119,7 +119,7 @@ export const StyledCheckout = styled.div`
   .login-options > button {
     width: 12.5rem;
     height: 2.8125rem;
-    border-radius: 7px;
+    border-radius: 0.438rem;
     color: var(--color-gray-10);
     background-color: var(--color-primary);
     font-weight: 700;
@@ -135,7 +135,7 @@ export const StyledCheckout = styled.div`
   .payment-finish-buttons > button {
     width: 9.6875rem;
     height: 3.125rem;
-    border-radius: 7px;
+    border-radius: 0.438rem;
     font-size: 1.625rem;
     font-weight: 700;
   }
@@ -154,7 +154,7 @@ export const StyledCheckout = styled.div`
     display: flex;
     justify-content: center;
     width: 31.25rem;
-    background-color: #fff;
+    background-color: var(--color-gray-12);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 1.25rem;
   }
@@ -172,7 +172,7 @@ export const StyledCheckout = styled.div`
   .payment-value > h1 {
     width: 23.4375rem;
     text-align: left;
-    border-bottom: 2px solid #d9d9d9;
+    border-bottom: 0.125rem solid var(--color-gray-13);
     font-size: 1.5rem;
     font-weight: 600;
     padding-bottom: 0.9375rem;
@@ -187,9 +187,9 @@ export const StyledCheckout = styled.div`
   }
 
   .payment-value > p:last-child {
-    border-top: 2px solid #d9d9d9;
+    border-top: 0.125rem solid var(--color-gray-13);
     padding-top: 0.9375rem;
-    color: #c32401;
+    color: var(--color-accent-2);
     font-weight: 600;
   }
 
@@ -205,5 +205,16 @@ export const StyledCheckout = styled.div`
     align-items: center;
     padding: 0.625rem 1.25rem 0.625rem 1.25rem;
     background-color: var(--color-gray-10);
+  }
+
+  @media (orientation: portrait) {
+    main {
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
+    }
+
+    .payment-choices > h1 {
+      text-align: center;
+    }
   }
 `;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Keyboard from "react-simple-keyboard";
 import { StyledModalRegister } from "./style";
 
 export function ModalRegister({
@@ -11,6 +12,9 @@ export function ModalRegister({
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
+  const [inputName, setInputName] = useState("");
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
+  const [layoutName, setLayoutName] = useState("default");
 
   const formatPhone = (value) => {
     const formattedValue = value.replace(/\D/g, "");
@@ -145,6 +149,89 @@ export function ModalRegister({
     e.stopPropagation();
   };
 
+  const onKeyPress = (button) => {
+    let inputValue = "";
+    switch (inputName) {
+      case "fullName":
+        inputValue = fullName;
+        break;
+      case "cpf":
+        inputValue = cpf;
+        break;
+      case "phone":
+        inputValue = phone;
+        break;
+      case "email":
+        inputValue = email;
+        break;
+      default:
+        break;
+    }
+
+    if (button === "{bksp}") {
+      inputValue = inputValue.slice(0, -1);
+    } else if (button === "{shift}") {
+      return;
+    } else if (button === "{space}") {
+      inputValue += " ";
+    } else if (button === "{symbols}") {
+      setLayoutName("symbols");
+      return;
+    } else if (button === "{default}") {
+      setLayoutName("default");
+      return;
+    } else {
+      if (inputName === "cpf" && inputValue.length >= 14) {
+        return;
+      } else if (inputName === "phone" && inputValue.length >= 15) {
+        return;
+      }
+      inputValue += button;
+    }
+
+    switch (inputName) {
+      case "fullName":
+        setFullName(inputValue);
+        break;
+      case "cpf":
+        formatCpf(inputValue);
+        validateCpf(inputValue);
+        break;
+      case "phone":
+        formatPhone(inputValue);
+        break;
+      case "email":
+        setEmail(inputValue);
+        validateEmail(inputValue);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleInputFocus = (name) => {
+    setInputName(name);
+    setKeyboardVisible(true);
+  };
+
+  // Layout QWERTY sem shift
+  const keyboardLayout = {
+    default: [
+      "1 2 3 4 5 6 7 8 9 0",
+      "q w e r t y u i o p",
+      "a s d f g h j k l",
+      "z x c v b n m {bksp}",
+      "{symbols} {space} @ .",
+    ],
+    symbols: [
+      "~ ` | \\ _ ^ { } [ ]",
+      "! @ # $ % & * ( )",
+      "< > + = / ? : ; {bksp}",
+      "{default} , . ' \"",
+      "{space}",
+    ],
+  };
+
   return (
     <StyledModalRegister onClick={closeModal}>
       <div className="modal-content" onClick={stopPropagation}>
@@ -164,8 +251,10 @@ export function ModalRegister({
             required
             value={fullName}
             onChange={handleChange}
+            onFocus={() => handleInputFocus("fullName")}
           />
           {errors.fullName && <p className="error">{errors.fullName}</p>}
+
           <label className="label" htmlFor="cpf">
             Seu CPF:
           </label>
@@ -178,8 +267,10 @@ export function ModalRegister({
             required
             value={cpf}
             onChange={handleChange}
+            onFocus={() => handleInputFocus("cpf")}
           />
           {errors.cpf && <p className="error">{errors.cpf}</p>}
+
           <label className="label" htmlFor="email">
             E-mail:
           </label>
@@ -191,23 +282,26 @@ export function ModalRegister({
             required
             value={email}
             onChange={handleChange}
+            onFocus={() => handleInputFocus("email")}
           />
           {errors.email && <p className="error">{errors.email}</p>}
+
           <label className="label" htmlFor="phone">
             Telefone:
           </label>
           <input
             className="input"
-            type="tel"
+            type="text"
             id="phone"
             name="phone"
             maxLength="15"
-            minLength="14"
             required
             value={phone}
             onChange={handleChange}
+            onFocus={() => handleInputFocus("phone")}
           />
           {errors.phone && <p className="error">{errors.phone}</p>}
+
           <input
             type="submit"
             className="submit-button register-input"
@@ -215,6 +309,21 @@ export function ModalRegister({
           />
         </form>
       </div>
+      {keyboardVisible && (
+        <div className="keyboard" onClick={stopPropagation}>
+          <Keyboard
+            onKeyPress={onKeyPress}
+            layout={keyboardLayout}
+            display={{
+              "{space}": "Espaço",
+              "{bksp}": "⌫",
+              "{symbols}": "?123",
+              "{default}": "ABC",
+            }}
+            layoutName={layoutName}
+          />
+        </div>
+      )}
     </StyledModalRegister>
   );
 }

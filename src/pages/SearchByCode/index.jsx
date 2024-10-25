@@ -10,6 +10,7 @@ import { StyledSearchByCode } from "./style";
 
 export function SearchByCode() {
   const [jwtToken, setJwtToken] = useState("");
+  const [input, setInput] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,10 +42,9 @@ export function SearchByCode() {
 
   const search = async (event) => {
     event.preventDefault();
-    const form = event.target;
 
-    if (!form.searchProductInput.value) {
-      toast.warn("Por favor, insira o nome do produto");
+    if (!input) {
+      toast.warn("Por favor, insira o nome ou código do produto");
       return;
     }
 
@@ -55,8 +55,8 @@ export function SearchByCode() {
       .post(
         "https://api-stg-catalogo.redeancora.com.br/superbusca/api/integracao/catalogo/v2/produtos/query/sumario",
         {
-          nomeProduto: form.searchProductInput.value,
-          superbusca: form.searchProductInput.value,
+          nomeProduto: input,
+          superbusca: input,
           pagina: 0,
           itensPorPagina: 100,
         },
@@ -85,7 +85,7 @@ export function SearchByCode() {
       })
       .then((response) => {
         localStorage.setItem("searchResult", JSON.stringify(response.data));
-        localStorage.setItem("lastSearch", form.searchProductInput.value);
+        localStorage.setItem("lastSearch", input);
         navigate("/search_results");
       });
   };
@@ -98,7 +98,7 @@ export function SearchByCode() {
         <section className="search-field-code">
           <form onSubmit={search}>
             <div className="input-container">
-              <SearchProductsInput name="searchProductInput" />
+              <SearchProductsInput input={input} setInput={setInput} />
               <SearchButton type="submit" />
             </div>
           </form>

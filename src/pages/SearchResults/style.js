@@ -14,7 +14,7 @@ export const StyledSearchResults = styled.main`
     width: 80%;
     height: auto;
     padding: 0.625rem;
-    border: 1px solid var(--color-gray-10);
+    border: 0.063rem solid var(--color-gray-10);
     font-family: var(--font-family-1);
     font-weight: 500;
     cursor: pointer;
@@ -65,7 +65,7 @@ export const StyledSearchResults = styled.main`
   }
 
   .aside-menu::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background-color: var(--color-primary);
   }
 
@@ -79,7 +79,7 @@ export const StyledSearchResults = styled.main`
     color: var(--color-gray-10);
     font-size: 1.25rem;
     font-weight: 500;
-    border-bottom: 2px solid var(--color-gray-10);
+    border-bottom: 0.125rem solid var(--color-gray-10);
     padding: 0.9375rem 0rem 0.9375rem 0rem;
     cursor: pointer;
   }
@@ -107,10 +107,11 @@ export const StyledSearchResults = styled.main`
   .input-container {
     height: 100%;
     width: 100%;
-    background-color: #ffffff;
-    border: 2px solid var(--color-gray-3);
-    border-radius: 8px;
-    display: flex;
+    background-color: var(--color-gray-12);
+    border: 0.125rem solid var(--color-gray-3);
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
     justify-content: space-around;
     align-items: center;
     gap: 4.6875rem;
@@ -140,10 +141,10 @@ export const StyledSearchResults = styled.main`
     background-color: var(--color-gray-10);
     margin: 15% auto;
     padding: 1.25rem;
-    border: 1px solid var(--color-gray-3);
+    border: 0.063rem solid var(--color-gray-3);
     width: 80%;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0.313rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
   }
 
   .modal-body {
@@ -154,6 +155,37 @@ export const StyledSearchResults = styled.main`
     display: flex;
     justify-content: flex-end;
     padding: 1rem;
-    border-top: 1px solid var(--color-gray-3);
+    border-top: 0.063rem solid var(--color-gray-3);
+  }
+
+  @media (orientation: portrait) {
+    .vehicle-info {
+      width: 90%;
+      min-height: 7rem; /*TODO: confirmar tamanho */
+    }
+
+    .section-menu {
+      width: 23%;
+    }
+
+    .section-menu > img {
+      width: 70%;
+      padding: 0.9125rem 0rem 0.3125rem 0rem;
+    }
+
+    .plate-modal-text {
+      font-size: 1.2rem;
+      padding: 0.625rem;
+      text-align: center;
+    }
+
+    .aside-menu > li {
+      font-size: 1.75rem;
+      padding: 3rem 0rem 3rem 0rem;
+    }
+
+    .search-input-product {
+      width: 70%;
+    }
   }
 `;

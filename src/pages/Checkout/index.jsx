@@ -80,7 +80,7 @@ export function Checkout() {
       <main className="payment-container">
         <section className="payment-box">
           <div className="payment-choices">
-            <h1>Como você prefere pagar?</h1>
+            <h1>Selecione um método de pagamento</h1>
             <div className="payment-options">
               <ul className="payment-methods">
                 <li onClick={() => openModal("Insira o cartão na maquininha")}>

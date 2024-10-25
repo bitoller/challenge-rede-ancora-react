@@ -76,4 +76,26 @@ export const StyledHome = styled.div`
     text-decoration: none;
     color: var(--color-gray-10);
   }
+
+  @media (orientation: portrait) {
+    max-width: 100vh;
+    gap: 10.25rem;
+
+    .header-text {
+      font-size: 6.9rem;
+    }
+
+    main {
+      gap: 13.9rem;
+    }
+
+    .touch-button {
+      width: 80vw;
+    }
+
+    header > img {
+      padding-top: 5rem;
+      height: auto;
+    }
+  }
 `;

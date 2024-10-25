@@ -41,17 +41,17 @@ export const StyledProductCard = styled.li`
   .product-name {
     font-weight: 700;
     padding-bottom: 0.625rem;
-    border-bottom: 2px dashed #c32401;
+    border-bottom: 0.125rem dashed var(--color-accent-2);
   }
 
   .product-brand,
   .product-code {
-    color: #c32401;
+    color: var(--color-accent-2);
   }
 
   .product-price {
     font-weight: 700;
     padding-top: 0.625rem;
-    border-top: 2px dashed #c32401;
+    border-top: 0.125rem dashed var(--color-accent-2);
   }
 `;
