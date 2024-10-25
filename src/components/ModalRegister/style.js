@@ -12,6 +12,13 @@ export const StyledModalRegister = styled.div`
   align-items: center;
   z-index: 1000;
 
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
   .modal-content {
     background: white;
     padding: 1.25rem;
@@ -44,23 +51,26 @@ export const StyledModalRegister = styled.div`
   .input {
     width: 100%;
     padding: 0.625rem;
-    margin-bottom: 0.625rem;
+    margin-bottom: 1.5rem;
     border: 0.063rem solid #ccc;
     border-radius: 0.25rem;
   }
 
   .submit-button {
     width: 100%;
-    padding: 0.625rem;
-    background: #28a745;
+    padding: 0.825rem;
+    background: #007aff;
     color: white;
     border: none;
     border-radius: 0.25rem;
+    margin-top: 2rem;
   }
 
   .error {
     color: red;
-    font-size: 0.75rem;
+    font-size: 1rem;
+    margin-top: -1.1rem;
+    margin-bottom: 1rem;
   }
 
   .close-button {
@@ -69,6 +79,10 @@ export const StyledModalRegister = styled.div`
     right: 0.625rem;
     font-size: 1.25rem;
     cursor: pointer;
+  }
+
+  .label {
+    font-size: 1.2rem;
   }
 
   @media (orientation: portrait) {
