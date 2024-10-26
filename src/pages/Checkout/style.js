@@ -221,5 +221,9 @@ export const StyledCheckout = styled.div`
     .payment-container {
     justify-content: space-evenly;
     }
+
+    .payment-finish-buttons {
+      margin-top: 15px;
+    }
   }
 `;
