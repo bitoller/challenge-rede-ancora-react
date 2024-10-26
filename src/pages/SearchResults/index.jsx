@@ -192,12 +192,12 @@ export function SearchResults() {
           <ul id="menu" className="aside-menu">
             {[
               "Amortecedor",
-              "Suspensão",
               "Freio",
-              "Motor",
-              "Direção",
               "Filtro de ar",
               "Filtro de óleo",
+              "Motor",
+              "Suspensão",
+              "Direção",
               "Transmissão",
               "Acessórios",
             ].map((item) => (
