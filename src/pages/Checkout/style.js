@@ -215,6 +215,12 @@ export const StyledCheckout = styled.div`
 
     .payment-choices > h1 {
       text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .payment-container {
+    justify-content: space-evenly;
+    margin-bottom: 20px;
     }
   }
 `;
