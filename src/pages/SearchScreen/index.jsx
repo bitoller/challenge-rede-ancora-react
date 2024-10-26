@@ -13,7 +13,7 @@ export function SearchScreen() {
 
   return (
     <>
-      <Header text="Busque o produto que precisa" />
+      <Header text="Escolha o tipo de busca" />
       <StyledSearchScreen>
         <Link to="/search_by_license_plate">
           <section className="search-button-license-plate">
