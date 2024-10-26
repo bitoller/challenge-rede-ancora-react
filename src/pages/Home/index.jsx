@@ -15,7 +15,7 @@ export function Home() {
         </h1>
         <Carousel />
         <Link to="/search_screen">
-          <p className="touch-button">Toque aqui para continuar</p>
+          <p className="touch-button">Toque aqui para começar</p>
         </Link>
       </main>
       {/* <footer>
