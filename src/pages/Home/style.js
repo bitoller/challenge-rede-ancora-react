@@ -91,7 +91,7 @@ export const StyledHome = styled.div`
 
     .touch-button {
       width: 80vw;
-      height: 55px;
+      height: 200px;
     }
 
     header > img {
