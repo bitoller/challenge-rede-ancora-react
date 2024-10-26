@@ -220,7 +220,6 @@ export const StyledCheckout = styled.div`
 
     .payment-container {
     justify-content: space-evenly;
-    margin-bottom: 20px;
     }
   }
 `;
