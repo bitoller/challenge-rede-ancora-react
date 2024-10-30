@@ -2,6 +2,8 @@
 
 Em resposta ao desafio proposto pela Rede Ancora, em parceria com nossa instituição acadêmica, desenvolvemos um projeto inovador de totem utilizando React. Este totem foi criado para as lojas da Rede Ancora e oferece uma experiência interativa aos usuários, com diversas funcionalidades voltadas para facilitar o acesso às informações sobre produtos e serviços.
 
+<b>Este projeto foi premiado como primeiro lugar na feira da faculdade FIAP, o NEXT.</b>
+
 ## 🔨 Funcionalidades do Projeto
 
 O totem desenvolvido consiste em várias telas, cada uma com funcionalidades específicas:
@@ -47,7 +49,7 @@ Na página de checkout, os usuários podem escolher o método de pagamento e, se
 
 ## ⌛ Status do Projeto
 
-O projeto está em desenvolvimento.
+O projeto foi concluído.
 
 ## 📁 Acesso ao Projeto
 
