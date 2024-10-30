@@ -91,7 +91,7 @@ export const StyledHome = styled.div`
 
     .touch-button {
       width: 80vw;
-      height: 200px;
+      height: 12.5rem;
       display: flex;
       align-items: center;
       justify-content: center;

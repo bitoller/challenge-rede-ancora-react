@@ -215,7 +215,7 @@ export const StyledCheckout = styled.div`
 
     .payment-choices > h1 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
     }
 
     .payment-container {
@@ -223,7 +223,7 @@ export const StyledCheckout = styled.div`
     }
 
     .payment-finish-buttons {
-      margin-top: 15px;
+      margin-top: 0.938rem;
     }
   }
 `;

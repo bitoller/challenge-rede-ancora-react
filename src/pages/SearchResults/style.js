@@ -161,7 +161,7 @@ export const StyledSearchResults = styled.main`
   @media (orientation: portrait) {
     .vehicle-info {
       width: 90%;
-      min-height: 7rem; /*TODO: confirmar tamanho */
+      min-height: 7rem;
     }
 
     .section-menu {
