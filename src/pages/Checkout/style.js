@@ -237,6 +237,7 @@ export const StyledCheckout = styled.div`
     display: flex;
     justify-content: space-around;
     gap: 10px;
+    font-weight: 500;
   }
 
   .confirmation-modal button {
@@ -247,13 +248,13 @@ export const StyledCheckout = styled.div`
   }
 
   .confirmation-modal button:first-child {
-    background-color: #28a745;
-    color: white;
+    color: var(--color-gray-10);
+    background-color: var(--color-primary);
   }
 
   .confirmation-modal button:last-child {
-    background-color: #dc3545;
-    color: white;
+    color: var(--color-primary);
+    background-color: var(--color-gray-8);
   }
 
   @media (orientation: portrait) {
