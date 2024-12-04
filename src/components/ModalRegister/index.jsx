@@ -344,7 +344,7 @@ export function ModalRegister({
         {showCloseConfirmation && (
           <div className="confirmation-modal">
             <div className="modal-content">
-              <h2>Tem realmente certeza que deseja fechar?</h2>
+              <h2>Deseja realmente cancelar cadastro?</h2>
               <div className="buttons">
                 <button onClick={() => confirmCloseModal(false)}>Não</button>
                 <button onClick={() => confirmCloseModal(true)}>Sim</button>
