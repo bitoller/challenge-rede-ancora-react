@@ -207,6 +207,55 @@ export const StyledCheckout = styled.div`
     background-color: var(--color-gray-10);
   }
 
+  .confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .confirmation-modal .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .confirmation-modal p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .confirmation-modal .buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  .confirmation-modal button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .confirmation-modal button:first-child {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .confirmation-modal button:last-child {
+    background-color: #dc3545;
+    color: white;
+  }
+
   @media (orientation: portrait) {
     main {
       flex-direction: column-reverse;
@@ -219,7 +268,7 @@ export const StyledCheckout = styled.div`
     }
 
     .payment-container {
-    justify-content: space-evenly;
+      justify-content: space-evenly;
     }
 
     .payment-finish-buttons {
