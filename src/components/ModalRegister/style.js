@@ -96,23 +96,23 @@ export const StyledModalRegister = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .success-modal .modal-content {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 1.25rem;
+    border-radius: 0.625rem;
     text-align: center;
   }
 
   .success-modal .success-button {
-    margin-top: 20px;
-    padding: 10px 20px;
+    margin-top: 1.25rem;
+    padding: 0.625rem 1.25rem;
     background: #007aff;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     cursor: pointer;
   }
 
