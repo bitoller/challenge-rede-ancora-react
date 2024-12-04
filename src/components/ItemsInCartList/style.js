@@ -13,6 +13,7 @@ export const StyledItemsInCartList = styled.div`
     justify-content: space-evenly;
     padding: 0.625rem 0.625rem 0.625rem 0.625rem;
     overflow-y: scroll;
+    align-content: flex-start;
   }
 
   ul::-webkit-scrollbar {
@@ -39,7 +40,6 @@ export const StyledItemsInCartList = styled.div`
 
   @media (orientation: portrait) {
     ul {
-      align-content: start;
       justify-content: center;
     }
   }
