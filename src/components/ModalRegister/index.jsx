@@ -17,6 +17,7 @@ export function ModalRegister({
   const [keyboardVisible, setKeyboardVisible] = useState(false);
   const [layoutName, setLayoutName] = useState("default");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showCloseConfirmation, setShowCloseConfirmation] = useState(false);
 
   const formatPhone = (value) => {
     const formattedValue = value.replace(/\D/g, "");
@@ -234,14 +235,26 @@ export function ModalRegister({
     ],
   };
 
+  const handleCloseModal = () => {
+    setShowCloseConfirmation(true); // Exibe o modal de confirmação de fechamento
+  };
+
+  const confirmCloseModal = (confirm) => {
+    setShowCloseConfirmation(false);
+    if (confirm) {
+      closeModal(); // Fecha o modal
+    }
+  };
+
   return (
-    <StyledModalRegister onClick={closeModal}>
+    <StyledModalRegister onClick={handleCloseModal}>
       <div className="modal-content" onClick={stopPropagation}>
-        <span className="close-button" onClick={closeModal}>
+        <span className="close-button" onClick={handleCloseModal}>
           &times;
         </span>
         <h2>Cadastre-se</h2>
         <form className="form" onSubmit={submitFormRegister} noValidate>
+          {/* Form fields */}
           <label className="label" htmlFor="fullname">
             Nome Completo:
           </label>
@@ -310,7 +323,37 @@ export function ModalRegister({
             value="Cadastrar"
           />
         </form>
+
+        {showSuccessModal && (
+          <div className="success-modal">
+            <div className="modal-content">
+              <h2>Cadastro realizado com sucesso!</h2>
+              <h2>Desconto aplicado: {discountValueDisplay}</h2>
+              <button
+                className="success-button"
+                onClick={() => {
+                  setShowSuccessModal(false);
+                  closeModal();
+                }}
+              >
+                Concluir
+              </button>
+            </div>
+          </div>
+        )}
+        {showCloseConfirmation && (
+          <div className="confirmation-modal">
+            <div className="modal-content">
+              <h2>Tem realmente certeza que deseja fechar?</h2>
+              <div className="buttons">
+                <button onClick={() => confirmCloseModal(false)}>Não</button>
+                <button onClick={() => confirmCloseModal(true)}>Sim</button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
+
       {keyboardVisible && (
         <div className="keyboard" onClick={stopPropagation}>
           <Keyboard
@@ -324,23 +367,6 @@ export function ModalRegister({
             }}
             layoutName={layoutName}
           />
-        </div>
-      )}
-      {showSuccessModal && (
-        <div className="success-modal">
-          <div className="modal-content">
-            <h2>Cadastro realizado com sucesso!</h2>
-            <h2>Desconto aplicado: {discountValueDisplay}</h2>
-            <button
-              className="success-button"
-              onClick={() => {
-                setShowSuccessModal(false);
-                closeModal();
-              }}
-            >
-              Concluir
-            </button>
-          </div>
         </div>
       )}
     </StyledModalRegister>

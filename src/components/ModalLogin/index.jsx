@@ -10,6 +10,7 @@ export function ModalLogin({
   const [cpfValue, setCpfValue] = useState("");
   const [isCpfValid, setIsCpfValid] = useState(true);
   const [showLoginSuccessModal, setShowLoginSuccessModal] = useState(false);
+  const [showConfirmCloseModal, setShowConfirmCloseModal] = useState(false);
 
   const formatCpf = (value) => {
     const formattedValue = value.replace(/\D/g, "");
@@ -55,11 +56,27 @@ export function ModalLogin({
     e.stopPropagation();
   };
 
+  // Fechar o modal de login e mostrar confirmação
+  const handleCloseModalLogin = (e) => {
+    if (e.target === e.currentTarget) {
+      setShowConfirmCloseModal(true); // Exibe o modal de confirmação quando tentar fechar
+    }
+  };
+
+  const confirmCloseModal = () => {
+    setShowConfirmCloseModal(false);
+    closeModalLogin(); // Fecha o modal de login
+  };
+
+  const cancelCloseModal = () => {
+    setShowConfirmCloseModal(false); // Apenas fecha o modal de confirmação
+  };
+
   return (
-    <StyledModalLogin onClick={closeModalLogin}>
+    <StyledModalLogin onClick={handleCloseModalLogin}>
       <div id="modalLogin" className="modal-login" onClick={stopPropagation}>
         <div className="modal-login-content">
-          <span className="close" onClick={closeModalLogin}>
+          <span className="close" onClick={handleCloseModalLogin}>
             &times;
           </span>
           <h2>Entre com seu usuário</h2>
@@ -115,6 +132,18 @@ export function ModalLogin({
             >
               Concluir
             </button>
+          </div>
+        </div>
+      )}
+
+      {showConfirmCloseModal && (
+        <div className="confirmation-modal">
+          <div className="modal-content">
+            <h2>Deseja realmente cancelar o login?</h2>
+            <div className="buttons">
+              <button onClick={cancelCloseModal}>Não</button>
+              <button onClick={confirmCloseModal}>Sim</button>
+            </div>
           </div>
         </div>
       )}

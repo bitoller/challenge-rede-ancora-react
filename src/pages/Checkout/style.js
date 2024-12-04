@@ -219,7 +219,7 @@ export const StyledCheckout = styled.div`
     }
 
     .payment-container {
-    justify-content: space-evenly;
+      justify-content: space-evenly;
     }
 
     .payment-finish-buttons {

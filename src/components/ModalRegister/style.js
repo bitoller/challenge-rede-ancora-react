@@ -6,7 +6,7 @@ export const StyledModalRegister = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,6 +26,8 @@ export const StyledModalRegister = styled.div`
     width: 25rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: relative;
+    opacity: 0;
+    animation: slideDown 0.3s ease-out forwards;
   }
 
   .keyboard {
@@ -33,7 +35,7 @@ export const StyledModalRegister = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 2000;
 
     .simple-keyboard {
       width: 100%;
@@ -116,6 +118,56 @@ export const StyledModalRegister = styled.div`
     cursor: pointer;
   }
 
+  .confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .confirmation-modal .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .confirmation-modal p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .confirmation-modal .buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    font-weight: 500;
+  }
+
+  .confirmation-modal button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .confirmation-modal button:first-child {
+    color: var(--color-gray-10);
+    background-color: var(--color-primary);
+  }
+
+  .confirmation-modal button:last-child {
+    color: var(--color-primary);
+    background-color: var(--color-gray-8);
+  }
+
   @media (orientation: portrait) {
     .keyboard {
       .hg-button {
@@ -124,6 +176,17 @@ export const StyledModalRegister = styled.div`
         padding: 0.938rem 0.625rem;
         margin: 0.313rem;
       }
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 `;
