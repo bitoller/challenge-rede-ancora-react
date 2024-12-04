@@ -5,9 +5,11 @@ export function ModalLogin({
   closeModalLogin,
   updateRegistration,
   setIsLoggedIn,
+  discountValueDisplay,
 }) {
   const [cpfValue, setCpfValue] = useState("");
   const [isCpfValid, setIsCpfValid] = useState(true);
+  const [showLoginSuccessModal, setShowLoginSuccessModal] = useState(false);
 
   const formatCpf = (value) => {
     const formattedValue = value.replace(/\D/g, "");
@@ -43,7 +45,7 @@ export function ModalLogin({
       const fixedName = "Nome do Usuário";
       updateRegistration(fixedName, cpfValue);
       setIsLoggedIn(true);
-      closeModalLogin();
+      setShowLoginSuccessModal(true);
     } else {
       setIsCpfValid(false);
     }
@@ -98,6 +100,24 @@ export function ModalLogin({
           </form>
         </div>
       </div>
+
+      {showLoginSuccessModal && (
+        <div className="success-modal">
+          <div className="modal-content">
+            <h2>Login realizado com sucesso!</h2>
+            <h2>Desconto aplicado: {discountValueDisplay}</h2>
+            <button
+              className="success-button"
+              onClick={() => {
+                setShowLoginSuccessModal(false);
+                closeModalLogin();
+              }}
+            >
+              Concluir
+            </button>
+          </div>
+        </div>
+      )}
     </StyledModalLogin>
   );
 }

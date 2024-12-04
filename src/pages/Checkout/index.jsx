@@ -207,6 +207,7 @@ export function Checkout() {
           closeModal={closeModalRegister}
           updateRegistration={updateRegistration}
           setIsLoggedIn={setIsLoggedIn}
+          discountValueDisplay={discountValueDisplay}
         />
       )}
       {showModalLogin && (
@@ -214,6 +215,7 @@ export function Checkout() {
           closeModalLogin={closeModalLogin}
           updateRegistration={updateRegistration}
           setIsLoggedIn={setIsLoggedIn}
+          discountValueDisplay={discountValueDisplay}
         />
       )}
       {showModal && (

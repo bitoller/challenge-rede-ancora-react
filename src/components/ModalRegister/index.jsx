@@ -6,6 +6,7 @@ export function ModalRegister({
   closeModal,
   updateRegistration,
   setIsLoggedIn,
+  discountValueDisplay,
 }) {
   const [fullName, setFullName] = useState("");
   const [cpf, setCpf] = useState("");
@@ -15,6 +16,7 @@ export function ModalRegister({
   const [inputName, setInputName] = useState("");
   const [keyboardVisible, setKeyboardVisible] = useState(false);
   const [layoutName, setLayoutName] = useState("default");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const formatPhone = (value) => {
     const formattedValue = value.replace(/\D/g, "");
@@ -109,7 +111,8 @@ export function ModalRegister({
       updateRegistration(name, cpfValue);
       setIsLoggedIn(true);
 
-      closeModal();
+      setKeyboardVisible(false);
+      setShowSuccessModal(true);
     }
   };
 
@@ -214,7 +217,6 @@ export function ModalRegister({
     setKeyboardVisible(true);
   };
 
-  // Layout QWERTY sem shift
   const keyboardLayout = {
     default: [
       "1 2 3 4 5 6 7 8 9 0",
@@ -322,6 +324,23 @@ export function ModalRegister({
             }}
             layoutName={layoutName}
           />
+        </div>
+      )}
+      {showSuccessModal && (
+        <div className="success-modal">
+          <div className="modal-content">
+            <h2>Cadastro realizado com sucesso!</h2>
+            <h2>Desconto aplicado: {discountValueDisplay}</h2>
+            <button
+              className="success-button"
+              onClick={() => {
+                setShowSuccessModal(false);
+                closeModal();
+              }}
+            >
+              Concluir
+            </button>
+          </div>
         </div>
       )}
     </StyledModalRegister>

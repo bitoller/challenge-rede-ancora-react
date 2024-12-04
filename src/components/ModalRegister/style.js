@@ -6,7 +6,7 @@ export const StyledModalRegister = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,6 +83,37 @@ export const StyledModalRegister = styled.div`
 
   .label {
     font-size: 1.2rem;
+  }
+
+  .success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-size: 1.125rem;
+  }
+
+  .success-modal .modal-content {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 0.625rem;
+    text-align: center;
+  }
+
+  .success-modal .success-button {
+    margin-top: 1.25rem;
+    padding: 0.625rem 1.25rem;
+    background: #007aff;
+    color: white;
+    border: none;
+    border-radius: 0.313rem;
+    cursor: pointer;
   }
 
   @media (orientation: portrait) {
