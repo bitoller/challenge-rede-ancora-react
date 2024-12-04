@@ -18,31 +18,6 @@ export function Checkout() {
   const itemsInCart = JSON.parse(localStorage.getItem("itemsInCart")) || [];
   const [totalPrice, setTotalPrice] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
-  const [modalToClose, setModalToClose] = useState(null);
-  const [confirmationModalType, setConfirmationModalType] = useState("");
-
-  const openConfirmationModal = (modalName) => {
-    setModalToClose(modalName);
-    setShowConfirmationModal(true);
-  };
-
-  const handleConfirmClose = (confirm) => {
-    setShowConfirmationModal(false);
-    if (confirm && modalToClose) {
-      switch (modalToClose) {
-        case "register":
-          setShowModalRegister(false);
-          break;
-        case "login":
-          setShowModalLogin(false);
-          break;
-        default:
-          break;
-      }
-      setModalToClose(null);
-    }
-  };
 
   useEffect(() => {
     const total = itemsInCart.reduce(
@@ -69,7 +44,7 @@ export function Checkout() {
   };
 
   const closeModalRegister = () => {
-    openConfirmationModal("register");
+    setShowModalRegister(false);
   };
 
   const openModalLogin = () => {
@@ -77,7 +52,7 @@ export function Checkout() {
   };
 
   const closeModalLogin = () => {
-    openConfirmationModal("login");
+    setShowModalLogin(false);
   };
 
   const updateRegistration = (name, cpf) => {
@@ -172,7 +147,7 @@ export function Checkout() {
                       onClick={openModalRegister}
                       className="register-button"
                     >
-                      Cadastre-se agora
+                      Casdastre-se agora
                     </button>
                     <button
                       onClick={openModalLogin}
@@ -229,7 +204,7 @@ export function Checkout() {
       </footer>
       {showModalRegister && (
         <ModalRegister
-          closeModal={() => openConfirmationModal("register")}
+          closeModal={closeModalRegister}
           updateRegistration={updateRegistration}
           setIsLoggedIn={setIsLoggedIn}
           discountValueDisplay={discountValueDisplay}
@@ -237,7 +212,7 @@ export function Checkout() {
       )}
       {showModalLogin && (
         <ModalLogin
-          closeModalLogin={() => openConfirmationModal("login")}
+          closeModalLogin={closeModalLogin}
           updateRegistration={updateRegistration}
           setIsLoggedIn={setIsLoggedIn}
           discountValueDisplay={discountValueDisplay}
@@ -245,21 +220,6 @@ export function Checkout() {
       )}
       {showModal && (
         <ModalPaymentOptions text={modalText} closeModal={closeModal} />
-      )}
-      {showConfirmationModal && (
-        <div className="confirmation-modal">
-          <div className="modal-content">
-            <p>
-              {modalToClose === "register" &&
-                "Deseja realmente cancelar o cadastro?"}
-              {modalToClose === "login" && "Deseja realmente cancelar o login?"}
-            </p>
-            <div className="buttons">
-              <button onClick={() => handleConfirmClose(false)}>Não</button>
-              <button onClick={() => handleConfirmClose(true)}>Sim</button>
-            </div>
-          </div>
-        </div>
       )}
     </StyledCheckout>
   );
