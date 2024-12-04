@@ -11,6 +11,13 @@ export const StyledModalLogin = styled.div`
   justify-content: center;
   align-items: center;
 
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
   .modal-login {
     background-color: white;
     padding: 1.25rem;
@@ -116,5 +123,36 @@ export const StyledModalLogin = styled.div`
 
   #loginForm > input:hover {
     background-color: #0056b3;
+  }
+
+  .success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-size: 18px;
+  }
+
+  .success-modal .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .success-modal .success-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #007aff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
 `;
