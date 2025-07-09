@@ -1,43 +1,43 @@
 # CHALLENGE - REDE ANCORA
 
-Em resposta ao desafio proposto pela Rede Ancora, em parceria com nossa instituição acadêmica, desenvolvemos um projeto inovador de totem utilizando React. Este totem foi criado para as lojas da Rede Ancora e oferece uma experiência interativa aos usuários, com diversas funcionalidades voltadas para facilitar o acesso às informações sobre produtos e serviços.
+In response to the challenge proposed by Rede Ancora, in partnership with our academic institution, we developed an innovative totem project using React. This totem was created for the Rede Ancora stores and offers an interactive experience to the users, with several functionalities aimed at facilitating access to information about products and services.
 
-<b>Este projeto foi premiado como primeiro lugar na feira da faculdade FIAP, o NEXT.</b>
+<b>This project was awarded first place at the FIAP college fair, NEXT.</b>
 
-## 🔨 Funcionalidades do Projeto
+## 🔨 Project Functionalities
 
-O totem desenvolvido consiste em várias telas, cada uma com funcionalidades específicas:
+The developed totem consists of various screens, each with specific functionalities:
 
 ### Home
 
-A tela inicial do totem permite aos usuários iniciar a utilização do dispositivo. Além disso, apresenta dois links: um para o vídeo do pitch da nossa ideia e outro para informações sobre o projeto, incluindo os nomes dos integrantes do grupo.
+The initial screen of the totem allows users to start using the device. In addition, it presents two links: one for the pitch video of our idea and another for information about the project, including the names of the group members.
 
-### Tela de Busca
+### Search Screen
 
-Esta tela oferece duas opções de busca: por placa do carro ou por nome/código do produto. Dependendo da escolha do usuário, ele será direcionado para a tela correspondente para realizar a busca.
+This screen offers two search options: by car license plate or by product name/code. Depending on the user's choice, they will be directed to the corresponding screen to perform the search.
 
-- Busca por placa: Os usuários podem pesquisar qualquer placa de carro, e a API disponibilizada pela Rede Ancora fornecerá informações sobre o veículo. A partir daí, os usuários podem pesquisar produtos relacionados.
-- Busca por nome ou código: Os usuários podem pesquisar produtos ou peças usando nome ou código, e serão direcionados para uma página com a listagem de produtos, filtrando pelos critérios de busca.
+- Search by license plate: Users can search any car license plate, and the API provided by Rede Ancora will provide information about the vehicle. From there, users can search for related products.
+- Search by name or code: Users can search products or parts using name or code, and will be directed to a page with the product listing, filtering by the search criteria.
 
-### Tela de Produtos
+### Products Screen
 
-Nesta página, os usuários podem visualizar informações detalhadas sobre os produtos disponíveis, incluindo preços, imagens e outras características. Eles também podem adicionar produtos ao carrinho de compras, pesquisar por outros produtos e explorar as opções disponíveis.
+On this page, users can view detailed information about the available products, including prices, images, and other characteristics. They can also add products to the shopping cart, search for other products, and explore the available options.
 
-### Tela de Resumo de Compra
+### Purchase Summary Screen
 
-Após adicionar produtos ao carrinho, os usuários podem visualizar um resumo de sua seleção, onde têm a opção de adicionar mais produtos, ajustar as quantidades selecionadas e verificar o total da compra.
+After adding products to the cart, users can view a summary of their selection, where they have the option to add more products, adjust the selected quantities, and check the purchase total.
 
-### Tela de Checkout
+### Checkout Screen
 
-Na página de checkout, os usuários podem escolher o método de pagamento e, se desejarem, adicionar seu CPF para receber desconto na compra. Eles podem revisar o total da compra antes de finalizar o processo de compra.
+On the checkout page, users can choose the payment method and, if they wish, add their CPF to receive a discount on the purchase. They can review the total purchase before finalizing the purchase process.
 
-## ✔️ Tecnologias e Ferramentas Utilizadas
+## ✔️ Technologies and Tools Used
 
-- `React v18.2.0`: Utilizado para desenvolver a aplicação do totem.
-- `HTML/CSS`: Responsáveis pela estrutura e estilização da interface do totem.
-- `API da Rede Ancora`: Utilizada para obter informações sobre veículos e produtos.
+- `React v18.2.0`: Used to develop the totem application.
+- `HTML/CSS`: Responsible for the structure and styling of the totem interface.
+- `Rede Ancora API`: Used to obtain information about vehicles and products.
 
-## ✔️ Bibliotecas e Frameworks Utilizados
+## ✔️ Libraries and Frameworks Used
 
 - axios `v1.6.8`
 - react-dom `v18.2.0`
@@ -47,25 +47,25 @@ Na página de checkout, os usuários podem escolher o método de pagamento e, se
 - react-alice-carousel `v2.9.1`
 - vite `v5.2.0`
 
-## ⌛ Status do Projeto
+## ⌛ Project Status
 
-O projeto foi concluído.
+The project was completed.
 
-## 📁 Acesso ao Projeto
+## 📁 Access to the Project
 
-- [Veja o nosso site funcionando](https://challenge-rede-ancora.vercel.app/)
-- [Veja o repositório do nosso projeto no GitHub](https://github.com/bitoller/challenge-rede-ancora-react)
-- [Veja o Figma do nosso projeto](https://www.figma.com/file/2yI8xaVutkugIciWQLabzG/Untitled?type=design&node-id=0%3A1&mode=design&t=l31HxmxWsfYQZTxn-1)
-- [Veja nosso vídeo de apresentação no YouTube](https://youtu.be/L3Ne_vstIF8?si=tIW6EG8xmIJj3OSw)
+- [See our site working](https://challenge-rede-ancora.vercel.app/)
+- [See the repository of our project on GitHub](https://github.com/bitoller/challenge-rede-ancora-react)
+- [See the Figma of our project](https://www.figma.com/file/2yI8xaVutkugIciWQLabzG/Untitled?type=design&node-id=0%3A1&mode=design&t=l31HxmxWsfYQZTxn-1)
+- [See our presentation video on YouTube](https://youtu.be/L3Ne_vstIF8?si=tIW6EG8xmIJj3OSw)
 
-Neste repositório, você tem acesso a todos os arquivos e códigos da aplicação.<br/>
+In this repository, you have access to all the application files and codes.<br/>
 
-## 🛠️ Abrir e Rodar o Projeto
+## 🛠️ Open and Run the Project
 
-Para abrir o projeto, basta clonar o repositório e digitar o comando `npm install` no terminal, para instalar os pacotes do projeto.<br/>
-Para rodar o projeto, bastar digitar o comando `npm run dev` no terminal, e navegar para o local host especificado.
+To open the project, just clone the repository and type the command `npm install` in the terminal, to install the project packages.<br/>
+To run the project, just type the command `npm run dev` in the terminal, and navigate to the specified local host.
 
-## 👩‍💻 Desenvolvedores do Projeto
+## 👩‍💻 Project Developers
 
 - <a href="https://www.linkedin.com/in/bianca-toller" target="_blank">Bianca Toller</a>
 - <a href="https://www.linkedin.com/in/bruno-marc" target="_blank">Bruno Marcelino Guimarães</a>
